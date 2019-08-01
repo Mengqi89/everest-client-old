@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="main.css" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <title>Edit School Info</title>
+</head>
+
+<body>
+  <header>
+    <h2>Nav</h2>
+  </header>
+  <main class="SchoolInfo">
+    <div class="SchoolInfo__top">
+      <ul class="breadcrumb">
+        <li><a href="#"><span class="icon icon-home"> </span></a></li>
+        <li><a href="#"><span class="icon icon-rocket"> </span> School Info</a></li>
+        <li><a href="#"><span class="icon icon-pencil"> </span> Edit</a></li>
+      </ul>
+      <div class="SchoolInfo__name">
+        <label for="school-name">Name:</label>
+        <input placeholder="Woodside Univeristy" />
+      </div>
+    </div>
+    <section class="SchoolInfo__section">
+      <div class="school-picture">
+        <span class="icon icon-pencil"></span>
+        <p>Img</p>
+      </div>
+      <ul>
+        <li>
+          <label for="location">Location:</label>
+          <input id="location" name="location" placeholder="Riverside" />
+        </li>
+        <li>
+          <label for="size">Size:</label>
+          <input id="size" name="size" placeholder="100 Students" />
+        </li>
+        <li>
+          <label for="deadline">Application Deadline:</label>
+          <input id="deadline" name="deadline" placeholder="4/30/2020" />
+        </li>
+        <li>
+          <label for="average-salary">Average Salary:</label>
+          <input id="average-salary" name="average-salary" placeholder="$45,000 - $65,000" />
+        </li>
+        <li>
+          <label for="more-info-1">More:</label>
+          <input id="more-info-1" name="more-info-1" placeholder="Info" />
+        </li>
+        <li>
+          <label for="more-info-1">More:</label>
+          <input id="more-info-1" name="more-info-1" placeholder="Info" />
+        </li>
+      </ul>
+    </section>
+    <button>Submit</button>
+    <section class="image-upload-modal">
+      <h3>Upload Photo</h3>
+      <p>Click on the button or drag and drop files here</p>
+      <button><span class="icon icon-arrow-up"> </span>Upload</button>
+    </section>
+  </main>
+
+</body>
+
+</html>
