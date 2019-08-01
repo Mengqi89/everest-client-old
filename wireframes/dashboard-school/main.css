@@ -79,25 +79,34 @@ h2 {
 
 .Dashboard section {
   /* border: 1px solid grey; */
-  border-radius: 40px;
-  height: 30em;
+  min-height: 40vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   margin: 0 4%;
-  background: rgb(209, 209, 209);
+  /* background: rgb(209, 209, 209); */
 }
 
 .dashboard-btn {
   position: relative;
   /* border: 1px solid grey; */
-  border-radius: 40px;
+  border-radius: 20px;
   width: 30%;
   height: 10em;
   display: flex;
   justify-content: center;
   align-items: center;
   background: white;
+}
+
+@media screen and (max-width: 560px) {
+  .Dashboard section {
+    flex-wrap: wrap;
+  }
+  .dashboard-btn {
+    width: 98%;
+    margin: 1em;
+  }
 }
 
 .dashboard-btn[data-badge]:after {
