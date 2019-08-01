@@ -1,0 +1,65 @@
+main {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: auto;
+}
+
+.everest-logo {
+    width: 60px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.head-nav{
+    width: 100vh;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.page-links {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    align-items: center;
+}
+
+.user-links {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    align-items: center;
+}
+
+.landing-img {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #d8d8d8;
+}
+
+.landing-hd {
+    position: absolute;
+    top: 90px;
+    margin: 0 20px;
+    font-weight: 400;
+}
+
+.split-sections {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-benefits {
+    flex: none;
+}
+
+@media only screen and (min-width: 600px) {
+    .split-sections {
+        flex-direction: row;
+    }
+}
