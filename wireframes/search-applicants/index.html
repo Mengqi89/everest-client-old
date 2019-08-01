@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Applicant Search</title>
+</head>
+
+<body>
+    <header>
+        <h2>Nav</h2>
+    </header>
+    <main>
+        <h1>Applicant Search</h1>
+        <section id="filters">
+            <label for="teaching-experience">Teaching Experience in year(s)</label>
+                <input
+                    type="range" 
+                    name="teaching-experience"
+                    id="teaching-experience"
+                    value={years}
+                    min={0}
+                    max={10+}   
+                />
+            <label for="application-status">Application Status</label>
+                <select id="application-status">
+                    <option value={all}>All</option>
+                    <option value={new}>New</option>
+                    <option value={accepted}>Accepted</option>
+                    <option value={denied}>Denied</option>
+                    <option value={expired}>Expired</option>      
+                    <option value={isCertified}>TESL/TEFL certified</option>   
+                </select>
+            <label for="keyword">keyword</label>
+            <input type="text" name="keyword" placeholder="  Something" /> 
+        </section>
+        <section class="applications-container">
+            <h2>Applications</h2>
+            <section class="inner-container">
+                <div class="application">
+                    <h2>Adam Smith<h2>
+                    <a href="somewhere">More details</a>
+                </div>
+                <div class="application">
+                    <h2>Adam Smith<h2>
+                    <a href="somewhere">More details</a>
+                </div>
+                <div class="application">
+                    <h2>Adam Smith<h2>
+                    <a href="somewhere">More details</a>
+                </div>
+                <div class="application">
+                    <h2>Adam Smith<h2>
+                    <a href="somewhere">More details</a>
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>
