@@ -1,7 +1,50 @@
+html {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 1.4rem;
+}
+
 main {
     max-width: 1200px;
     padding: 0 20px;
     margin: auto;
+    font-size: 1.4rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+input {
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #b9b9b9;
+}
+
+.btn {
+    border-radius: 10px;
+    padding: 5px;
+    width: 160px;
+    margin: auto;
+    border: none;
+}
+
+.form {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 2px solid #e2e2e2;
+    border-radius: 5px;
+    width: 80%;
 }
 
 .everest-logo {
@@ -52,13 +95,16 @@ main {
 .split-sections {
     display: flex;
     flex-direction: column;
+    background-color: #b1b1b1;
+    margin-top: 40px;
 }
 
 .section-benefits {
     flex: none;
+    background-color: #888888;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
     .split-sections {
         flex-direction: row;
     }

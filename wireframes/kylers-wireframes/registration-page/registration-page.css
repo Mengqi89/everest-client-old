@@ -1,0 +1,4 @@
+.register-options label {
+    flex-direction: row;
+    align-items: center;
+}
