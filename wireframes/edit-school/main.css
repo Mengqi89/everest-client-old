@@ -90,6 +90,7 @@ input {
 }
 .SchoolInfo__name {
 	margin: 2em;
+	padding-top: 2em;
 }
 .SchoolInfo__name input {
 	font-size: 1.4em;
@@ -156,11 +157,8 @@ input {
 
 /* Breadcrumb */
  .breadcrumb {
-	 position: absolute;
-	 left: 4%;
-	 margin-top: 2em;
-	 list-style: none;
-	 /* display: inline-block; */
+	list-style: none;
+	margin: 1em 4%;
 }
  .breadcrumb .icon {
 	 font-size: 14px;
@@ -241,4 +239,36 @@ input {
 }
  .breadcrumb li a:active:after {
 	 border-left-color: #16a085;
+}
+
+/* Mobile */
+@media screen and (max-width: 560px) {
+	.SchoolInfo__section {
+		/* flex-direction: column;
+		justify-content: center;
+		align-items: center; */
+		display: block;
+	}
+	.SchoolInfo__section .school-picture {
+		height: 20vh;
+		width: 20vh;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.SchoolInfo__section ul {
+		margin-left: 0;
+		margin-top: 2vh;
+	}
+
+	.SchoolInfo__section ul li {
+		display: flex;
+		flex-direction: column;
+	}
+	.SchoolInfo__section ul li input {
+		margin: .5em 0;
+	}
+	.image-upload-modal {
+		width: 92%;
+		margin-bottom: 2vh;
+	}
 }
