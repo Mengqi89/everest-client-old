@@ -1,0 +1,146 @@
+
+$white: rgb(240, 240, 240);
+
+.LandingPage {
+  .hero {
+    height: 40vh;
+    background-image: url('../../assets/china-hero.jpg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 40px;
+    h2 {
+      color: rgb(230, 230, 230);;
+      font-weight: 500;     
+    }
+    h1 {
+      color: $white;
+      font-size: 2.5em;
+    }
+  }
+  #why-everest {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4em;
+    h2 {
+      font-size: 2em;
+    }
+    p {
+      padding-top: 1em;
+      font-size: 1.1em;
+      padding-left: 8vw;
+      padding-right: 8vw;
+      color: grey;
+      &:last-child {
+        line-height: 1.4em;
+        color: black;
+        text-align: center;
+      }
+    }
+  }
+  #why-china {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      padding-top: 2em;
+      padding-bottom: 2em;
+      font-size: 2em;
+    }
+    .cards-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 8vw;
+    }
+    .description-card {
+      overflow: hidden;
+      width: 28%;
+      border: 1px solid grey;
+      border: none;
+      -webkit-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.24);
+      -moz-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.24);
+      box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.24);
+      border-radius: 10px;
+      img {
+        height: 17vw;
+        width: auto;
+      }
+      .description {
+        margin: 1em 1em;
+        h3 {
+          padding-bottom: .5em;
+        }
+      }
+    }
+  }
+  #start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // border: 1px solid red;
+    margin: 4em;
+    h3 {
+      font-size: 1.8em;
+    }
+    a {
+      font-weight: 500;
+      padding: .5em 1em;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      background: rgb(79, 185, 132);
+      color: white;
+      text-decoration: none;
+      margin-top: 1em;
+      -webkit-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.6);
+      -moz-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.6);
+      box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.6);
+      transition-duration: 1.2s;
+      &:hover {
+        transform: translate(4px, 6px);
+        background: rgb(55, 128, 91); 
+        color: rgb(199, 199, 199);
+        box-shadow: none;
+      }
+    }
+
+  }
+
+
+  @media screen and (min-width: 800px) {
+    .hero {
+      height: 100vh;
+      h2 {
+      color: rgb(230, 230, 230);
+      font-weight: 500;
+      font-size: 1.8em;     
+      }
+      h1 {
+      color: $white;
+      font-size: 4em;
+      }
+    }
+    // #why-china {
+    //   .cards-container {
+    //     display: block;
+    //   }
+    //   .description-card {
+    //     width: 90vw;
+    //     margin-top: 2em;
+    //     .contents {
+    //       display: flex;
+    //       img {
+            
+    //       }
+    //     }
+    //   }   
+    // }
+  
+  }
+}
