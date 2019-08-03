@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import LandingPage from '../../routes/LandingPage/LandingPage';
+import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage';
 import NavBar from '../../components/NavBar/NavBar';
 
 class App extends React.Component {
@@ -21,8 +22,8 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path={'/'} component={LandingPage} />
-            {/* <Route path={'/login'} component={LoginPage} />
-            <Route path={'/register'} component={RegistrationPage} /> */}
+            {/* <Route path={'/login'} component={LoginPage} /> */}
+            <Route path={'/register'} component={RegistrationPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

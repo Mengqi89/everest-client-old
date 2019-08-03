@@ -17,8 +17,6 @@ class LandingPage extends Component {
             <h2>Your Link to</h2>
             <h1>Teaching in China</h1>
           </Typing>
-          {/* <CreateDemoBtn /> */}
-          {/* <img id="crystal-vector" src={vector} alt="crystal-vector" /> */}
         </section>
         <section id="why-everest">
           <h2>Everest International Education</h2>

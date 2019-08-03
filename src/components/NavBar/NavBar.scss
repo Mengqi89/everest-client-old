@@ -8,7 +8,10 @@ $accent-color: rgb(79, 185, 132);
   -webkit-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.24);
   -moz-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.24);
   box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.24);
-  height: 3em;
+  height: 3.4em;
+  .active {
+    color: $accent-color;
+  }
   #logo {
     height: 1em;
     width: auto;
@@ -30,7 +33,10 @@ $accent-color: rgb(79, 185, 132);
         color: $accent-color;
         border: 1px solid rgb(209, 209, 209);
         border-radius: 10px;
-        padding: .5em 1em
+        padding: .5em 1em;
+        &:hover {
+          background: white;
+        }
       }
     }
   }
