@@ -67,47 +67,56 @@ header {
 }
 
 h1 {
+  clear: left;
   font-size: 1.4em;
   font-weight: bold;
-  margin: 2em 0;
+  margin: 1em 0;
+  display: block;
+  padding: 1em 0;
 }
 
 h2 {
   font-size: 1.2em;
   font-weight: bold;
 }
-
-a {
-    cursor: pointer;
-    font-weight: normal;
+h3 {
+  font-size: 1.1em;
+  padding: .4em 0;
+  font-weight: bold;
 }
-
-input[type="range"] {
-    -webkit-appearance: slider-horizontal;
-    background-color: rgb(255, 255, 255);
-    cursor: pointer;
+h4 {
+  font-size: 1em;
+  padding: .4em 0;
+  font-weight: bold;
 }
-
-.applications-container {
+.NewApplications {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
 }
-
-.inner-container {    
+#application-list {
   border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.application {
+#application-list li {
+    display: flex;
+    border-radius: 5px;
+    background: rgb(255, 255, 255);
+    width: 92%;
+    margin: 1em auto;
+    padding: 2em;
+    justify-content: space-around;
+}
+
+.applicant-info, .applicant-experience {
   display: flex;
-  border-radius: 5px;
-  background: rgb(255, 255, 255);
-  width: 92%;
-  margin: 1em auto;
-  padding: 2em;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* border: 1px solid red; */
+  margin-left: 1em;
 }
 
 /* Breadcrumb */
