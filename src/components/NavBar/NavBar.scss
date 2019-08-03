@@ -32,5 +32,8 @@ $accent-color: rgb(79, 185, 132);
     .highlighted-btn {
       @include border-button;
     }
+      li {
+        margin-left: 2em;
+        }
   }
 }

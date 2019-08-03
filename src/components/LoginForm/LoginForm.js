@@ -34,6 +34,7 @@ class LoginForm extends Component {
           TokenService.saveUserType('school')
           window.location.reload();
           this.props.history.push('/profile')
+          // this.context.handleLoginSucces()
         })
         .catch(res => {
           this.setState({ error: res.error })
