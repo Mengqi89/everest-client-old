@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TokenService from '../../services/token-service';
 import './NavBar.scss';
+import logo from '../../assets/logo-everest-eie.png';
 
 
 class NavBar extends Component {
@@ -79,6 +80,7 @@ class NavBar extends Component {
         <nav className="NavBar">
           <NavLink to="/">
             <h1>
+              <img src={logo} alt="logo" id="logo" />
               EverestIntl
             </h1>
           </NavLink>

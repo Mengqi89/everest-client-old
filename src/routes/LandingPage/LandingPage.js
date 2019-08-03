@@ -4,6 +4,7 @@ import chinaOne from '../../assets/china-1.jpg';
 import chinaTwo from '../../assets/china-2.jpg';
 // import chinaThree from '../../assets/china-3.jpg';
 import chinaFour from '../../assets/china-4.png';
+import Typing from 'react-typing-animation';
 
 import './LandingPage.scss';
 
@@ -12,13 +13,20 @@ class LandingPage extends Component {
     return (
       <div className="LandingPage">
         <section className="hero">
-          <h2>Your Link to</h2>
-          <h1>Teaching in China</h1>
+          <Typing>
+            <h2>Your Link to</h2>
+            <h1>Teaching in China</h1>
+          </Typing>
           {/* <CreateDemoBtn /> */}
           {/* <img id="crystal-vector" src={vector} alt="crystal-vector" /> */}
         </section>
+        <section id="why-everest">
+          <h2>Everest International Education</h2>
+          <p>We're here to help you get the teaching job you want</p>
+          <p>You want to teach. Chinese students want to learn. All you need is a little help. Someone with experience who knows what it's like and understands what you need. Someone to help you navigate the paperwork and negotiate the contracts. Someone to look out for your best interests and make sure you get everything you need to be successful and truly enjoy your experience teaching in China. That’s where we come in, at no cost to you.</p>
+        </section>
         <section id="why-china">
-          <h2>Why China</h2>
+          <h2>Why China?</h2>
           <div className="cards-container">
             <div className="description-card">
               <div className="contents">
