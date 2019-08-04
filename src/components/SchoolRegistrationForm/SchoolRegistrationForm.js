@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import SchoolApiService from '../../services/school-api-service';
+import React, { Component } from 'react'
+import SchoolApiService from '../../services/school-api-service'
 
 class SchoolRegistrationForm extends Component {
   state = {
@@ -22,7 +22,7 @@ class SchoolRegistrationForm extends Component {
   }
   handleFormSubmit = (ev) => {
     ev.preventDefault()
-    const { username, password, schoolName, schoolType } = this.state;
+    const { username, password, schoolName, schoolType } = this.state
     const newSchool = {
       username,
       password,
@@ -33,7 +33,7 @@ class SchoolRegistrationForm extends Component {
       .then(school => SchoolApiService.postLogin({ username: school.username, password: password }))
   }
   render() {
-    const { username, password, schoolName, schoolType } = this.state;
+    const { username, password, schoolName, schoolType } = this.state
     return (
       <div>
         <h2>Hello prospective school!</h2>
@@ -60,4 +60,4 @@ class SchoolRegistrationForm extends Component {
   }
 }
 
-export default SchoolRegistrationForm;
+export default SchoolRegistrationForm
