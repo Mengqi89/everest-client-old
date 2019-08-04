@@ -15,7 +15,6 @@ class NavBar extends Component {
 
 
   componentDidMount() {
-
   }
 
   handleLogoutClick = () => {
@@ -27,22 +26,16 @@ class NavBar extends Component {
     return (
       <>
         <li>
-          <NavLink to='/dashboard' >
-            Dashboard
+          <NavLink to='/profile' >
+            Profile
           </NavLink>
         </li>
         <li>
-          <NavLink to="/addProperty">
-            <FontAwesomeIcon icon="plus" /> Property
+          <NavLink to="/edit-school">
+            <FontAwesomeIcon icon="plus" /> Edit Profile
           </NavLink>
         </li>
-        <li>
-          <NavLink to='/friends' >
-            <FontAwesomeIcon icon="search" />{" "}
-            Friends
-          </NavLink>
-        </li>
-        <li onClick={this.handleLogoutClick}>
+        <li onClick={this.handleLogoutClick} className="highlighted-btn">
           Logout
         </li>
       </>
@@ -63,7 +56,7 @@ class NavBar extends Component {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/register" id="register-btn">
+          <NavLink to="/register" className="highlighted-btn">
             Register
           </NavLink>
         </li>
@@ -72,11 +65,10 @@ class NavBar extends Component {
   }
 
   render() {
-    // const navClass = this.state.visible && this.state.prevScrollpos > 1 ? "NavBar back" : this.state.visible ? "NavBar" : "NavBar NavBar__hidden";
-    const links = this.context.loggedIn ? this.renderLogoutLink() : this.renderLoginLink();
+
+    const links = TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink();
     return (
       <>
-
         <nav className="NavBar">
           <NavLink to="/">
             <h1>
@@ -84,6 +76,7 @@ class NavBar extends Component {
               EverestIntl
             </h1>
           </NavLink>
+
           <ul className="nav-links">
             {links}
           </ul>
@@ -95,3 +88,5 @@ class NavBar extends Component {
 }
 
 export default NavBar;
+
+//checking user type in login and registration

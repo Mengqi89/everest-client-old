@@ -1,3 +1,4 @@
+@import '../../assets/variables.scss';
 $accent-color: rgb(79, 185, 132);
 .NavBar {
   background: rgb(0, 0, 0);
@@ -27,17 +28,12 @@ $accent-color: rgb(79, 185, 132);
   ul {
     display: flex;
     list-style-type: none;
-    li {
-      margin-left: 2em;
-      #register-btn {
-        color: $accent-color;
-        border: 1px solid rgb(209, 209, 209);
-        border-radius: 10px;
-        padding: .5em 1em;
-        &:hover {
-          background: white;
-        }
-      }
+    align-items: center;
+    .highlighted-btn {
+      @include border-button;
     }
+      li {
+        margin-left: 2em;
+        }
   }
 }

@@ -1,4 +1,4 @@
-
+@import '../../assets/variables.scss';
 $white: rgb(240, 240, 240);
 
 .LandingPage {
@@ -89,25 +89,7 @@ $white: rgb(240, 240, 240);
       font-size: 1.8em;
     }
     a {
-      font-weight: 500;
-      padding: .5em 1em;
-      font-size: 1em;
-      border: none;
-      border-radius: 10px;
-      background: rgb(79, 185, 132);
-      color: white;
-      text-decoration: none;
-      margin-top: 1em;
-      -webkit-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.6);
-      -moz-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.6);
-      box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.6);
-      transition-duration: 1.2s;
-      &:hover {
-        transform: translate(4px, 6px);
-        background: rgb(55, 128, 91); 
-        color: rgb(199, 199, 199);
-        box-shadow: none;
-      }
+     @include green-button;
     }
 
   }

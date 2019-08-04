@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import SchoolApiService from '../../services/school-api-service'
+import React, { Component } from 'react';
+import SchoolApiService from '../../services/school-api-service';
+import TokenService from '../../services/token-service';
 
 class SchoolRegistrationForm extends Component {
   state = {
@@ -30,7 +31,12 @@ class SchoolRegistrationForm extends Component {
       school_type: schoolType
     }
     SchoolApiService.postSchool(newSchool)
-      .then(school => SchoolApiService.postLogin({ username: school.username, password: password }))
+      .then(school => {
+        SchoolApiService.postLogin({ username: school.username, password: password })
+        TokenService.saveUserType('school')
+        window.location.reload();
+        this.props.history.push('/profile')
+      })
   }
   render() {
     const { username, password, schoolName, schoolType } = this.state
