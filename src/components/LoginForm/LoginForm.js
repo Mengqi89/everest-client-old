@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import TokenService from '../../services/token-service';
-import SchoolApiService from '../../services/school-api-service';
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import TokenService from '../../services/token-service'
+import SchoolApiService from '../../services/school-api-service'
+import AdminApiService from '../../services/admin-api-service'
 
-import './LoginForm.scss';
+import './LoginForm.scss'
 
 class LoginForm extends Component {
   state = {
@@ -19,16 +20,15 @@ class LoginForm extends Component {
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
     this.setState({ error: null })
-    const { username, password } = ev.target;
-
+    const { username, password } = ev.target
     if (this.state.accountType === 'school') {
       SchoolApiService.postLogin({
         username: username.value,
         password: password.value
       })
         .then(res => {
-          username.value = '';
-          password.value = '';
+          username.value = ''
+          password.value = ''
 
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('school')
@@ -40,11 +40,29 @@ class LoginForm extends Component {
           this.setState({ error: res.error })
         })
     }
+    if (this.state.accountType === 'admin') {
+      AdminApiService.postLogin({
+        username: username.value,
+        password: password.value
+      })
+        .then(res => {
+          username.value = ''
+          password.value = ''
 
-  };
+          TokenService.saveAuthToken(res.authToken)
+          TokenService.saveUserType('admin')
+          window.location.reload();
+          this.props.history.push('/profile')
+          // this.context.handleLoginSucces()
+        })
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
+    }
+  }
 
   render() {
-    const { error } = this.state;
+    const { error } = this.state
 
     return (
       <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
@@ -78,4 +96,4 @@ class LoginForm extends Component {
   }
 }
 
-export default withRouter(LoginForm);
+export default withRouter(LoginForm)
