@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar route component renders the UI as expected 1`] = `
+<nav
+  className="NavBar"
+>
+  <a
+    aria-current="page"
+    className="active"
+    href="/"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <h1>
+      <img
+        alt="logo"
+        id="logo"
+        src="logo-everest-eie.png"
+      />
+      EverestIntl
+    </h1>
+  </a>
+  <ul
+    className="nav-links"
+  >
+    <li>
+      <a
+        aria-current={null}
+        href="/about-us"
+        onClick={[Function]}
+      >
+        About Us
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/login"
+        onClick={[Function]}
+      >
+        Login
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/register"
+        id="register-btn"
+        onClick={[Function]}
+      >
+        Register
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

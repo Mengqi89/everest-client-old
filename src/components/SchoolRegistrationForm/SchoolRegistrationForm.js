@@ -23,7 +23,7 @@ class SchoolRegistrationForm extends Component {
   }
   handleFormSubmit = (ev) => {
     ev.preventDefault()
-    const { username, password, schoolName, schoolType } = this.state;
+    const { username, password, schoolName, schoolType } = this.state
     const newSchool = {
       username,
       password,
@@ -39,7 +39,7 @@ class SchoolRegistrationForm extends Component {
       })
   }
   render() {
-    const { username, password, schoolName, schoolType } = this.state;
+    const { username, password, schoolName, schoolType } = this.state
     return (
       <div>
         <h2>Hello prospective school!</h2>
@@ -66,4 +66,4 @@ class SchoolRegistrationForm extends Component {
   }
 }
 
-export default SchoolRegistrationForm;
+export default SchoolRegistrationForm

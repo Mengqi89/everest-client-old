@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import './RegistrationPage.scss';
-import SchoolRegistrationForm from '../../components/SchoolRegistrationForm/SchoolRegistrationForm';
+import React, { Component } from 'react'
+import './RegistrationPage.scss'
+import SchoolRegistrationForm from '../../components/SchoolRegistrationForm/SchoolRegistrationForm'
+import AdminRegistrationForm from '../../components/AdminRegistrationForm/AdminRegistrationForm'
 
 class RegistrationPage extends Component {
   state = {
@@ -28,9 +29,10 @@ class RegistrationPage extends Component {
           <input type="radio" id="admin" name="account-type" value="admin" onChange={this.handleAccountTypeChange} />
         </fieldset>
         {this.state.accountType === "school" && <SchoolRegistrationForm />}
+        {this.state.accountType === "admin" && <AdminRegistrationForm />}
       </section>
-    );
+    )
   }
 }
 
-export default RegistrationPage;
+export default RegistrationPage
