@@ -12,7 +12,7 @@ const TEACHER = [
         NativeSpeaker: 'yes',
         married: 'no',
         highestDegree: 'BA',
-        fieldOfDegree: 'English',
+        feildOfDegree: 'English',
         school: 'Florida State University',
         certification: 'none',
         yearsOfTeachingExperience: 1,

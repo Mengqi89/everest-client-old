@@ -1,0 +1,39 @@
+@import '../../assets/variables.scss';
+$accent-color: rgb(79, 185, 132);
+.NavBar {
+  background: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw;
+  -webkit-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.24);
+  -moz-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.24);
+  box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.24);
+  height: 3.4em;
+  .active {
+    color: $accent-color;
+  }
+  #logo {
+    height: 1em;
+    width: auto;
+    margin-right: .4em;
+  }
+  h1 {
+    color: rgb(245, 245, 245);
+  }
+  a {
+    color: rgb(180, 180, 180);
+    text-decoration: none;
+  }
+  ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    .highlighted-btn {
+      @include border-button;
+    }
+      li {
+        margin-left: 2em;
+        }
+  }
+}
