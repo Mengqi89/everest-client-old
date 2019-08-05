@@ -9,6 +9,7 @@ class SchoolRegistrationForm extends Component {
     schoolName: '',
     schoolType: ''
   }
+  //onChange methods might be unnecessary -- Kyler
   handleUsernameUpdate = (ev) => {
     this.setState({ username: ev.target.value })
   }
@@ -34,7 +35,8 @@ class SchoolRegistrationForm extends Component {
       .then(school => {
         SchoolApiService.postLogin({ username: school.username, password: password })
         TokenService.saveUserType('school')
-        window.location.reload();
+        //why page reload? -- Kyler
+        window.location.reload()
         this.props.history.push('/profile')
       })
   }
