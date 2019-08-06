@@ -1,7 +1,7 @@
 const TEACHER = [
     {
         id: 1,
-        userName: 'NatBowie',
+        username: 'NatBowie',
         password: 'hashedPassword***',
         firstName: 'Natasha',
         lastName: 'Bowie',
@@ -21,7 +21,7 @@ const TEACHER = [
     },
     {
         id: 2,
-        userName: 'Kahmed',
+        username: 'Kahmed',
         password: 'hashedPassword***',
         firstName: 'Ahmed',
         lastName: 'Kahreem',
