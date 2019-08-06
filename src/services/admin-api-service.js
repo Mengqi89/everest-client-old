@@ -1,4 +1,5 @@
 import config from '../config'
+import TokenService from './token-service'
 
 const AdminApiService = {
     postAdmin(credentials) {
@@ -26,6 +27,14 @@ const AdminApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json())
+    },
+    getAdminProfile() {
+        return fetch(`${config.API_ENDPOINT}/admins/admin`, {
+            headers: {
+                authorization: `bearer ${TokenService.getAuthToken()}`
+            }
+        }).then(res =>
+            !res.ok ? res.json().then(e => Promise.reject(e)) : res.json())
     }
 }
 
