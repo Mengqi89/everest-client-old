@@ -33,7 +33,7 @@ class LoginForm extends Component {
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('school')
           //not sure if forcing a page refresh is the best way to tackle this --- kyler
-          window.location.reload();
+          window.location.reload()
           this.props.history.push('/profile')
           // this.context.handleLoginSucces()
         })
@@ -52,7 +52,7 @@ class LoginForm extends Component {
 
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('admin')
-          window.location.reload();
+          window.location.reload()
           this.props.history.push('/profile')
           // this.context.handleLoginSucces()
         })
