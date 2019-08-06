@@ -19,7 +19,6 @@ class LoginPage extends Component {
   // }
 
   handleLoginSuccess = () => {
-    console.log('I rannnnn')
     this.context.setLoggedIn(true)
   }
 

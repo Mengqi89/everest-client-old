@@ -23,17 +23,11 @@ class NavBar extends Component {
   }
 
   componentDidUpdate() {
-    if (TokenService.hasAuthToken()) {
-      this.context.setLoggedIn(true)
-    } else {
-      this.context.setLoggedIn(false)
-    }
   }
 
   handleLogoutClick = () => {
     this.context.setLoggedIn(false)
     TokenService.clearAuthToken();
-    //window.location.reload();
   };
 
   renderLogoutLink() {
@@ -83,8 +77,6 @@ class NavBar extends Component {
 
   render() {
     const { loggedIn } = this.context
-    console.log(this.context)
-    //const links = TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink();
     return (
       <>
         <nav className="NavBar">
