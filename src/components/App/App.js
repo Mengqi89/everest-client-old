@@ -5,6 +5,7 @@ import LandingPage from '../../routes/LandingPage/LandingPage';
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage';
 import ProfilePage from '../../routes/ProfilePage/ProfilePage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
+import JobsListPage from '../../routes/JobsListPage/JobsListPage';
 import NavBar from '../../components/NavBar/NavBar';
 import PrivateRoute from '../../components/Utils/PrivateRoute';
 
@@ -27,6 +28,7 @@ class App extends React.Component {
             <Route exact path={'/'} component={LandingPage} />
             <Route path={'/login'} component={LoginPage} />
             <Route path={'/register'} component={RegistrationPage} />
+            <Route path={'/jobs'} component={JobsListPage} />
             <PrivateRoute path={'/profile'} component={ProfilePage} />
             <Route component={NotFoundPage} />
           </Switch>

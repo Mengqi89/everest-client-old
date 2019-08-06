@@ -1,0 +1,27 @@
+.job-search {
+    display: flex;
+    justify-content: center;
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+    flex-wrap: wrap
+}
+
+.form-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96%;
+}
+/* .form-section:nth-child(2) {
+    background-color: grey;
+    flex: 1;
+  }
+  
+  .form-section:nth-child(3) {
+    background-color: green;
+    flex: 2;
+  } */
+  @media screen and (max-width:990px) {
+    .form-section { flex-wrap: wrap;  }
+  }
