@@ -34,10 +34,12 @@ class SchoolRegistrationForm extends Component {
     SchoolApiService.postSchool(newSchool)
       .then(school => {
         SchoolApiService.postLogin({ username: school.username, password: password })
-        TokenService.saveUserType('school')
-        //why page reload? -- Kyler
-        window.location.reload()
-        this.props.history.push('/profile')
+          .then(res => {
+            TokenService.saveAuthToken(res.authToken)
+            TokenService.saveUserType('school')
+            this.props.history.push('/profile')
+            window.location.reload()
+          })
       })
   }
   render() {
