@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import './index.css';
 import App from './components/App/App';
+import { UserProvider } from './contexts/UserContext'
 
 import {
   faDoorOpen, faPlusCircle, faPlus, faTimes, faSearch, faSpinner
@@ -20,6 +21,8 @@ library.add(
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <UserProvider>
+      <App />
+    </UserProvider>
   </BrowserRouter>
   , document.getElementById('root'));
