@@ -8,6 +8,14 @@ export default function TeacherRegistrationForm() {
         ev.preventDefault()
         console.log('submitted')
 
+        const { username, password, firstName, lastName, age, sex, race, nationality, 
+            married, highestDegree, feildOfDegree, school, certification, yearsOfTeachingExperience,
+            yearsInChina, yearsTeachingAbroad } = ev.target
+
+        
+
+        console.log(newTeacher)
+
     }
 
     return (
@@ -20,7 +28,7 @@ export default function TeacherRegistrationForm() {
                 <label for='teacher-password'>Enter a Password</label>
                 <input id='teacher-password' type='password' pattern="(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" 
                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more 
-                characters" required></input>
+                characters" name='password' required></input>
 
                 <label for='teacher-firstname'>First Name</label>
                 <input id='teacher-firstname' type='text' name='firstName' required></input>
@@ -32,7 +40,7 @@ export default function TeacherRegistrationForm() {
                 <input id='teacher-age' type='number' name='age' required></input>
 
                 <label for='teacher-sex'>Gender</label>
-                <select id='teacher-sex' required>
+                <select id='teacher-sex' name='sex' required>
                     <option value='male'>Male</option>
                     <option value='female'>Female</option>
                     <option value='genderNeutral'>Gender-Neutral</option>
@@ -41,8 +49,10 @@ export default function TeacherRegistrationForm() {
                 <label for='teacher-nationality'>Nationality</label>
                 <NationalityList id='teacher-nationality'/>
 
+                {/* add native speaker boolean dropdown */}
+
                 <label for='teacher-married'>Marraige Satus</label>
-                <select id='teacher-married' required>
+                <select id='teacher-married' name='married' required>
                     <option value="" selected disabled>--select one--</option>
                     <option value='married'>married</option>
                     <option value='single'>single</option>
@@ -74,7 +84,7 @@ export default function TeacherRegistrationForm() {
                 <label for='teacher-school'>School Attended</label>
                 <input id='teacher-school' type='text' name='school' required></input>
 
-                <label for='teacher-certification'></label>
+                <label for='teacher-certification'>Certification</label>
                 <select id='teacher-certification' required>
                     <option value='none'>None</option>
                     <option value='tefl'>TEFL</option>
