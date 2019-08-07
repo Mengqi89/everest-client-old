@@ -52,6 +52,7 @@ class LoginForm extends Component {
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('admin')
           this.props.onLoginSuccess()
+          this.props.history.push('/profile')
         })
         .catch(res => {
           this.setState({ error: res.error })
@@ -69,6 +70,7 @@ class LoginForm extends Component {
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('teacher')
           this.props.onLoginSuccess()
+          this.props.history.push('/profile')
         })
         .catch(res => {
           this.setState({ error: res.error })

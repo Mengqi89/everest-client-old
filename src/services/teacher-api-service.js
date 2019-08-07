@@ -3,7 +3,7 @@ import TokenService from './token-service'
 
 const TeacherApiService = {
     postLogin(credentials) {
-        fetch(`${config.API_ENDPOINT}/api/teachers`, {
+        return fetch(`${config.API_ENDPOINT}/auth/login/teachers`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

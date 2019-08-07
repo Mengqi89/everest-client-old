@@ -14,7 +14,7 @@ export default function TeacherRegistrationForm() {
 
         
 
-        console.log(newTeacher)
+        //console.log(newTeacher)
 
     }
 
