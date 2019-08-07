@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import SchoolApiService from '../../services/school-api-service';
-import TokenService from '../../services/token-service';
+import React, { Component } from 'react'
+import SchoolApiService from '../../services/school-api-service'
+import TokenService from '../../services/token-service'
 
 class SchoolRegistrationForm extends Component {
   state = {

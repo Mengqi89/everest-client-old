@@ -34,8 +34,8 @@ class LoginForm extends Component {
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('school')
           this.props.history.push('/profile')
-          // this.context.handleLoginSucces()
         })
+        .then(() => this.props.onLoginSuccess())
         .catch(res => {
           this.setState({ error: res.error })
         })
@@ -51,27 +51,9 @@ class LoginForm extends Component {
 
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('admin')
-          this.props.onLoginSuccess()
           this.props.history.push('/profile')
         })
-        .catch(res => {
-          this.setState({ error: res.error })
-        })
-    }
-    if (this.state.accountType === 'teacher') {
-      TeacherApiService.postLogin({
-        username: username.value,
-        password: password.value
-      })
-        .then(res => {
-          username.value = ''
-          password.value = ''
-
-          TokenService.saveAuthToken(res.authToken)
-          TokenService.saveUserType('teacher')
-          this.props.onLoginSuccess()
-          this.props.history.push('/profile')
-        })
+        .then(() => this.props.onLoginSuccess())
         .catch(res => {
           this.setState({ error: res.error })
         })
