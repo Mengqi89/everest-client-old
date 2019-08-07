@@ -33,9 +33,10 @@ class ProfilePage extends Component {
         {this.state.admin !== null && this.state.admin.first_name}
         {this.state.admin !== null && this.state.admin.first_name} */}
         {userType === 'school' && <SchoolProfile />}
+
       </section >
-    );
+    )
   }
 }
 
-export default ProfilePage;
+export default ProfilePage
