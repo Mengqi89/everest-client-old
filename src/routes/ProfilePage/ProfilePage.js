@@ -13,24 +13,26 @@ class ProfilePage extends Component {
   }
 
   componentDidMount() {
-    const userType = TokenService.getUserType()
-    if (userType === 'school') {
+    this.context.setUserType(TokenService.getUserType())
+    //user context userType to make a call to endpoint to update user object in context
+    if (this.context.userType === 'school') {
+      //not working for some reason....
       SchoolApiService.getSchoolProfile()
-        .then(school => this.setState({ school }))
-    }
-    if (userType === 'admin') {
-      AdminApiService.getAdminProfile()
-        .then(admin => this.setState({ admin }))
+        .then(profile => {
+
+          this.context.setUser(profile)
+        })
     }
   }
   render() {
+    const { userType } = this.context;
     return (
       <section className="ProfilePage">
         {/* {this.state.school !== null && this.state.school.school_name}
         {this.state.school !== null && this.state.school.school_type}
         {this.state.admin !== null && this.state.admin.first_name}
         {this.state.admin !== null && this.state.admin.first_name} */}
-        {this.context.userType === 'school' && <SchoolProfile />}
+        {userType === 'school' && <SchoolProfile />}
       </section >
     );
   }

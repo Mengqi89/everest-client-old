@@ -1,34 +1,27 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import SchoolApiService from '../../services/school-api-service';
+// import SchoolApiService from '../../services/school-api-service';
 import './SchoolProfile.scss';
+import UserContext from '../../contexts/UserContext';
 
 class SchoolProfile extends Component {
-  state = {
-    school: {
+  static contextType = UserContext
 
-    }
-  }
-  componentDidMount() {
-    SchoolApiService.getSchoolProfile()
-      .then(school => this.setState(school))
-  }
   render() {
-    const school = this.state
+    const user = this.context
     return (
       <div className="SchoolProfile">
         <h2>School Info</h2>
         <ul>
-          <li>Name: {school.school_name}</li>
-          <li>Type: {school.school_type}</li>
-          {school.school_size && <li>Size: {school.school_size}</li>}
-          {school.public_or_private && <li>Public or private: {school.public_or_private}</li>}
-          {school.curriculum && <li>Curriculum: {school.curriculum}</li>}
-          {school.location && <li>Location: {school.location}</li>}
-          {school.notable_facts && <li>Notable facts: {school.notable_facts}</li>}
+          <li>Name: {user.school_name}</li>
+          <li>Type: {user.school_type}</li>
+          {user.school_size && <li>Size: {user.school_size}</li>}
+          {user.public_or_private && <li>Public or private: {user.public_or_private}</li>}
+          {user.curriculum && <li>Curriculum: {user.curriculum}</li>}
+          {user.location && <li>Location: {user.location}</li>}
+          {user.notable_facts && <li>Notable facts: {user.notable_facts}</li>}
         </ul>
         <p>Add more info to school</p>
-        <NavLink to="/edit-profile">Edit Profile</NavLink>
+        <a href="/edit-profile">Edit Profile</a>
       </div>
     );
   }
