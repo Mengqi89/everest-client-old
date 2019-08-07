@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TokenService from '../../services/token-service';
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import TokenService from '../../services/token-service'
 // import hasAuthToken from '../../services/token-service'
 import './NavBar.scss';
-import logo from '../../assets/logo-everest-eie.png';
+import logo from '../../assets/logo-everest-eie.png'
 // import { isThisSecond } from 'date-fns';
-import UserContext from '../../contexts/UserContext';
+import UserContext from '../../contexts/UserContext'
 
 
 class NavBar extends Component {
@@ -27,8 +27,8 @@ class NavBar extends Component {
 
   handleLogoutClick = () => {
     this.context.setLoggedIn(false)
-    TokenService.clearAuthToken();
-  };
+    TokenService.clearAuthToken()
+  }
 
   renderLogoutLink() {
     return (
@@ -39,7 +39,7 @@ class NavBar extends Component {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/edit-school">
+          <NavLink to="/edit-profile">
             <FontAwesomeIcon icon="plus" /> Edit Profile
           </NavLink>
         </li>
@@ -50,7 +50,7 @@ class NavBar extends Component {
 
         </li>
       </>
-    );
+    )
   }
 
   renderLoginLink() {
@@ -93,10 +93,10 @@ class NavBar extends Component {
 
         </nav>
       </>
-    );
+    )
   }
 }
 
-export default NavBar;
+export default NavBar
 
 //checking user type in login and registration

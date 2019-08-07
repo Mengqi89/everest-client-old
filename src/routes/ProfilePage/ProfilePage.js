@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import SchoolApiService from '../../services/school-api-service'
 import AdminApiService from '../../services/admin-api-service'
+import AdminProfile from '../../components/AdminProfile/AdminProfile'
 
 class ProfilePage extends Component {
   state = {
@@ -25,12 +26,13 @@ class ProfilePage extends Component {
       <section className="ProfilePage">
         {this.state.school !== null && this.state.school.school_name}
         {this.state.school !== null && this.state.school.school_type}
-        {this.state.admin !== null && this.state.admin.first_name}
-        {this.state.admin !== null && this.state.admin.first_name}
+
+        {this.state.admin !== null && <AdminProfile admin={this.state.admin} />}
+
 
       </section >
-    );
+    )
   }
 }
 
-export default ProfilePage;
+export default ProfilePage
