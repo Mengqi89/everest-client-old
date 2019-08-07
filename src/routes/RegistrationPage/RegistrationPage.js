@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './RegistrationPage.scss'
 import SchoolRegistrationForm from '../../components/SchoolRegistrationForm/SchoolRegistrationForm'
 import AdminRegistrationForm from '../../components/AdminRegistrationForm/AdminRegistrationForm'
+import TeacherRegistrationForm from '../../components/TeacherRegistrationForm/TeacherRegistrationForm';
 
 class RegistrationPage extends Component {
   state = {
@@ -30,6 +31,7 @@ class RegistrationPage extends Component {
         </fieldset>
         {this.state.accountType === "school" && <SchoolRegistrationForm />}
         {this.state.accountType === "admin" && <AdminRegistrationForm />}
+        {this.state.accountType === 'teacher' && <TeacherRegistrationForm />}
       </section>
     )
   }

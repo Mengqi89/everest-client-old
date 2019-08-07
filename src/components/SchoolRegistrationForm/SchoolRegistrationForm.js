@@ -9,7 +9,7 @@ class SchoolRegistrationForm extends Component {
     schoolName: '',
     schoolType: ''
   }
-  //onChange methods might be unnecessary -- Kyler
+
   handleUsernameUpdate = (ev) => {
     this.setState({ username: ev.target.value })
   }
