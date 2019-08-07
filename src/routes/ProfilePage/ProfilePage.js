@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import SchoolApiService from '../../services/school-api-service'
-import AdminApiService from '../../services/admin-api-service'
+// import AdminApiService from '../../services/admin-api-service'
 import UserContext from '../../contexts/UserContext';
 import SchoolProfile from '../../components/SchoolProfile/SchoolProfile';
 
