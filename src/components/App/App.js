@@ -8,6 +8,8 @@ import LoginPage from '../../routes/LoginPage/LoginPage'
 import NavBar from '../../components/NavBar/NavBar'
 import PrivateRoute from '../../components/Utils/PrivateRoute'
 import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
+import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
+
 class App extends React.Component {
   state = {
     hasError: null
@@ -29,6 +31,7 @@ class App extends React.Component {
             <Route path={'/register'} component={RegistrationPage} />
             <PrivateRoute path={'/profile'} component={ProfilePage} />
             <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
+            <PrivateRoute path={'/applications'} component={ApplicationsPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

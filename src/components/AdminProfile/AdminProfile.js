@@ -23,6 +23,7 @@ class AdminProfile extends Component {
                     <li>Username: {user.username}</li>
                 </ul >
                 <Link to="/edit-profile">Edit Profile</Link>
+                <Link to="/applications">View Applications</Link>
             </div>
 
         )
