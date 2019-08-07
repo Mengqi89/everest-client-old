@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
-// import SchoolApiService from '../../services/school-api-service';
+import SchoolApiService from '../../services/school-api-service';
 import './SchoolProfile.scss';
 import UserContext from '../../contexts/UserContext';
 
 class SchoolProfile extends Component {
   static contextType = UserContext
 
+
+  componentDidMount() {
+    SchoolApiService.getSchoolProfile()
+      .then(profile => {
+        this.context.setUser(profile)
+      })
+  }
+
+  checkSchoolUserObjectForNull = (schoolUser) => {
+    Object.keys(schoolUser).forEach(key => {
+      if (!schoolUser[key]) {
+        return false
+      }
+    })
+    return true;
+  }
+
   render() {
-    const user = this.context
+    const { user } = this.context
     return (
       <div className="SchoolProfile">
         <h2>School Info</h2>
@@ -20,7 +37,7 @@ class SchoolProfile extends Component {
           {user.location && <li>Location: {user.location}</li>}
           {user.notable_facts && <li>Notable facts: {user.notable_facts}</li>}
         </ul>
-        <p>Add more info to school</p>
+        {this.checkSchoolUserObjectForNull && <p>Your profile is incomplete edit profile below to complete!</p>}
         <a href="/edit-profile">Edit Profile</a>
       </div>
     );
