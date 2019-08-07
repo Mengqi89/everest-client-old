@@ -44,7 +44,7 @@ class NavBar extends Component {
           </NavLink>
         </li>
         <li onClick={this.handleLogoutClick} className="highlighted-btn">
-          <NavLink to='/'>
+          <NavLink to='/login'>
             Logout
           </NavLink>
 

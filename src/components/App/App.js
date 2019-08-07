@@ -32,8 +32,6 @@ class App extends React.Component {
             <Route component={NotFoundPage} />
           </Switch>
         </main>
-
-
       </div>
     )
   }

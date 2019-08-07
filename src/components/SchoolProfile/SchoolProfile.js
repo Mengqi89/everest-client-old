@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import SchoolApiService from '../../services/school-api-service';
-import './SchoolProfile.scss';
-import UserContext from '../../contexts/UserContext';
+import React, { Component } from 'react'
+import SchoolApiService from '../../services/school-api-service'
+import './SchoolProfile.scss'
+import UserContext from '../../contexts/UserContext'
+import { Link } from 'react-router-dom'
 
 class SchoolProfile extends Component {
   static contextType = UserContext
@@ -9,9 +10,7 @@ class SchoolProfile extends Component {
 
   componentDidMount() {
     SchoolApiService.getSchoolProfile()
-      .then(profile => {
-        this.context.setUser(profile)
-      })
+      .then(profile => this.context.setUser(profile))
   }
 
   checkSchoolUserObjectForNull = (schoolUser) => {
@@ -38,10 +37,10 @@ class SchoolProfile extends Component {
           {user.notable_facts && <li>Notable facts: {user.notable_facts}</li>}
         </ul>
         {this.checkSchoolUserObjectForNull && <p>Your profile is incomplete edit profile below to complete!</p>}
-        <a href="/edit-profile">Edit Profile</a>
+        <Link to="/edit-profile">Edit Profile</Link>
       </div>
     );
   }
 }
 
-export default SchoolProfile;
+export default SchoolProfile
