@@ -1,13 +1,13 @@
 import config from '../config'
 
 const AuthApiService = {
-  postLogin({ email, password }) {
+  postLogin({ username, password }) {
     return fetch(`${config.API_ENDPOINT}/auth/login`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username, password }),
     })
       .then(res =>
         (!res.ok)
@@ -31,8 +31,8 @@ const AuthApiService = {
       )
   },
 
-  deleteUserByEmail(email) {
-    return fetch(`${config.API_ENDPOINT}/users/${email}`, {
+  deleteUserByUsername(username) {
+    return fetch(`${config.API_ENDPOINT}/users/${username}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
