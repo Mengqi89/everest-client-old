@@ -52,7 +52,7 @@ class SchoolRegistrationForm extends Component {
           <label htmlFor="username">Enter a username</label>
           <input type="text" id="username" onChange={this.handleUsernameUpdate} />
           <label htmlFor="password">Choose a password</label>
-          <input type="text" id="password" onChange={this.handlePasswordUpdate} />
+          <input type="password" id="password" onChange={this.handlePasswordUpdate} />
           <label htmlFor="school-name" >What's your school's name?</label>
           <input type="text" id="school-name" onChange={this.handleSchoolNameUpdate} />
           <label htmlFor="school-type">What type of school are you?</label>

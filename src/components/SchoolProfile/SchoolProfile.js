@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import SchoolApiService from '../../services/school-api-service'
-import './SchoolProfile.scss'
-import UserContext from '../../contexts/UserContext'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import SchoolApiService from '../../services/school-api-service';
+import './SchoolProfile.scss';
+import UserContext from '../../contexts/UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class SchoolProfile extends Component {
   static contextType = UserContext
@@ -14,12 +15,24 @@ class SchoolProfile extends Component {
   }
 
   checkSchoolUserObjectForNull = (schoolUser) => {
+    let value = true
     Object.keys(schoolUser).forEach(key => {
       if (!schoolUser[key]) {
-        return false
+        value = false
       }
     })
-    return true;
+    return value
+  }
+
+  checkSubObjectForNull = (subObject, name) => {
+    let element = <p><FontAwesomeIcon icon="check" className="green" /> {name} complete</p>
+    Object.keys(subObject).forEach(key => {
+      if (subObject[key] == null) {
+        element = <p><FontAwesomeIcon icon="times" className="red" /> {name} incomplete</p>
+      }
+    })
+
+    return element
   }
 
   render() {
@@ -27,7 +40,7 @@ class SchoolProfile extends Component {
     return (
       <div className="SchoolProfile">
         <h2>School Info</h2>
-        <ul>
+        <ul className="school-basics">
           <li>Name: {user.school_name}</li>
           <li>Type: {user.school_type}</li>
           {user.school_size && <li>Size: {user.school_size}</li>}
@@ -36,8 +49,22 @@ class SchoolProfile extends Component {
           {user.location && <li>Location: {user.location}</li>}
           {user.notable_facts && <li>Notable facts: {user.notable_facts}</li>}
         </ul>
-        {this.checkSchoolUserObjectForNull && <p>Your profile is incomplete edit profile below to complete!</p>}
-        <Link to="/edit-profile">Edit Profile</Link>
+
+        <div className="school-housing-info">
+          {user.housingInformation && this.checkSubObjectForNull(user.housingInformation, 'Housing information')}
+        </div>
+        <div className="visa-info">
+          {user.visaInformation && this.checkSubObjectForNull(user.visaInformation, 'Visa information')}
+        </div>
+        <div className="other-services">
+          {user.otherServices && this.checkSubObjectForNull(user.otherServices, 'Other services')}
+        </div>
+        <div className="lifestyles-information">
+          {user.lifestyleInformation && this.checkSubObjectForNull(user.lifestyleInformation, 'Lifestyle information')}
+        </div>
+        {this.checkSchoolUserObjectForNull && <p>Your profile is incomplete click below to complete!</p>}
+        <Link to="/edit-profile">Finish Profile</Link>
+
       </div>
     );
   }

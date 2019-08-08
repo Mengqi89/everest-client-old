@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
-import SchoolApiService from '../../services/school-api-service'
+
 // import AdminApiService from '../../services/admin-api-service'
 import UserContext from '../../contexts/UserContext'
 import SchoolProfile from '../../components/SchoolProfile/SchoolProfile'
@@ -16,6 +16,7 @@ class ProfilePage extends Component {
 
   componentDidMount() {
     this.context.setUserType(TokenService.getUserType())
+
     //user context userType to make a call to endpoint to update user object in context
     if (this.context.userType === 'school') {
       //not working for some reason....

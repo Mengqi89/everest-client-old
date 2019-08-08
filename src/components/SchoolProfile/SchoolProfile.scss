@@ -15,4 +15,10 @@
 
     @include green-button;
   }
+  .red {
+    color: $accent-red;
+  }
+  .green {
+    color: $accent-color;
+  }
 }
