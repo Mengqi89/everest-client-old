@@ -3,17 +3,19 @@ import { withRouter } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import SchoolApiService from '../../services/school-api-service'
 import AdminApiService from '../../services/admin-api-service'
+// import TeacherApiService from '../../services/teacher-api-service'
 
 import './LoginForm.scss'
+import TeacherApiService from '../../services/teacher-api-service';
 
 class LoginForm extends Component {
   state = {
-    accountType: null,
+    userType: null,
     error: null
   }
-  handleAccountTypeChange = (ev) => {
+  handleUserTypeChange = (ev) => {
     this.setState({
-      accountType: ev.target.value
+      userType: ev.target.value
     })
   }
 
@@ -21,7 +23,7 @@ class LoginForm extends Component {
     ev.preventDefault()
     this.setState({ error: null })
     const { username, password } = ev.target
-    if (this.state.accountType === 'school') {
+    if (this.state.userType === 'school') {
       SchoolApiService.postLogin({
         username: username.value,
         password: password.value
@@ -32,16 +34,14 @@ class LoginForm extends Component {
 
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('school')
-          //not sure if forcing a page refresh is the best way to tackle this --- kyler
-          //window.location.reload();
           this.props.history.push('/profile')
-          // this.context.handleLoginSucces()
         })
+        .then(() => this.props.onLoginSuccess())
         .catch(res => {
           this.setState({ error: res.error })
         })
     }
-    if (this.state.accountType === 'admin') {
+    if (this.state.userType === 'admin') {
       AdminApiService.postLogin({
         username: username.value,
         password: password.value
@@ -51,15 +51,27 @@ class LoginForm extends Component {
           password.value = ''
 
           TokenService.saveAuthToken(res.authToken)
-
           TokenService.saveUserType('admin')
-          //window.location.reload();
-          //this.props.history.push('/profile')
-          console.log(this.props)
-
+          this.props.history.push('/profile')
         })
-        .then(() => {
+        .then(() => this.props.onLoginSuccess())
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
+    }
+    if (this.state.userType === 'teacher') {
+      TeacherApiService.postLogin({
+        username: username.value,
+        password: password.value
+      })
+        .then(res => {
+          username.value = ''
+          password.value = ''
+
+          TokenService.saveAuthToken(res.authToken)
+          TokenService.saveUserType('teacher')
           this.props.onLoginSuccess()
+          this.props.history.push('/profile')
         })
         .catch(res => {
           this.setState({ error: res.error })
@@ -76,11 +88,11 @@ class LoginForm extends Component {
         <fieldset>
           <legend htmlFor="account-type">I am a</legend>
           <label htmlFor="teacher">Teacher</label>
-          <input type="radio" id="teacher" name="account-type" value="teacher" onChange={this.handleAccountTypeChange} />
+          <input type="radio" id="teacher" name="account-type" value="teacher" onChange={this.handleUserTypeChange} />
           <label htmlFor="teacher">School</label>
-          <input type="radio" id="school" name="account-type" value="school" onChange={this.handleAccountTypeChange} />
+          <input type="radio" id="school" name="account-type" value="school" onChange={this.handleUserTypeChange} />
           <label htmlFor="teacher">Admin</label>
-          <input type="radio" id="admin" name="account-type" value="admin" onChange={this.handleAccountTypeChange} />
+          <input type="radio" id="admin" name="account-type" value="admin" onChange={this.handleUserTypeChange} />
         </fieldset>
         <div className="username">
           <label htmlFor="username">Username</label>

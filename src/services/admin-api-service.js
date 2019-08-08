@@ -2,26 +2,39 @@ import config from '../config'
 import TokenService from './token-service'
 
 const AdminApiService = {
-    postAdmin(credentials) {
+    postAdmin(admin) {
         return fetch(`${config.API_ENDPOINT}/admins/`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(credentials)
+            body: JSON.stringify(admin)
         })
             .then(res => (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json())
     },
     postLogin(credentials) {
-        console.log(credentials)
         return fetch(`${config.API_ENDPOINT}/auth/login/admins`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
             body: JSON.stringify(credentials)
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json())
+    },
+    updateAdmin(updatedAdmin, id) {
+        console.log(updatedAdmin)
+        return fetch(`${config.API_ENDPOINT}/admins/admin/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(updatedAdmin)
         })
             .then(res =>
                 (!res.ok)

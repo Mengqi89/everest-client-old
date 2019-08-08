@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import AdminApiService from '../../services/admin-api-service'
+import TokenService from '../../services/token-service'
+import { withRouter } from 'react-router-dom'
 
 class AdminRegistrationForm extends Component {
     state = {
@@ -22,7 +24,14 @@ class AdminRegistrationForm extends Component {
         const { username, password, first_name, last_name, email, permission } = this.state
         const newAdmin = { username, password, first_name, last_name, email, permission }
         AdminApiService.postAdmin(newAdmin)
-            .then(newAdmin => AdminApiService.postLogin({ username: username, password: password }))
+            .then(newAdmin => {
+                AdminApiService.postLogin({ username: username, password: password })
+                    .then(res => {
+                        TokenService.saveAuthToken(res.authToken)
+                        TokenService.saveUserType('admin')
+                        this.props.history.push('profile')
+                    })
+            })
             .catch(res => {
                 this.setState({ hasError: res.error })
             })
@@ -59,4 +68,4 @@ class AdminRegistrationForm extends Component {
     }
 }
 
-export default AdminRegistrationForm
+export default withRouter(AdminRegistrationForm)

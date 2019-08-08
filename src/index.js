@@ -7,7 +7,7 @@ import App from './components/App/App';
 import { UserProvider } from './contexts/UserContext'
 
 import {
-  faDoorOpen, faPlusCircle, faPlus, faTimes, faSearch, faSpinner
+  faDoorOpen, faPlusCircle, faPlus, faTimes, faSearch, faSpinner, faCheck, faClipboard
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -16,7 +16,9 @@ library.add(
   faPlus,
   faTimes,
   faSearch,
-  faSpinner
+  faSpinner,
+  faCheck,
+  faClipboard
 )
 
 ReactDOM.render(

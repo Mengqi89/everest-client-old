@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import SchoolApiService from '../../services/school-api-service';
-import TokenService from '../../services/token-service';
+import React, { Component } from 'react'
+import SchoolApiService from '../../services/school-api-service'
+import TokenService from '../../services/token-service'
+import { withRouter } from 'react-router-dom'
 
 class SchoolRegistrationForm extends Component {
   state = {
@@ -9,7 +10,7 @@ class SchoolRegistrationForm extends Component {
     schoolName: '',
     schoolType: ''
   }
-  //onChange methods might be unnecessary -- Kyler
+
   handleUsernameUpdate = (ev) => {
     this.setState({ username: ev.target.value })
   }
@@ -34,10 +35,11 @@ class SchoolRegistrationForm extends Component {
     SchoolApiService.postSchool(newSchool)
       .then(school => {
         SchoolApiService.postLogin({ username: school.username, password: password })
-        TokenService.saveUserType('school')
-        //why page reload? -- Kyler
-        window.location.reload()
-        this.props.history.push('/profile')
+          .then(res => {
+            TokenService.saveAuthToken(res.authToken)
+            TokenService.saveUserType('school')
+            this.props.history.push('/profile')
+          })
       })
   }
   render() {
@@ -50,7 +52,7 @@ class SchoolRegistrationForm extends Component {
           <label htmlFor="username">Enter a username</label>
           <input type="text" id="username" onChange={this.handleUsernameUpdate} />
           <label htmlFor="password">Choose a password</label>
-          <input type="text" id="password" onChange={this.handlePasswordUpdate} />
+          <input type="password" id="password" onChange={this.handlePasswordUpdate} />
           <label htmlFor="school-name" >What's your school's name?</label>
           <input type="text" id="school-name" onChange={this.handleSchoolNameUpdate} />
           <label htmlFor="school-type">What type of school are you?</label>
@@ -68,4 +70,4 @@ class SchoolRegistrationForm extends Component {
   }
 }
 
-export default SchoolRegistrationForm
+export default withRouter(SchoolRegistrationForm)

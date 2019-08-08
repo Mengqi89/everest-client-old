@@ -8,6 +8,11 @@ import LoginPage from '../../routes/LoginPage/LoginPage';
 import JobsListPage from '../../routes/JobsListPage/JobsListPage';
 import NavBar from '../../components/NavBar/NavBar';
 import PrivateRoute from '../../components/Utils/PrivateRoute';
+import PublicOnlyRoute from '../../components/Utils/PublicOnlyRoute'
+import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
+import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
+import Appliction from '../Application/Application'
+
 
 class App extends React.Component {
   state = {
@@ -25,19 +30,20 @@ class App extends React.Component {
           )}
 
           <Switch>
-            <Route exact path={'/'} component={LandingPage} />
+            <PublicOnlyRoute exact path={'/'} component={LandingPage} />
             <Route path={'/login'} component={LoginPage} />
             <Route path={'/register'} component={RegistrationPage} />
             <Route path={'/jobs'} component={JobsListPage} />
             <PrivateRoute path={'/profile'} component={ProfilePage} />
+            <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
+            <PrivateRoute path={'/applications'} component={ApplicationsPage} />
+            <PrivateRoute path={'/:jobId/:teacherId'} component={Application} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>
-
-
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
