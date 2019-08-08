@@ -3,8 +3,10 @@ import './RegistrationPage.scss'
 import SchoolRegistrationForm from '../../components/SchoolRegistrationForm/SchoolRegistrationForm'
 import AdminRegistrationForm from '../../components/AdminRegistrationForm/AdminRegistrationForm'
 import TeacherRegistrationForm from '../../components/TeacherRegistrationForm/TeacherRegistrationForm';
+import UserContext from '../../contexts/UserContext';
 
 class RegistrationPage extends Component {
+  static contextType = UserContext
   state = {
     accountType: null,
   }
@@ -13,6 +15,10 @@ class RegistrationPage extends Component {
     this.setState({
       accountType: ev.target.value
     })
+  }
+
+  handleSubmitSuccess = () => {
+    this.context.setLoggedIn(true)
   }
 
   render() {
@@ -31,7 +37,7 @@ class RegistrationPage extends Component {
         </fieldset>
         {this.state.accountType === "school" && <SchoolRegistrationForm />}
         {this.state.accountType === "admin" && <AdminRegistrationForm />}
-        {this.state.accountType === 'teacher' && <TeacherRegistrationForm />}
+        {this.state.accountType === 'teacher' && <TeacherRegistrationForm onSubmitSuccess={this.handleSubmitSuccess} />}
       </section>
     )
   }

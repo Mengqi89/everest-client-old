@@ -6,6 +6,7 @@ import AdminApiService from '../../services/admin-api-service'
 // import TeacherApiService from '../../services/teacher-api-service'
 
 import './LoginForm.scss'
+import TeacherApiService from '../../services/teacher-api-service';
 
 class LoginForm extends Component {
   state = {
@@ -54,6 +55,24 @@ class LoginForm extends Component {
           this.props.history.push('/profile')
         })
         .then(() => this.props.onLoginSuccess())
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
+    }
+    if (this.state.userType === 'teacher') {
+      TeacherApiService.postLogin({
+        username: username.value,
+        password: password.value
+      })
+        .then(res => {
+          username.value = ''
+          password.value = ''
+
+          TokenService.saveAuthToken(res.authToken)
+          TokenService.saveUserType('teacher')
+          this.props.onLoginSuccess()
+          this.props.history.push('/profile')
+        })
         .catch(res => {
           this.setState({ error: res.error })
         })
