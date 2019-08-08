@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TokenService from '../../services/token-service'
 // import hasAuthToken from '../../services/token-service'
@@ -27,6 +27,7 @@ class NavBar extends Component {
 
   handleLogoutClick = () => {
     this.context.setLoggedIn(false)
+    this.props.history.push('/')
     TokenService.clearAuthToken()
   }
 
@@ -114,6 +115,6 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar
+export default withRouter(NavBar)
 
 //checking user type in login and registration

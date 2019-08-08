@@ -1,20 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import NationalityList from './NationalityList';
 import './TeacherRegistrationForm.css'
+import TeacherApiService from '../../services/teacher-api-service';
+import TokenService from '../../services/token-service'
 
-export default function TeacherRegistrationForm() {
+function TeacherRegistrationForm(props) {
+    const [ error, setError ] = useState(null)
 
     const handleSubmit = ev => {
         ev.preventDefault()
         console.log('submitted')
 
-        // const { username, password, firstName, lastName, age, sex, race, nationality, 
-        //     married, highestDegree, feildOfDegree, school, certification, yearsOfTeachingExperience,
-        //     yearsInChina, yearsTeachingAbroad } = ev.target
+        const { username, password, first_name, last_name, age, sex, race, nationality, native_speaker,
+            married, highest_degree, field_of_degree, school, certification, years_of_experience,
+            years_in_china, years_teaching_abroad } = ev.target
 
-        
+        const newTeacher = {
+            username: username.value,
+            password: password.value,
+            first_name: first_name.value,
+            last_name: last_name.value,
+            age: age.value,
+            sex: sex.value,
+            race: race.value,
+            nationality: nationality.value,
+            native_speaker: native_speaker.value,
+            married: married.value,
+            highest_degree: highest_degree.value,
+            field_of_degree: field_of_degree.value,
+            school: school.value,
+            certification: certification.value,
+            years_of_experience: years_of_experience.value,
+            years_in_china: years_in_china.value,
+            years_teaching_abroad: years_teaching_abroad.value
+        }
 
-        //console.log(newTeacher)
+        TeacherApiService.postTeacher(newTeacher)
+            .then(res => 
+                username.value = '', 
+                password.value = '', 
+                first_name.value = '', 
+                last_name.value = '', 
+                age.value = '', 
+                sex.value = '', 
+                race.value = '', 
+                nationality.value = '', 
+                native_speaker.value = '',
+                married.value = '', 
+                highest_degree.value = '', 
+                field_of_degree.value = '', 
+                school.value = '', 
+                certification.value = '', 
+                years_of_experience.value = '',
+                years_in_china.value = '', 
+                years_teaching_abroad.value = '',
+            )
+            .then(res => 
+                TeacherApiService.postLogin({username: newTeacher.username, password: newTeacher.password})
+            )
+            .then(res => {
+                console.log(props)
+                TokenService.saveAuthToken(res.authToken)
+                TokenService.saveUserType('teacher')
+                props.onSubmitSuccess()
+                props.history.push('/profile')
+            })
+            .catch(res => 
+                setError(res.error)
+            )
+
+        console.log(newTeacher)
 
     }
 
@@ -22,6 +78,10 @@ export default function TeacherRegistrationForm() {
         <section>
             <h3>Your teaching experience in China begins here!</h3>
             <form className='form teacher-registration' onSubmit={handleSubmit}>
+                <div role='alert'>
+                    {error && <p className='red'>{error}</p>}
+                </div>
+
                 <label for='teacher-username'>Enter a Username</label>
                 <input id='teacher-usernmae' type='text' name='username' required></input>
 
@@ -31,35 +91,50 @@ export default function TeacherRegistrationForm() {
                 characters" name='password' required></input>
 
                 <label for='teacher-firstname'>First Name</label>
-                <input id='teacher-firstname' type='text' name='firstName' required></input>
+                <input id='teacher-firstname' type='text' name='first_name' required></input>
 
                 <label for='teacher-lastname'>Last Name</label>
-                <input id='teacher-lastname' type='text' name='lastName' required></input>
+                <input id='teacher-lastname' type='text' name='last_name' required></input>
 
                 <label for='teacher-age'>Age</label>
                 <input id='teacher-age' type='number' name='age' required></input>
 
                 <label for='teacher-sex'>Gender</label>
                 <select id='teacher-sex' name='sex' required>
-                    <option value='male'>Male</option>
-                    <option value='female'>Female</option>
-                    <option value='genderNeutral'>Gender-Neutral</option>
+                    <option value='Male'>Male</option>
+                    <option value='Female'>Female</option>
+                    <option value='GenderNuetral'>Gender-Neutral</option>
                 </select>
 
                 <label for='teacher-nationality'>Nationality</label>
                 <NationalityList id='teacher-nationality'/>
 
-                {/* add native speaker boolean dropdown */}
+                <label for='race'>Ethnicity</label>
+                <select id='race' name='race' required>
+                    <option value='African American'>African American</option>
+                    <option value='Asain'>Asain</option>
+                    <option value='Native American'>Native American</option>
+                    <option value='Latino'>Latino</option>
+                    <option value='Pacific Islander'>Pacific Islander</option>
+                    <option value='Multiracial'>Multiracial</option>
+                    <option value='Other'>Other</option>
+                </select>
+
+                <label for='teacher-native-speaker'>Are You A Native Speaker?</label>
+                <select id='teacher-native-speaker' name='native_speaker'>
+                    <option value='true'>Yes</option>
+                    <option value='false'>No</option>
+                </select>
 
                 <label for='teacher-married'>Marraige Satus</label>
                 <select id='teacher-married' name='married' required>
                     <option value="" selected disabled>--select one--</option>
-                    <option value='married'>married</option>
-                    <option value='single'>single</option>
+                    <option value='Married'>married</option>
+                    <option value='Single'>single</option>
                 </select>
 
                 <label for='teacher-education'>Education</label>
-                <select id="teacher-education" name="highestDegree" required>
+                <select id="teacher-education" name="highest_degree" required>
                     <option value="" selected="selected" disabled="disabled">-- select one --</option>
                     <option value="No formal education">No formal education</option>
                     <option value="Primary education">Primary education</option>
@@ -72,50 +147,47 @@ export default function TeacherRegistrationForm() {
                 </select>
 
                 <label for='teacher-degree'>Degree</label>
-                <select id='teacher-degree' name='feildOfDegree' required>
-                    <option value='noDegree' selected>No Degree</option>
-                    <option value='english'>English</option>
-                    <option value='business'>Business</option>
-                    <option value='marketing'>Marketing</option>
-                    <option value='account'>Accounting</option>
-                    <option value='other'>Other</option>
+                <select id='teacher-degree' name='field_of_degree' required>
+                    <option value='No Degree' selected>No Degree</option>
+                    <option value='English'>English</option>
+                    <option value='Business'>Business</option>
+                    <option value='Marketing'>Marketing</option>
+                    <option value='Accounting'>Accounting</option>
+                    <option value='Other'>Other</option>
                 </select>
 
                 <label for='teacher-school'>School Attended</label>
                 <input id='teacher-school' type='text' name='school' required></input>
 
                 <label for='teacher-certification'>Certification</label>
-                <select id='teacher-certification' required>
-                    <option value='none'>None</option>
-                    <option value='tefl'>TEFL</option>
-                    <option value='tesol'>TESOL</option>
-                    <option value='tefl/tesol'>TEFL/TESOL</option>
+                <select id='teacher-certification' name='certification' required>
+                    <option value='None'>None</option>
+                    <option value='TEFL'>TEFL</option>
+                    <option value='TESOL'>TESOL</option>
+                    <option value='TEFL/TESOL'>TEFL/TESOL</option>
                 </select>
 
                 <label for='teacher-experience'>Years Of Experience</label>
-                <select id='teacher-experience' name='yearsOfTeachingExperience' required>
+                <select id='teacher-experience' name='years_of_experience' required>
                     <option value='0' selected>0</option>
                     <option value='1'>1</option>
                     <option value='2'>2</option>
-                    {/* need to change teacher table YOE to text not number to be able to have 3+ */}
                     <option value='3'>3+</option>
                 </select>
 
                 <label for='teacher-experience-inChina'>Years Of Experience Teaching In China</label>
-                <select id='teacher-experience-inChina' name='yearsInChina' required>
+                <select id='teacher-experience-inChina' name='years_in_china' required>
                     <option value='0' selected>0</option>
                     <option value='1'>1</option>
                     <option value='2'>2</option>
-                    {/* need to change teacher table YOE to text not number to be able to have 3+ */}
                     <option value='3'>3+</option>
                 </select>
 
                 <label for='teacher-experience-notChina'>Years Of Experience Teaching - Other Countries</label>
-                <select id='teacher-experience-notChina' name='yearsTeachingAbroad' required>
+                <select id='teacher-experience-notChina' name='years_teaching_abroad' required>
                     <option value='0' selected>0</option>
                     <option value='1'>1</option>
                     <option value='2'>2</option>
-                    {/* need to change teacher table YOE to text not number to be able to have 3+ */}
                     <option value='3'>3+</option>
                 </select>
 
@@ -124,3 +196,5 @@ export default function TeacherRegistrationForm() {
         </section>
     )
 }
+
+export default withRouter(TeacherRegistrationForm)
