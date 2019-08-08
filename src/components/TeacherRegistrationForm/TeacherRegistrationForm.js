@@ -10,14 +10,13 @@ function TeacherRegistrationForm(props) {
 
     const handleSubmit = ev => {
         ev.preventDefault()
-        console.log('submitted')
 
         const { username, password, first_name, last_name, age, sex, race, nationality, native_speaker,
             married, highest_degree, field_of_degree, school, certification, years_of_experience,
             years_in_china, years_teaching_abroad } = ev.target
 
         const newTeacher = {
-            is_approved: false,
+            approved: false,
             username: username.value,
             password: password.value,
             first_name: first_name.value,
@@ -61,7 +60,6 @@ function TeacherRegistrationForm(props) {
                 TeacherApiService.postLogin({username: newTeacher.username, password: newTeacher.password})
             )
             .then(res => {
-                console.log(props)
                 TokenService.saveAuthToken(res.authToken)
                 TokenService.saveUserType('teacher')
                 props.onSubmitSuccess()
@@ -70,9 +68,6 @@ function TeacherRegistrationForm(props) {
             .catch(res => 
                 setError(res.error)
             )
-
-        console.log(newTeacher)
-
     }
 
     return (
