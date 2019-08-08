@@ -16,6 +16,7 @@ class Application extends Component {
     render() {
         return (
             <div>
+                School Name: {this.state.application.school_name}
                 Job Title: {this.state.application.job_title}
                 Teacher Age: {this.state.application.age}
             </div>

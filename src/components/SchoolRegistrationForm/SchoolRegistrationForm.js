@@ -39,7 +39,6 @@ class SchoolRegistrationForm extends Component {
             TokenService.saveAuthToken(res.authToken)
             TokenService.saveUserType('school')
             this.props.history.push('/profile')
-            window.location.reload()
           })
       })
   }
