@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SchoolApiService from '../../services/school-api-service'
 import TokenService from '../../services/token-service'
+import { withRouter } from 'react-router-dom'
 
 class SchoolRegistrationForm extends Component {
   state = {
@@ -70,4 +71,4 @@ class SchoolRegistrationForm extends Component {
   }
 }
 
-export default SchoolRegistrationForm
+export default withRouter(SchoolRegistrationForm)
