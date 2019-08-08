@@ -5,7 +5,7 @@ import './Job.css'
 class Job extends Component {
     render() {
         return(
-            <div className='job'>
+            <div className='job' key={this.props.job_id}>
                 <img src="" alt="school"/>
                 <ul>
                     <li>Position Title: {this.props.title}</li>

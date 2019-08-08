@@ -62,6 +62,11 @@ class NavBar extends Component {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/jobs">
+            View Jobs
+          </NavLink>
+        </li>
+        <li>
           <NavLink to='/login' >
             Login
           </NavLink>
