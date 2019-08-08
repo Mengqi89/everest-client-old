@@ -8,6 +8,7 @@ import ProfilePage from '../../routes/ProfilePage/ProfilePage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import NavBar from '../../components/NavBar/NavBar'
 import PrivateRoute from '../../components/Utils/PrivateRoute'
+import PublicOnlyRoute from '../../components/Utils/PublicOnlyRoute'
 import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
 import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
 
@@ -28,7 +29,7 @@ class App extends React.Component {
           )}
 
           <Switch>
-            <Route exact path={'/'} component={LandingPage} />
+            <PublicOnlyRoute exact path={'/'} component={LandingPage} />
             <Route path={'/login'} component={LoginPage} />
             <Route path={'/register'} component={RegistrationPage} />
             <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
