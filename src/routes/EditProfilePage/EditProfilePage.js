@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserContext from '../../contexts/UserContext';
 import EditSchoolForm from '../../components/EditSchoolForm/EditSchoolForm';
-import AdminEditForm from '../../components/AdminEditForm/AdminEditForm'
+import EditAdminForm from '../../components/EditAdminForm/EditAdminForm'
 
 class EditProfilePage extends Component {
   static contextType = UserContext
@@ -11,7 +11,7 @@ class EditProfilePage extends Component {
     return (
       <div className="EditProfilePage">
         {userType === 'school' && <EditSchoolForm />}
-        {userType === 'admin' && <AdminEditForm />}
+        {userType === 'admin' && <EditAdminForm />}
       </div>
     );
   }
