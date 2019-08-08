@@ -26,6 +26,7 @@ class SchoolProfile extends Component {
 
   checkSubObjectForNull = (subObject, name) => {
     let element = <p><FontAwesomeIcon icon="check" className="green" /> {name} complete</p>
+
     Object.keys(subObject).forEach(key => {
       if (subObject[key] == null) {
         element = <p><FontAwesomeIcon icon="times" className="red" /> {name} incomplete</p>
