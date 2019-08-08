@@ -11,7 +11,7 @@ import PrivateRoute from '../../components/Utils/PrivateRoute';
 import PublicOnlyRoute from '../../components/Utils/PublicOnlyRoute'
 import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
 import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
-import Appliction from '../Application/Application'
+import Application from '../Application/Application'
 
 
 class App extends React.Component {
