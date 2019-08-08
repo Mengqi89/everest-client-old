@@ -7,6 +7,7 @@ import ProfilePage from '../../routes/ProfilePage/ProfilePage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
 import PrivateRoute from '../../components/Utils/PrivateRoute';
+import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage';
 
 class App extends React.Component {
   state = {
@@ -27,6 +28,7 @@ class App extends React.Component {
             <Route exact path={'/'} component={LandingPage} />
             <Route path={'/login'} component={LoginPage} />
             <Route path={'/register'} component={RegistrationPage} />
+            <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
             <PrivateRoute path={'/profile'} component={ProfilePage} />
             <Route component={NotFoundPage} />
           </Switch>

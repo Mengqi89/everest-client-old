@@ -1,5 +1,5 @@
 $accent-color: rgb(79, 185, 132);
-
+$accent-red: rgb(212, 91, 91);
 @mixin border-button($color: $accent-color) {
  color: $accent-color;
   border: 1px solid rgb(209, 209, 209);
@@ -12,6 +12,7 @@ $accent-color: rgb(79, 185, 132);
 }
 
 @mixin green-button($color: $accent-color) {
+  font-family: 'Monserrat', sans-serif;
  font-weight: 500;
   padding: .5em 1em;
   font-size: 1em;

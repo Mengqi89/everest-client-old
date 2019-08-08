@@ -39,7 +39,7 @@ class NavBar extends Component {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/edit-school">
+          <NavLink to="/edit-profile">
             <FontAwesomeIcon icon="plus" /> Edit Profile
           </NavLink>
         </li>
