@@ -99,7 +99,7 @@ function TeacherRegistrationForm(props) {
                 <select id='teacher-sex' name='sex' required>
                     <option value='Male'>Male</option>
                     <option value='Female'>Female</option>
-                    <option value='Gender Nuetral'>Gender-Neutral</option>
+                    <option value='Gender Neutral'>Gender-Neutral</option>
                 </select>
 
                 <label for='teacher-nationality'>Nationality</label>
