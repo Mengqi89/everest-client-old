@@ -31,6 +31,8 @@ class NavBar extends Component {
   }
 
   renderLogoutLink() {
+    const { userType } = this.context
+
     return (
       <>
         <li>
@@ -40,9 +42,24 @@ class NavBar extends Component {
         </li>
         <li>
           <NavLink to="/edit-profile">
-            <FontAwesomeIcon icon="plus" /> Edit Profile
+            Edit Profile
           </NavLink>
         </li>
+        {userType === 'teacher' && <li>
+          <NavLink to="/jobs">
+            <FontAwesomeIcon icon="clipboard" /> Apply
+          </NavLink>
+        </li>}
+        {userType === 'school' && <li>
+          <NavLink to="/postJob">
+            <FontAwesomeIcon icon="clipboard" /> Post Job
+          </NavLink>
+        </li>}
+        {userType === 'admin' && <li>
+          <NavLink to="/jobs">
+            <FontAwesomeIcon icon="clipboard" /> Applications
+          </NavLink>
+        </li>}
         <li onClick={this.handleLogoutClick} className="highlighted-btn">
           <NavLink to='/login'>
             Logout

@@ -8,9 +8,9 @@ export default function TeacherRegistrationForm() {
         ev.preventDefault()
         console.log('submitted')
 
-        const { username, password, firstName, lastName, age, sex, race, nationality, 
-            married, highestDegree, feildOfDegree, school, certification, yearsOfTeachingExperience,
-            yearsInChina, yearsTeachingAbroad } = ev.target
+        // const { username, password, firstName, lastName, age, sex, race, nationality, 
+        //     married, highestDegree, feildOfDegree, school, certification, yearsOfTeachingExperience,
+        //     yearsInChina, yearsTeachingAbroad } = ev.target
 
         
 
