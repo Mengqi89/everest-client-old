@@ -6,6 +6,7 @@ import UserContext from '../../contexts/UserContext'
 import SchoolProfile from '../../components/SchoolProfile/SchoolProfile'
 import AdminProfile from '../../components/AdminProfile/AdminProfile'
 import AdminApiService from '../../services/admin-api-service'
+import SchoolApiService from '../../services/school-api-service';
 
 class ProfilePage extends Component {
   static contextType = UserContext
