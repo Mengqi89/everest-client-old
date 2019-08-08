@@ -9,6 +9,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import PrivateRoute from '../../components/Utils/PrivateRoute'
 import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
 import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
+import Application from '../Application/Application'
 
 class App extends React.Component {
   state = {
@@ -32,6 +33,7 @@ class App extends React.Component {
             <PrivateRoute path={'/profile'} component={ProfilePage} />
             <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
             <PrivateRoute path={'/applications'} component={ApplicationsPage} />
+            <PrivateRoute path={'/:jobId/:teacherId'} component={Application} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

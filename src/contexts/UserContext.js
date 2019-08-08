@@ -6,7 +6,9 @@ const UserContext = React.createContext({
     userType: '',
     setUserType: () => { },
     user: {},
-    setUser: () => { }
+    setUser: () => { },
+    applications: [],
+    setApplications: () => { }
 })
 
 export default UserContext
@@ -15,6 +17,7 @@ export function UserProvider(props) {
     const [loggedIn, setLoggedIn] = useState(null)
     const [userType, setUserType] = useState('')
     const [user, setUser] = useState({})
+    const [applications, setApplications] = useState([])
 
     const setLoggedInFn = loggedIn => {
         setLoggedIn(loggedIn)
@@ -28,6 +31,10 @@ export function UserProvider(props) {
         setUser(user)
     }
 
+    const setApplicationsFn = applications => {
+        setApplications(applications)
+    }
+
 
     const value = {
         loggedIn: loggedIn,
@@ -36,6 +43,8 @@ export function UserProvider(props) {
         setUserType: setUserTypeFn,
         user: user,
         setUser: setUserFn,
+        applications: applications,
+        setApplications: setApplicationsFn
     }
 
     return (
