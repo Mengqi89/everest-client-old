@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import AdminApiService from '../../services/admin-api-service'
+import { withRouter } from 'react-router-dom'
 // import TokenService from '../../services/token-service'
 
-class AdminEditForm extends Component {
+class EditAdminForm extends Component {
     static contextType = UserContext
 
     state = {
@@ -34,9 +35,11 @@ class AdminEditForm extends Component {
         console.log(password)
         const updatedAdmin = { first_name, last_name, username, email, password }
         AdminApiService.updateAdmin(updatedAdmin, this.context.user.id)
-            .then(admin =>
-                AdminApiService.postLogin({ username: admin.username, password: this.state.password })
-            )
+            .then(admin => {
+                AdminApiService
+                    .postLogin({ username: admin.username, password: this.state.password })
+                this.props.history.push('/profile')
+            })
             .catch(res => this.setState({ hasError: res.error }))
 
     }
@@ -44,7 +47,7 @@ class AdminEditForm extends Component {
     render() {
         const { hasError } = this.state
         return (
-            <form className="AdminEditForm" onSubmit={this.handleFormSubmit}>
+            <form className="EditAdminForm" onSubmit={this.handleFormSubmit}>
                 <div>
                     Username: {this.state.username}
                 </div>
@@ -70,4 +73,4 @@ class AdminEditForm extends Component {
     }
 }
 
-export default AdminEditForm
+export default withRouter(EditAdminForm)
