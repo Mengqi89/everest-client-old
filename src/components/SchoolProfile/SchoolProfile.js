@@ -11,9 +11,7 @@ class SchoolProfile extends Component {
 
   componentDidMount() {
     SchoolApiService.getSchoolProfile()
-      .then(profile => {
-        this.context.setUser(profile)
-      })
+      .then(profile => this.context.setUser(profile))
   }
 
   checkSchoolUserObjectForNull = (schoolUser) => {
@@ -51,6 +49,7 @@ class SchoolProfile extends Component {
           {user.location && <li>Location: {user.location}</li>}
           {user.notable_facts && <li>Notable facts: {user.notable_facts}</li>}
         </ul>
+
         <div className="school-housing-info">
           {user.housingInformation && this.checkSubObjectForNull(user.housingInformation, 'Housing information')}
         </div>
@@ -65,9 +64,10 @@ class SchoolProfile extends Component {
         </div>
         {this.checkSchoolUserObjectForNull && <p>Your profile is incomplete click below to complete!</p>}
         <Link to="/edit-profile">Finish Profile</Link>
+
       </div>
     );
   }
 }
 
-export default SchoolProfile;
+export default SchoolProfile

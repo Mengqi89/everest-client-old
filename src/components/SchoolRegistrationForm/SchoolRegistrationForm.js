@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import SchoolApiService from '../../services/school-api-service';
-import TokenService from '../../services/token-service';
+import React, { Component } from 'react'
+import SchoolApiService from '../../services/school-api-service'
+import TokenService from '../../services/token-service'
 
 class SchoolRegistrationForm extends Component {
   state = {
@@ -9,7 +9,7 @@ class SchoolRegistrationForm extends Component {
     schoolName: '',
     schoolType: ''
   }
-  //onChange methods might be unnecessary -- Kyler
+
   handleUsernameUpdate = (ev) => {
     this.setState({ username: ev.target.value })
   }

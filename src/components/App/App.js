@@ -1,13 +1,16 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
-import LandingPage from '../../routes/LandingPage/LandingPage';
-import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage';
-import ProfilePage from '../../routes/ProfilePage/ProfilePage';
-import LoginPage from '../../routes/LoginPage/LoginPage';
-import NavBar from '../../components/NavBar/NavBar';
-import PrivateRoute from '../../components/Utils/PrivateRoute';
-import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage';
+
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
+import LandingPage from '../../routes/LandingPage/LandingPage'
+import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
+import ProfilePage from '../../routes/ProfilePage/ProfilePage'
+import LoginPage from '../../routes/LoginPage/LoginPage'
+import NavBar from '../../components/NavBar/NavBar'
+import PrivateRoute from '../../components/Utils/PrivateRoute'
+import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
+import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
+
 
 class App extends React.Component {
   state = {
@@ -30,14 +33,14 @@ class App extends React.Component {
             <Route path={'/register'} component={RegistrationPage} />
             <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
             <PrivateRoute path={'/profile'} component={ProfilePage} />
+            <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
+            <PrivateRoute path={'/applications'} component={ApplicationsPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>
-
-
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
