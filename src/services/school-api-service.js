@@ -39,6 +39,21 @@ const SchoolApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json())
+  },
+
+  editSchoolProfile(newFields, schoolId) {
+    return fetch(`${config.API_ENDPOINT}/schools/school/${schoolId}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(newFields),
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
   }
 }
 
