@@ -8,9 +8,12 @@ class Application extends Component {
         application: null
     }
 
-    approveApplication = (ev, applicationId) => {
+    toggleAppApproval = (ev, applicationId, approvalStatus) => {
         ev.preventDefault()
-        ApplicationApiService.approveApplication(applicationId)
+        const approvalObj = {
+            approvalStatus: approvalStatus
+        }
+        ApplicationApiService.toggleAppApproval(applicationId, approvalObj)
             .then(numRowsAffected => ApplicationApiService.getApplicationById(applicationId)
                 .then(application => this.setState({ application })))
     }
@@ -45,7 +48,11 @@ class Application extends Component {
                     </div>
                 </div>
                 <div className="application-status">Application #{application.id} Status: {application.application_approved === true ? "Approved" : "Pending Approval"} </div>
-                <button onClick={(ev) => this.approveApplication(ev, application.id)}>Approve</button>
+                {application.application_approved === false
+                    ? <button onClick={(ev) => this.toggleAppApproval(ev, application.id, application.application_approved)}>Approve</button>
+                    : <button onClick={(ev) => this.toggleAppApproval(ev, application.id, application.application_approved)}>Disaprove</button>
+                }
+                {/* <button onClick={(ev) => this.approveApplication(ev, application.id)}>Approve</button> */}
                 <button onClick={this.deleteApplication}>Delete</button>
             </div>
 

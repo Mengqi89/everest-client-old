@@ -25,13 +25,15 @@ const ApplicationApiService = {
                 ? res.json().then(e => Promise.reject(e))
                 : res.json())
     },
-    approveApplication(applicationId) {
+    toggleAppApproval(applicationId, approvalObj) {
         return fetch(`${config.API_ENDPOINT}/applications/${applicationId}`, {
             method: 'PATCH',
             headers: {
-                authorization: `bearer ${TokenService.getAuthToken()}`
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
 
-            }
+            },
+            body: JSON.stringify(approvalObj)
         })
             .then(res => !res.ok
                 ? res.json().then(e => Promise.reject(e))
