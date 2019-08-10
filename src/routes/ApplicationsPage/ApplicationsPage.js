@@ -13,13 +13,10 @@ class ApplicationsPage extends Component {
             .then(applications => this.context.setApplications(applications))
     }
     render() {
-        //applications are joined tables between everest_teachers and everest_jobs
-        //everest_jobs needs a key 
         const { applications } = this.context
         console.log(applications)
-        //need to build endpoint for GetApplicationById
         const applicationCards = applications.map((application, index) => <Link key={index} to={{
-            pathname: `/${application.job}/${application.teacher}`
+            pathname: `/applications/${application.id}`
         }}>
             <div>
                 Job Title: {application.job_title}

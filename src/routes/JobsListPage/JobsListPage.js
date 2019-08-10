@@ -15,28 +15,28 @@ class JobsListPage extends Component {
         payscale: '',
         grade: '',
 
-      }
-    
-      componentDidMount() {
+    }
+
+    componentDidMount() {
         // const userType = TokenService.getUserType()
         // if (userType === 'admin') {
-          JobsApiService.getJobs()
+        JobsApiService.getJobs()
             .then(jobs => this.setState({
                 jobs,
                 filtered: false
             }))
 
         // }
-      }
+    }
 
-    
+
     handleKeywordChange = (event) => {
         this.setState({
             // ...this.state,
             keyword: event
         })
         // console.log(event)
-        
+
     }
     handleLocationChange = (event) => {
         this.setState({
@@ -44,8 +44,8 @@ class JobsListPage extends Component {
             location: event
         })
         // console.log(event)
-    
-        
+
+
     }
     handlePayscaleChange = (event) => {
         this.setState({
@@ -53,7 +53,7 @@ class JobsListPage extends Component {
             payscale: event
         })
         // console.log(event)
-        
+
     }
     handleGradeLevelChange = (event) => {
         this.setState({
@@ -61,7 +61,7 @@ class JobsListPage extends Component {
             grade: event
         })
         // console.log(event)
-        
+
     }
     handleSendFilter = (event) => {
         event.preventDefault()
@@ -74,7 +74,7 @@ class JobsListPage extends Component {
         //     (location && Object.values(jobs).includes(location)) ||
         //     (payscale && (jobs.total_salary >= payscale)) 
         //     // (grade && (jobs.grade_level === grade)) 
-            
+
         //     // (jobs.grade_level === grade)
         // ))
         // .then(filteredJobs => this.setState({
@@ -91,9 +91,9 @@ class JobsListPage extends Component {
 
     renderJobs = () => {
         const { jobs, filteredJobs, filtered } = this.state
-        return (            
-            ((filtered ) ? filteredJobs : jobs).map(job => (
-                <div className='jobs-container'> 
+        return (
+            ((filtered) ? filteredJobs : jobs).map(job => (
+                <div className='jobs-container'>
                     <Job
                         key={job.id}
                         title={job.job_title}
@@ -102,26 +102,26 @@ class JobsListPage extends Component {
                         gradeLevel={job.grade_level}
                     />
                 </div>
-        ))
+            ))
 
         )
     }
 
     render() {
-        return(
+        return (
             <>
                 <JobSearch
-                 handleKeywordChange={e => this.handleKeywordChange(e.target.value)}
-                 handleLocationChange={e => this.handleLocationChange(e.target.value)}
-                 handlePayscaleChange={e => this.handlePayscaleChange(e.target.value)}
-                 handleGradeLevelChange={e => this.handleGradeLevelChange(e.target.value)}
-                 handleSubmit={this.handleSendFilter}
+                    handleKeywordChange={e => this.handleKeywordChange(e.target.value)}
+                    handleLocationChange={e => this.handleLocationChange(e.target.value)}
+                    handlePayscaleChange={e => this.handlePayscaleChange(e.target.value)}
+                    handleGradeLevelChange={e => this.handleGradeLevelChange(e.target.value)}
+                    handleSubmit={this.handleSendFilter}
                 />
                 {this.renderJobs()}
             </>
         )
     }
-    
+
 }
 
 export default JobsListPage
