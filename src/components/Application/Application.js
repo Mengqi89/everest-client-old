@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import ApplicationApiService from '../../services/application-api-service'
 import './Application.css'
-import UserContext from '../../contexts/UserContext';
+import UserContext from '../../contexts/UserContext'
+import TokenService from '../../services/token-service'
+
 
 class Application extends Component {
     static contextType = UserContext
@@ -11,7 +13,8 @@ class Application extends Component {
     }
 
     renderApproveButton() {
-        const application = this.state.application
+        const application = this.state.application !== null ? this.state.application[0] : {}
+        console.log(application)
         if (this.context.userType === "admin") {
             return (application.application_approved === false
                 ? <button onClick={(ev) => this.toggleAppApproval(ev, application.id, application.application_approved)}>Approve</button>
@@ -38,11 +41,11 @@ class Application extends Component {
         const { applicationId } = this.props.match.params
         ApplicationApiService.getApplicationById(applicationId)
             .then(application => this.setState({ application }))
+        this.context.setUserType(TokenService.getUserType())
     }
 
     render() {
         const application = this.state.application !== null ? this.state.application[0] : {}
-
         return (
             <div>
                 <div className="application">
