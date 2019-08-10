@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import ApplicationApiService from '../../services/application-api-service'
 import './Application.css'
+import UserContext from '../../contexts/UserContext';
 
 class Application extends Component {
+    static contextType = UserContext
 
     state = {
         application: null
+    }
+
+    renderApproveButton() {
+        const application = this.state.application
+        if (this.context.userType === "admin") {
+            return (application.application_approved === false
+                ? <button onClick={(ev) => this.toggleAppApproval(ev, application.id, application.application_approved)}>Approve</button>
+                : <button onClick={(ev) => this.toggleAppApproval(ev, application.id, application.application_approved)}>Disaprove</button>)
+        }
     }
 
     toggleAppApproval = (ev, applicationId, approvalStatus) => {
@@ -48,11 +59,9 @@ class Application extends Component {
                     </div>
                 </div>
                 <div className="application-status">Application #{application.id} Status: {application.application_approved === true ? "Approved" : "Pending Approval"} </div>
-                {application.application_approved === false
-                    ? <button onClick={(ev) => this.toggleAppApproval(ev, application.id, application.application_approved)}>Approve</button>
-                    : <button onClick={(ev) => this.toggleAppApproval(ev, application.id, application.application_approved)}>Disaprove</button>
-                }
-                {/* <button onClick={(ev) => this.approveApplication(ev, application.id)}>Approve</button> */}
+
+                {this.renderApproveButton()}
+
                 <button onClick={this.deleteApplication}>Delete</button>
             </div>
 
