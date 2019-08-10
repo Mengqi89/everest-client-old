@@ -3,7 +3,18 @@ import TokenService from './token-service'
 
 const ApplicationApiService = {
     getAllApplications() {
-        return fetch(`${config.API_ENDPOINT}/applications`, {
+        return fetch(`${config.API_ENDPOINT}/applications/admin`, {
+            method: 'GET',
+            headers: {
+                authorization: `bearer ${TokenService.getAuthToken()}`
+            }
+        }).then(res =>
+            !res.ok
+                ? res.json().then(e => Promise.reject(e))
+                : res.json())
+    },
+    getApplicationsForSchool(schoolId) {
+        return fetch(`${config.API_ENDPOINT}/applications/school/${schoolId}`, {
             method: 'GET',
             headers: {
                 authorization: `bearer ${TokenService.getAuthToken()}`

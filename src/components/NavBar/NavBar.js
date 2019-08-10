@@ -56,8 +56,13 @@ class NavBar extends Component {
             <FontAwesomeIcon icon="clipboard" /> Post Job
           </NavLink>
         </li>}
+        {userType === 'school' && <li>
+          <NavLink to="/applications">
+            <FontAwesomeIcon icon="clipboard" /> Applications
+          </NavLink>
+        </li>}
         {userType === 'admin' && <li>
-          <NavLink to="/jobs">
+          <NavLink to="/applications">
             <FontAwesomeIcon icon="clipboard" /> Applications
           </NavLink>
         </li>}
