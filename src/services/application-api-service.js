@@ -24,6 +24,17 @@ const ApplicationApiService = {
                 ? res.json().then(e => Promise.reject(e))
                 : res.json())
     },
+    getApplicationsForTeacher(teacherId) {
+        return fetch(`${config.API_ENDPOINT}/applications/teacher/${teacherId}`, {
+            method: 'GET',
+            headers: {
+                authorization: `bearer ${TokenService.getAuthToken()}`
+            }
+        }).then(res =>
+            !res.ok
+                ? res.json().then(e => Promise.reject(e))
+                : res.json())
+    },
     getApplicationById(applicationId) {
         return fetch(`${config.API_ENDPOINT}/applications/${applicationId}`, {
             method: 'GET',
