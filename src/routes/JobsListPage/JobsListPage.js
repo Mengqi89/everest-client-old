@@ -100,6 +100,21 @@ class JobsListPage extends Component {
     ));
   };
 
+  renderJobs = () => {
+    const { jobs, filteredJobs, filtered } = this.state;
+    return (filtered ? filteredJobs : jobs).map(job => (
+      <div className="jobs-container">
+        <Job
+          key={job.id}
+          title={job.job_title}
+          course={job.course}
+          totalSalary={job.total_salary}
+          gradeLevel={job.grade_level}
+        />
+      </div>
+    ));
+  };
+
   render() {
     return (
       <>
