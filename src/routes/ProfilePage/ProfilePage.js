@@ -6,7 +6,8 @@ import UserContext from '../../contexts/UserContext'
 import SchoolProfile from '../../components/SchoolProfile/SchoolProfile'
 import AdminProfile from '../../components/AdminProfile/AdminProfile'
 import AdminApiService from '../../services/admin-api-service'
-import SchoolApiService from '../../services/school-api-service';
+import SchoolApiService from '../../services/school-api-service'
+import TeacherProfile from '../../components/TeacherProfile/TeacherProfile'
 
 class ProfilePage extends Component {
   static contextType = UserContext
@@ -32,14 +33,15 @@ class ProfilePage extends Component {
           this.context.setUser(profile)
         })
     }
+
   }
   render() {
     const { userType } = this.context
     return (
       <section className="ProfilePage">
-
         {userType === 'admin' && <AdminProfile />}
         {userType === 'school' && <SchoolProfile />}
+        {userType === 'teacher' && <TeacherProfile />}
       </section >
     );
   }

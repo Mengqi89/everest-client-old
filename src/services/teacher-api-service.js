@@ -44,7 +44,7 @@ const TeacherApiService = {
             )
     },
     getTeacherById(teacherId) {
-        return fetch(`${config.API_ENDPOINT}/teachers/${teacherId}`, {
+        return fetch(`${config.API_ENDPOINT}/teachers/teacher/${teacherId}`, {
             headers: {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`
             }
@@ -54,6 +54,14 @@ const TeacherApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
+    },
+    getTeacherProfile() {
+        return fetch(`${config.API_ENDPOINT}/teachers/teacher`, {
+            headers: {
+                authorization: `bearer ${TokenService.getAuthToken()}`
+            }
+        }).then(res =>
+            !res.ok ? res.json().then(e => Promise.reject(e)) : res.json())
     },
 
 
