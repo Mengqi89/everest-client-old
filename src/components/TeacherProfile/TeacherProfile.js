@@ -1,16 +1,18 @@
-import React, { useContext, useEffect } from 'react'
-import UserContext from '../../contexts/UserContext';
+import React, { useEffect, useState } from 'react'
+//import UserContext from '../../contexts/UserContext';
 import TeacherApiService from '../../services/teacher-api-service';
+//import TokenService from '../../services/token-service';
 
-export default function TeacherProfile(props) {
-    const context = useContext(UserContext)
-    const { user } = context
+export default function TeacherProfile() {
+    const [user, setUser] = useState({})
+    // const context = useContext(UserContext)
+    // const { user, setUser } = context
 
     useEffect(() => {
         TeacherApiService.getTeacherProfile()
-            .then(res => context.setUser(res))
+            .then(res => setUser(res))
             .catch(error => console.log(error))
-    })
+    }, [])
 
     return (
         <>
