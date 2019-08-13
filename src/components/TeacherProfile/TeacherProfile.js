@@ -10,7 +10,7 @@ export default function TeacherProfile(props) {
         TeacherApiService.getTeacherProfile()
             .then(res => context.setUser(res))
             .catch(error => console.log(error))
-    }, [])
+    })
 
     return (
         <>

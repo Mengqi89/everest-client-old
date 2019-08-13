@@ -16,10 +16,6 @@ function TeacherRegistrationForm(props) {
             years_in_china, years_teaching_abroad } = ev.target
 
         const newTeacher = {
-<<<<<<< HEAD
-            approved: 'false',
-=======
->>>>>>> master
             username: username.value,
             password: password.value,
             first_name: first_name.value,
@@ -81,60 +77,62 @@ function TeacherRegistrationForm(props) {
                     {error && <p className='red'>{error}</p>}
                 </div>
 
-                <label for='teacher-username'>Enter a Username</label>
+                <label htmlFor='teacher-username'>Enter a Username</label>
                 <input id='teacher-usernmae' type='text' name='username' required></input>
 
-                <label for='teacher-password'>Enter a Password</label>
+                <label htmlFor='teacher-password'>Enter a Password</label>
                 <input id='teacher-password' type='password' 
                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more 
                 characters" name='password' required></input>
 
-                <label for='teacher-firstname'>First Name</label>
+                <label htmlFor='teacher-firstname'>First Name</label>
                 <input id='teacher-firstname' type='text' name='first_name' required></input>
 
-                <label for='teacher-lastname'>Last Name</label>
+                <label htmlFor='teacher-lastname'>Last Name</label>
                 <input id='teacher-lastname' type='text' name='last_name' required></input>
 
-                <label for='teacher-age'>Age</label>
+                <label htmlFor='teacher-age'>Age</label>
                 <input id='teacher-age' type='number' name='age' required></input>
 
-                <label for='teacher-sex'>Gender</label>
+                <label htmlFor='teacher-sex'>Gender</label>
                 <select id='teacher-sex' name='sex' required>
                     <option value='Male'>Male</option>
                     <option value='Female'>Female</option>
                     <option value='Gender Neutral'>Gender-Neutral</option>
                 </select>
 
-                <label for='teacher-nationality'>Nationality</label>
+                <label htmlFor='teacher-nationality'>Nationality</label>
                 <NationalityList id='teacher-nationality'/>
 
-                <label for='race'>Ethnicity</label>
-                <select id='race' name='race' required>
+                <label htmlFor='race'>Ethnicity</label>
+                <select id='race' name='race' defaultValue='' required>
+                    <option value="" disabled>--select one--</option>
                     <option value='African American'>African American</option>
                     <option value='Asain'>Asain</option>
                     <option value='Native American'>Native American</option>
                     <option value='Latino'>Latino</option>
                     <option value='Pacific Islander'>Pacific Islander</option>
                     <option value='Multiracial'>Multiracial</option>
+                    <option value='White'>White</option>
                     <option value='Other'>Other</option>
                 </select>
 
-                <label for='teacher-native-speaker'>Are You A Native Speaker?</label>
-                <select id='teacher-native-speaker' name='native_speaker'>
+                <label htmlFor='teacher-native-speaker'>Are You A Native Speaker?</label>
+                <select id='teacher-native-speaker' name='native_speaker' defaultValue='true' required>
                     <option value='true'>Yes</option>
                     <option value='false'>No</option>
                 </select>
 
-                <label for='teacher-married'>Marraige Satus</label>
-                <select id='teacher-married' name='married' required>
-                    <option value="" selected disabled>--select one--</option>
+                <label htmlFor='teacher-married'>Marraige Satus</label>
+                <select id='teacher-married' name='married' defaultValue="" required>
+                    <option value="" disabled>--select one--</option>
                     <option value='Married'>married</option>
                     <option value='Single'>single</option>
                 </select>
 
-                <label for='teacher-education'>Education</label>
-                <select id="teacher-education" name="highest_degree" required>
-                    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+                <label htmlFor='teacher-education'>Education</label>
+                <select id="teacher-education" name="highest_degree" defaultValue="" required>
+                    <option value="" disabled="disabled">-- select one --</option>
                     <option value="No formal education">No formal education</option>
                     <option value="Primary education">Primary education</option>
                     <option value="Secondary education">Secondary education or high school</option>
@@ -145,9 +143,9 @@ function TeacherRegistrationForm(props) {
                     <option value="Doctorate or higher">Doctorate or higher</option>
                 </select>
 
-                <label for='teacher-degree'>Degree</label>
-                <select id='teacher-degree' name='field_of_degree' required>
-                    <option value='No Degree' selected>No Degree</option>
+                <label htmlFor='teacher-degree'>Degree</label>
+                <select id='teacher-degree' name='field_of_degree' defaultValue="No Degree" required>
+                    <option value='No Degree'>No Degree</option>
                     <option value='English'>English</option>
                     <option value='Business'>Business</option>
                     <option value='Marketing'>Marketing</option>
@@ -155,36 +153,36 @@ function TeacherRegistrationForm(props) {
                     <option value='Other'>Other</option>
                 </select>
 
-                <label for='teacher-school'>School Attended</label>
-                <input id='teacher-school' type='text' name='school' required></input>
+                <label htmlFor='teacher-school'>School Attended</label>
+                <input id='teacher-school' type='text' name='school' defaultValue="None" required></input>
 
-                <label for='teacher-certification'>Certification</label>
-                <select id='teacher-certification' name='certification' required>
+                <label htmlFor='teacher-certification'>Certification</label>
+                <select id='teacher-certification' name='certification' defaultValue="None" required>
                     <option value='None'>None</option>
                     <option value='TEFL'>TEFL</option>
                     <option value='TESOL'>TESOL</option>
                     <option value='TEFL/TESOL'>TEFL/TESOL</option>
                 </select>
 
-                <label for='teacher-experience'>Years Of Experience</label>
-                <select id='teacher-experience' name='years_of_experience' required>
-                    <option value='0' selected>0</option>
+                <label htmlFor='teacher-experience'>Years Of Experience</label>
+                <select id='teacher-experience' name='years_of_experience' defaultValue='0' required>
+                    <option value='0'>0</option>
                     <option value='1'>1</option>
                     <option value='2'>2</option>
                     <option value='3'>3+</option>
                 </select>
 
-                <label for='teacher-experience-inChina'>Years Of Experience Teaching In China</label>
-                <select id='teacher-experience-inChina' name='years_in_china' required>
-                    <option value='0' selected>0</option>
+                <label htmlFor='teacher-experience-inChina'>Years Of Experience Teaching In China</label>
+                <select id='teacher-experience-inChina' name='years_in_china' defaultValue='0' required>
+                    <option value='0'>0</option>
                     <option value='1'>1</option>
                     <option value='2'>2</option>
                     <option value='3'>3+</option>
                 </select>
 
-                <label for='teacher-experience-notChina'>Years Of Experience Teaching - Other Countries</label>
-                <select id='teacher-experience-notChina' name='years_teaching_abroad' required>
-                    <option value='0' selected>0</option>
+                <label htmlFor='teacher-experience-notChina'>Years Of Experience Teaching - Other Countries</label>
+                <select id='teacher-experience-notChina' name='years_teaching_abroad' defaultValue='0' required>
+                    <option value='0'>0</option>
                     <option value='1'>1</option>
                     <option value='2'>2</option>
                     <option value='3'>3+</option>
