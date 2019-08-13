@@ -48,7 +48,12 @@ class NavBar extends Component {
         </li>
         {userType === 'teacher' && <li>
           <NavLink to="/jobs">
-            <FontAwesomeIcon icon="clipboard" /> Apply
+            <FontAwesomeIcon icon="clipboard" /> View Jobs
+          </NavLink>
+        </li>}
+        {userType === 'teacher' && <li>
+          <NavLink to="/applications">
+            <FontAwesomeIcon icon="clipboard" /> Applications
           </NavLink>
         </li>}
         {userType === 'school' && <li>
@@ -56,8 +61,13 @@ class NavBar extends Component {
             <FontAwesomeIcon icon="clipboard" /> Post Job
           </NavLink>
         </li>}
+        {userType === 'school' && <li>
+          <NavLink to="/applications">
+            <FontAwesomeIcon icon="clipboard" /> Applications
+          </NavLink>
+        </li>}
         {userType === 'admin' && <li>
-          <NavLink to="/jobs">
+          <NavLink to="/applications">
             <FontAwesomeIcon icon="clipboard" /> Applications
           </NavLink>
         </li>}
@@ -77,6 +87,11 @@ class NavBar extends Component {
         <li>
           <NavLink to="/about-us">
             About Us
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/jobs">
+            View Jobs
           </NavLink>
         </li>
         <li>

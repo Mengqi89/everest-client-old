@@ -1,18 +1,17 @@
-
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
-import LandingPage from '../../routes/LandingPage/LandingPage'
-import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
-import ProfilePage from '../../routes/ProfilePage/ProfilePage'
-import LoginPage from '../../routes/LoginPage/LoginPage'
-import NavBar from '../../components/NavBar/NavBar'
-import PrivateRoute from '../../components/Utils/PrivateRoute'
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
+import LandingPage from '../../routes/LandingPage/LandingPage';
+import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage';
+import ProfilePage from '../../routes/ProfilePage/ProfilePage';
+import LoginPage from '../../routes/LoginPage/LoginPage';
+import JobsListPage from '../../routes/JobsListPage/JobsListPage';
+import NavBar from '../../components/NavBar/NavBar';
+import PrivateRoute from '../../components/Utils/PrivateRoute';
 import PublicOnlyRoute from '../../components/Utils/PublicOnlyRoute'
 import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
 import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
-import Application from '../Application/Application'
-
+import Application from '../../components/Application/Application'
 
 class App extends React.Component {
   state = {
@@ -33,11 +32,11 @@ class App extends React.Component {
             <PublicOnlyRoute exact path={'/'} component={LandingPage} />
             <Route path={'/login'} component={LoginPage} />
             <Route path={'/register'} component={RegistrationPage} />
-            <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
+            <Route path={'/jobs'} component={JobsListPage} />
             <PrivateRoute path={'/profile'} component={ProfilePage} />
             <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
-            <PrivateRoute path={'/applications'} component={ApplicationsPage} />
-            <PrivateRoute path={'/:jobId/:teacherId'} component={Application} />
+            <PrivateRoute exact path={'/applications'} component={ApplicationsPage} />
+            <PrivateRoute exact path={'/applications/:applicationId'} component={Application} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

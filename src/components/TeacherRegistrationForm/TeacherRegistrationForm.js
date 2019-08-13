@@ -16,7 +16,10 @@ function TeacherRegistrationForm(props) {
             years_in_china, years_teaching_abroad } = ev.target
 
         const newTeacher = {
+<<<<<<< HEAD
             approved: 'false',
+=======
+>>>>>>> master
             username: username.value,
             password: password.value,
             first_name: first_name.value,
@@ -82,7 +85,7 @@ function TeacherRegistrationForm(props) {
                 <input id='teacher-usernmae' type='text' name='username' required></input>
 
                 <label for='teacher-password'>Enter a Password</label>
-                <input id='teacher-password' type='password' pattern="(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" 
+                <input id='teacher-password' type='password' 
                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more 
                 characters" name='password' required></input>
 
