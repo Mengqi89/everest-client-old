@@ -16,7 +16,7 @@ function TeacherRegistrationForm(props) {
             years_in_china, years_teaching_abroad } = ev.target
 
         const newTeacher = {
-            approved: false,
+            approved: 'false',
             username: username.value,
             password: password.value,
             first_name: first_name.value,
