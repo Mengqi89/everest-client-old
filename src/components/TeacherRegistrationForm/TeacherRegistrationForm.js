@@ -108,7 +108,7 @@ function TeacherRegistrationForm(props) {
                 <select id='race' name='race' defaultValue='' required>
                     <option value="" disabled>--select one--</option>
                     <option value='African American'>African American</option>
-                    <option value='Asain'>Asain</option>
+                    <option value='Asian'>Asian</option>
                     <option value='Native American'>Native American</option>
                     <option value='Latino'>Latino</option>
                     <option value='Pacific Islander'>Pacific Islander</option>
