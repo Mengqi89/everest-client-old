@@ -28,6 +28,7 @@ class NavBar extends Component {
   handleLogoutClick = () => {
     this.context.setLoggedIn(false)
     this.props.history.push('/')
+    TokenService.clearUserType()
     TokenService.clearAuthToken()
   }
 

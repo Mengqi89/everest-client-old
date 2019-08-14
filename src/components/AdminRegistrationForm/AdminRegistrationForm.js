@@ -30,6 +30,7 @@ class AdminRegistrationForm extends Component {
                         TokenService.saveAuthToken(res.authToken)
                         TokenService.saveUserType('admin')
                         this.props.history.push('profile')
+                        window.location.reload()
                     })
             })
             .catch(res => {
