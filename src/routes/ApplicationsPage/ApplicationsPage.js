@@ -1,45 +1,25 @@
-import React, { Component } from 'react'
-import ApplicationApiService from '../../services/application-api-service'
-import UserContext from '../../contexts/UserContext'
-import { Link } from 'react-router-dom'
-import TokenService from '../../services/token-service'
-
+import React, { Component } from 'react';
+import UserContext from '../../contexts/UserContext';
+import TokenService from '../../services/token-service';
+import AdminApplications from '../../components/AdminApplications/AdminApplications';
+import SchoolApplications from '../../components/SchoolApplications/SchoolApplications';
 
 class ApplicationsPage extends Component {
-    static contextType = UserContext
+  static contextType = UserContext;
 
-    componentDidMount() {
-        this.context.setUserType(TokenService.getUserType())
-        const { userType } = this.context
-        if (userType === 'admin') {
-            return ApplicationApiService.getAllApplications()
-                .then(applications => this.context.setApplications(applications))
-        }
-        else if (userType === 'school') {
-            const { id } = this.context.user
-            return ApplicationApiService.getApplicationsForSchool(id)
-                .then(applications => this.context.setApplications(applications))
-        }
+  componentDidMount() {
+    this.context.setUserType(TokenService.getUserType());
+  }
+  render() {
+    const { userType } = this.context;
 
-    }
-    render() {
-        const { applications } = this.context
-        console.log('applications', applications)
-        const applicationCards = applications.map((application, index) => <Link key={index} to={{
-            pathname: `/applications/${application.id}`
-        }}>
-            <div>
-                Job Title: {application.job_title}
-            </div>
-        </Link >
-        )
-        return (
-            <div>
-                {applicationCards}
-            </div>
-        )
-    }
+    return (
+      <div className="ApplicationsPage">
+        {userType === 'admin' && <AdminApplications />}
+        {userType === 'school' && <SchoolApplications />}
+      </div>
+    );
+  }
 }
 
-export default ApplicationsPage
-
+export default ApplicationsPage;
