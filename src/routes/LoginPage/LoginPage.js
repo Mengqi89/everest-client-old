@@ -5,19 +5,6 @@ import UserContext from '../../contexts/UserContext';
 
 class LoginPage extends Component {
   static contextType = UserContext
-  // static defaultProps = {
-  //   location: {},
-  //   history: {
-  //     push: () => { },
-  //   },
-  // }
-
-  // handleLoginSuccess = () => {
-  //   const { location, history } = this.props
-  //   const destination = (location.state || {}).from || '/dashboard'
-  //   history.push(destination)
-  // }
-
   handleLoginSuccess = () => {
     this.context.setLoggedIn(true)
   }

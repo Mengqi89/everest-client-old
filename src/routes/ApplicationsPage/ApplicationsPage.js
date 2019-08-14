@@ -13,7 +13,6 @@ class ApplicationsPage extends Component {
   }
   render() {
     const { userType } = this.context;
-
     return (
       <div className="ApplicationsPage">
         {userType === 'admin' && <AdminApplications />}

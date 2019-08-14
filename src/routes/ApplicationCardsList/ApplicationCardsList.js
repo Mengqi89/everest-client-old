@@ -6,6 +6,7 @@ class ApplicationCardsList extends Component {
   static contextType = UserContext;
   render() {
     const { applications } = this.context;
+    console.log(applications)
     const applicationCards = applications.map((application, index) => (
       <div className="ApplicationCard" key={index}>
         <Link

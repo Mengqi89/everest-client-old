@@ -3,7 +3,7 @@ import ApplicationCardsList from '../../routes/ApplicationCardsList/ApplicationC
 import ApplicationApiService from '../../services/application-api-service';
 import UserContext from '../../contexts/UserContext';
 
-class AdminApplications extends Component {
+class TeacherApplications extends Component {
     static contextType = UserContext;
 
     componentDidMount() {
@@ -16,9 +16,10 @@ class AdminApplications extends Component {
 
         return (
             <div className="TeacherApplications">
-                {applications.length && <ApplicationCardsList />}            </div>
+                {applications.length && <ApplicationCardsList />}
+            </div>
         );
     }
 }
 
-export default AdminApplications;
+export default TeacherApplications;
