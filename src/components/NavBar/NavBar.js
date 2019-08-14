@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TokenService from '../../services/token-service'
-// import hasAuthToken from '../../services/token-service'
 import './NavBar.scss';
 import logo from '../../assets/logo-everest-eie.png'
-// import { isThisSecond } from 'date-fns';
 import UserContext from '../../contexts/UserContext'
 
 
@@ -28,6 +26,7 @@ class NavBar extends Component {
   handleLogoutClick = () => {
     this.context.setLoggedIn(false)
     this.props.history.push('/')
+    TokenService.clearUserType()
     TokenService.clearAuthToken()
   }
 

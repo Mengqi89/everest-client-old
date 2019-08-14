@@ -24,14 +24,15 @@ class ApplicationsPage extends Component {
     }
     render() {
         const { applications } = this.context
-        console.log('applications', applications)
-        const applicationCards = applications.map((application, index) => <Link key={index} to={{
-            pathname: `/applications/${application.id}`
-        }}>
-            <div>
-                Job Title: {application.job_title}
-            </div>
-        </Link >
+        console.log(applications)
+        const applicationCards = applications.map((application, index) =>
+            <Link key={index} to={{
+                pathname: `/applications/${application.application_id}`
+            }}>
+                <div>
+                    Job Title: {application.job_title}
+                </div>
+            </Link >
         )
         return (
             <div>

@@ -80,7 +80,7 @@ class EditSchoolForm extends Component {
 
     SchoolApiService.editSchoolProfile(
       newSchoolFields,
-      this.context.user.id
+      this.context.user.admin_id
     ).then(res => {
       if (res.updated) {
         this.props.history.push('/profile');

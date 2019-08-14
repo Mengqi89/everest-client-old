@@ -60,6 +60,18 @@ const ApplicationApiService = {
             .then(res => !res.ok
                 ? res.json().then(e => Promise.reject(e))
                 : res.json())
+    },
+    deleteApplication(applicationId) {
+        return fetch(`${config.API_ENDPOINT}/applications/${applicationId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+
+            }
+        })
+            .then(res => !res.ok
+                ? res.json().then(e => Promise.reject(e))
+                : res.json())
     }
 }
 

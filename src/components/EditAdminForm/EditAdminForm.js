@@ -34,7 +34,7 @@ class EditAdminForm extends Component {
         const { first_name, last_name, username, email, password } = this.state
         console.log(password)
         const updatedAdmin = { first_name, last_name, username, email, password }
-        AdminApiService.updateAdmin(updatedAdmin, this.context.user.id)
+        AdminApiService.updateAdmin(updatedAdmin, this.context.user.admin_id)
             .then(admin => {
                 AdminApiService
                     .postLogin({ username: admin.username, password: this.state.password })

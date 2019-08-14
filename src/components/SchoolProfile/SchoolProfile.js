@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import SchoolApiService from '../../services/school-api-service';
-import './SchoolProfile.scss';
-import UserContext from '../../contexts/UserContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom'
+import SchoolApiService from '../../services/school-api-service'
+import './SchoolProfile.scss'
+import UserContext from '../../contexts/UserContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import TokenService from '../../services/token-service'
 
 class SchoolProfile extends Component {
   static contextType = UserContext
-
 
   componentDidMount() {
     SchoolApiService.getSchoolProfile()
@@ -37,7 +37,10 @@ class SchoolProfile extends Component {
   }
 
   render() {
+    const userType = TokenService.getUserType()
+    this.context.setUserType(userType)
     const { user } = this.context
+
     return (
       <div className="SchoolProfile">
         <h2>School Info</h2>

@@ -90,7 +90,7 @@ class JobsListPage extends Component {
     return (filtered ? filteredJobs : jobs).map(job => (
       <div className="jobs-container">
         <Job
-          key={job.id}
+          key={job.job_id}
           title={job.job_title}
           course={job.course}
           totalSalary={job.total_salary}
@@ -105,7 +105,7 @@ class JobsListPage extends Component {
     return (filtered ? filteredJobs : jobs).map(job => (
       <div className="jobs-container">
         <Job
-          key={job.id}
+          key={job.job_id}
           title={job.job_title}
           course={job.course}
           totalSalary={job.total_salary}
