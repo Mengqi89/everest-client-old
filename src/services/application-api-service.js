@@ -22,8 +22,8 @@ const ApplicationApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  getApplicationsForTeacher(teacherId) {
-    return fetch(`${config.API_ENDPOINT}/applications/teacher/${teacherId}`, {
+  getApplicationsForTeacher() {
+    return fetch(`${config.API_ENDPOINT}/applications/teacher/`, {
       method: 'GET',
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`

@@ -1,19 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import TeacherApiService from '../../services/teacher-api-service';
+import React, { Component } from 'react'
+import UserContext from '../../contexts/UserContext'
+import TeacherApiService from '../../services/teacher-api-service'
+import TokenService from '../../services/token-service'
 
-export default function TeacherProfile() {
-    const [user, setUser] = useState({})
 
+class TeacherProfile extends Component {
+    static contextType = UserContext
 
-    useEffect(() => {
+    componentDidMount() {
         TeacherApiService.getTeacherProfile()
-            .then(res => setUser(res))
-            .catch(error => console.log(error))
-    }, [])
+            .then(profile => this.context.setUser(profile))
+    }
 
-    return (
-        <>
-            <h2>{user.first_name} {user.last_name}</h2>
-        </>
-    )
+    render() {
+        const userType = TokenService.getUserType()
+        this.context.setUserType(userType)
+        const { user } = this.context
+        return (
+            <div className="TeacherProfile">
+                <h2>Teacher Info</h2>
+                <ul>
+                    <li>Name: {user.first_name} {user.last_name}</li>
+                    <li>Username: {user.username}</li>
+                </ul >
+            </div>
+
+        )
+    }
 }
+
+export default TeacherProfile
