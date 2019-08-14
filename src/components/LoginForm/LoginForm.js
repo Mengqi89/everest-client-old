@@ -67,13 +67,13 @@ class LoginForm extends Component {
         .then(res => {
           username.value = ''
           password.value = ''
-
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('teacher')
           this.props.onLoginSuccess()
           this.props.history.push('/profile')
         })
         .catch(res => {
+          console.log(res)
           this.setState({ error: res.error })
         })
     }

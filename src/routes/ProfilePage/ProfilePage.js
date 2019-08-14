@@ -4,11 +4,13 @@ import UserContext from '../../contexts/UserContext';
 import SchoolProfile from '../../components/SchoolProfile/SchoolProfile';
 import AdminProfile from '../../components/AdminProfile/AdminProfile';
 
+
 class ProfilePage extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
     this.context.setUserType(TokenService.getUserType());
+
   }
   render() {
     const { userType } = this.context;
@@ -17,7 +19,7 @@ class ProfilePage extends Component {
         {userType === 'admin' && <AdminProfile />}
         {userType === 'school' && <SchoolProfile />}
         {userType === 'teacher' && <div>Teacher</div>}
-      </section>
+
     );
   }
 }
