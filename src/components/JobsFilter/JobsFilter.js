@@ -12,7 +12,6 @@ export default class JobsFilter extends Component{
             keyword,
             salary,
             gradeLevel,
-            schoolOwnership,
             location,
             filterJobs
         } = this.context
@@ -47,28 +46,14 @@ export default class JobsFilter extends Component{
                         className='form-control'
                         onChange={handleChange}
                     >
-                        <option value='all'>All</option>
+                            <option value='all'>All</option>
                             <option value='kindergarten'>Kindergarten</option>
-                            <option value='1, 2, 3, 4, 5'>Elementary School</option>
-                            <option value='6, 7, 8'>Middle School</option>
-                            <option value='9, 10, 11, 12'>High School</option>
-                            <option value='College'>College</option>
+                            <option value='elementary'>Elementary School</option>
+                            <option value='middle'>Middle School</option>
+                            <option value='high'>High School</option>
+                            <option value='college'>College</option>
                     </select>
                 </div>
-                <div className='form-group'>
-                    <label htmlFor='schoolOwnership'>School Ownership</label>
-                    <select
-                        name='schoolOwnership'
-                        id='schoolOwnership'
-                        value={schoolOwnership}
-                        className='form-control'
-                        onChange={handleChange}
-                    >
-                        <option value={'all'}>All</option>
-                        <option value={'public'}>Public</option>
-                        <option value={'private'}>Private</option>
-                    </select>
-                </div> 
                 <div className='form-group form-input'>
                    <label htmlFor="keyword">Keywords</label>  
                    <input 

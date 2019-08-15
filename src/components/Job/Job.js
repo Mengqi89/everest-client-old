@@ -1,8 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './Job.css'
 
 export default function Job(props) {
+    function toggleHidden(){
+        var element = document.querySelector(".more-details");
+        element.classList.toggle("hidden");
+    }
    return(
         <section className='job'>
             <div>
@@ -15,6 +18,7 @@ export default function Job(props) {
                         <li>total salary: { props.total_salary }</li>
                         <li>minimum degree required: { props.minimum_degree_required }</li>
                         <li>minimum teaching experience required: { props.minimum_experience_required }</li>
+                        <li>Location of school: { props.location }</li>
                        <div className='more-details hidden'>
                             <li>Textbook Used: { props.textbook_used }</li>
                             <li>Number of courses to teach: { props.number_of_courses_to_teach }</li>
@@ -24,7 +28,7 @@ export default function Job(props) {
                             <li>extra duties required: { props.extra_duties_required }</li>
                             <li>hours of extra duties per week: { props.hours_of_extra_duties_per_week }</li>        
                             <li>preferred degree: { props.preferred_degree }</li>
-                            <li>preferred experience_level: { props.preferred_experience_level }</li>
+                            <li>preferred experience level: { props.preferred_experience_level }</li>
                             <li>native english speaker: { props.native_english_speaker }</li>
                             <li>other qualification: { props.other_qualification }</li>
                             <li>base pay per month: { props.base_pay_per_month }</li>
@@ -38,7 +42,7 @@ export default function Job(props) {
                             <li>time off for holidays: { props.time_off_for_holidays }</li>
                         </div>
                     </ul>  
-                    <button>More details</button>
+                    <button onClick={toggleHidden}>More details</button>
                 </section>
                 <button type='submit'>Apply</button>
             </div>

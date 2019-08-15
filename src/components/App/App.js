@@ -11,8 +11,7 @@ import PrivateRoute from '../../components/Utils/PrivateRoute';
 import PublicOnlyRoute from '../../components/Utils/PublicOnlyRoute'
 import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
 import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
-import Application from '../Application/Application'
-
+import Application from '../../components/Application/Application'
 
 class App extends React.Component {
   state = {
@@ -34,11 +33,10 @@ class App extends React.Component {
             <Route path={'/login'} component={LoginPage} />
             <Route path={'/register'} component={RegistrationPage} />
             <Route path={'/jobs'} component={JobPage} />
-            {/* <Route path={'/jobs/:jobId'} component={JobsListPage} /> */}
             <PrivateRoute path={'/profile'} component={ProfilePage} />
             <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
-            <PrivateRoute path={'/applications'} component={ApplicationsPage} />
-            <PrivateRoute path={'/:jobId/:teacherId'} component={Application} />
+            <PrivateRoute exact path={'/applications'} component={ApplicationsPage} />
+            <PrivateRoute exact path={'/applications/:applicationId'} component={Application} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>
