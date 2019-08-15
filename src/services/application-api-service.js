@@ -58,7 +58,8 @@ const ApplicationApiService = {
     return fetch(`${config.API_ENDPOINT}/applications`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        authorization: `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(application)
     }).then(res =>
