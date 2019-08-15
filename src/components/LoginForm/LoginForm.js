@@ -67,7 +67,6 @@ class LoginForm extends Component {
         .then(res => {
           username.value = ''
           password.value = ''
-
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('teacher')
           this.props.onLoginSuccess()

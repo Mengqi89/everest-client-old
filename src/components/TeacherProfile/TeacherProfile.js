@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
-import AdminApiService from '../../services/admin-api-service'
-import './AdminProfile.scss'
+import TeacherApiService from '../../services/teacher-api-service'
 import TokenService from '../../services/token-service'
 
-class AdminProfile extends Component {
+
+class TeacherProfile extends Component {
     static contextType = UserContext
 
     componentDidMount() {
-        AdminApiService.getAdminProfile()
+        TeacherApiService.getTeacherProfile()
             .then(profile => this.context.setUser(profile))
     }
 
@@ -17,11 +17,10 @@ class AdminProfile extends Component {
         // this.context.setUserType(userType)
         const { user } = this.context
         return (
-            <div className="AdminProfile">
-                <h2>Admin Info</h2>
+            <div className="TeacherProfile">
+                <h2>Teacher Info</h2>
                 <ul>
                     <li>Name: {user.first_name} {user.last_name}</li>
-                    <li>Email: {user.email}</li>
                     <li>Username: {user.username}</li>
                 </ul >
             </div>
@@ -30,4 +29,4 @@ class AdminProfile extends Component {
     }
 }
 
-export default AdminProfile
+export default TeacherProfile

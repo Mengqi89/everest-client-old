@@ -13,21 +13,30 @@ class NavBar extends Component {
   static contextType = UserContext
   state = {
     prevScrollpos: window.pageYOffset,
-    visible: true
+    visible: true,
+    userType: null
   }
 
   componentDidMount() {
     if (TokenService.hasAuthToken()) {
       this.context.setLoggedIn(true)
+      this.setState({
+        ...this.state,
+        userType: TokenService.getUserType()
+      })
     }
   }
 
   componentDidUpdate() {
+    if (this.context.userType !== this.state.userType) {
+      this.context.setUserType(this.state.userType)
+    }
   }
 
   handleLogoutClick = () => {
     this.context.setLoggedIn(false)
     this.props.history.push('/')
+    TokenService.clearUserType()
     TokenService.clearAuthToken()
   }
 
@@ -48,7 +57,12 @@ class NavBar extends Component {
         </li>
         {userType === 'teacher' && <li>
           <NavLink to="/jobs">
-            <FontAwesomeIcon icon="clipboard" /> Apply
+            <FontAwesomeIcon icon="clipboard" /> View Jobs
+          </NavLink>
+        </li>}
+        {userType === 'teacher' && <li>
+          <NavLink to="/applications">
+            <FontAwesomeIcon icon="clipboard" /> Applications
           </NavLink>
         </li>}
         {userType === 'school' && <li>
@@ -56,8 +70,13 @@ class NavBar extends Component {
             <FontAwesomeIcon icon="clipboard" /> Post Job
           </NavLink>
         </li>}
+        {userType === 'school' && <li>
+          <NavLink to="/applications">
+            <FontAwesomeIcon icon="clipboard" /> Applications
+          </NavLink>
+        </li>}
         {userType === 'admin' && <li>
-          <NavLink to="/jobs">
+          <NavLink to="/applications">
             <FontAwesomeIcon icon="clipboard" /> Applications
           </NavLink>
         </li>}

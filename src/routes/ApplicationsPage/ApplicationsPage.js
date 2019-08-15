@@ -1,38 +1,26 @@
-import React, { Component } from 'react'
-import ApplicationApiService from '../../services/application-api-service'
-import UserContext from '../../contexts/UserContext'
-import { Link } from 'react-router-dom'
-
+import React, { Component } from 'react';
+import UserContext from '../../contexts/UserContext';
+import TokenService from '../../services/token-service';
+import AdminApplications from '../../components/AdminApplications/AdminApplications';
+import SchoolApplications from '../../components/SchoolApplications/SchoolApplications';
+import TeacherApplications from '../../components/TeacherApplications/TeacherApplications'
 
 class ApplicationsPage extends Component {
-    static contextType = UserContext
+  static contextType = UserContext;
 
-
-    componentDidMount() {
-        ApplicationApiService.getAllApplications()
-            .then(applications => this.context.setApplications(applications))
-    }
-    render() {
-        //applications are joined tables between everest_teachers and everest_jobs
-        //everest_jobs needs a key 
-        const { applications } = this.context
-        console.log(applications)
-        //need to build endpoint for GetApplicationById
-        const applicationCards = applications.map((application, index) => <Link key={index} to={{
-            pathname: `/${application.job}/${application.teacher}`
-        }}>
-            <div>
-                Job Title: {application.job_title}
-            </div>
-        </Link >
-        )
-        return (
-            <div>
-                {applicationCards}
-            </div>
-        )
-    }
+  componentDidMount() {
+    this.context.setUserType(TokenService.getUserType());
+  }
+  render() {
+    const { userType } = this.context;
+    return (
+      <div className="ApplicationsPage">
+        {userType === 'admin' && <AdminApplications />}
+        {userType === 'school' && <SchoolApplications />}
+        {userType === 'teacher' && <TeacherApplications />}
+      </div>
+    );
+  }
 }
 
-export default ApplicationsPage
-
+export default ApplicationsPage;

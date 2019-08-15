@@ -12,6 +12,7 @@ import PublicOnlyRoute from '../../components/Utils/PublicOnlyRoute'
 import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
 import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
 import Application from '../../components/Application/Application'
+import JobApplyPage from '../../routes/JobApplyPage/JobApplyPage';
 
 class App extends React.Component {
   state = {
@@ -32,7 +33,8 @@ class App extends React.Component {
             <PublicOnlyRoute exact path={'/'} component={LandingPage} />
             <Route path={'/login'} component={LoginPage} />
             <Route path={'/register'} component={RegistrationPage} />
-            <Route path={'/jobs'} component={JobPage} />
+            <Route exact path={'/jobs'} component={JobPage} />
+            <Route exact path={'/jobs/:jobId/apply'} component={JobApplyPage} />
             <PrivateRoute path={'/profile'} component={ProfilePage} />
             <PrivateRoute path={'/edit-profile'} component={EditProfilePage} />
             <PrivateRoute exact path={'/applications'} component={ApplicationsPage} />

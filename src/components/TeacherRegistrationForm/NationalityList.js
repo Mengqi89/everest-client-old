@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function NationalityList(props) {
     return (
-        <select id={props.id} name="nationality" required>
+        <select id={props.id} name="nationality" defaultValue='' required>
             <option value="">-- select one --</option>
             <option value="afghan">Afghan</option>
             <option value="albanian">Albanian</option>
