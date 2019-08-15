@@ -20,3 +20,7 @@
 .job button {
     margin-right: 1em;
 }
+.hidden {
+    display: none;
+}
+

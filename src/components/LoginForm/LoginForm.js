@@ -80,6 +80,7 @@ class LoginForm extends Component {
 
   render() {
     const { error } = this.state
+    console.log(error)
 
     return (
       <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>

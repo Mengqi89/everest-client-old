@@ -71,6 +71,7 @@ function TeacherRegistrationForm(props) {
 
     return (
         <section>
+            {console.log(error)}
             <h3>Your teaching experience in China begins here!</h3>
             <form className='form teacher-registration' onSubmit={handleSubmit}>
                 <div role='alert'>
