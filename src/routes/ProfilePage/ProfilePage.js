@@ -19,7 +19,7 @@ class ProfilePage extends Component {
         {userType === 'admin' && <AdminProfile />}
         {userType === 'school' && <SchoolProfile />}
         {userType === 'teacher' && <div>Teacher</div>}
-
+      </section>
     );
   }
 }
