@@ -9,7 +9,6 @@ import TokenService from '../../services/token-service'
 class SchoolProfile extends Component {
   static contextType = UserContext
 
-
   componentDidMount() {
     SchoolApiService.getSchoolProfile()
       .then(profile => this.context.setUser(profile))
@@ -38,8 +37,8 @@ class SchoolProfile extends Component {
   }
 
   render() {
-    const userType = TokenService.getUserType()
-    this.context.setUserType(userType)
+    // const userType = TokenService.getUserType()
+    // this.context.setUserType(userType)
     const { user } = this.context
     return (
       <div className="SchoolProfile">

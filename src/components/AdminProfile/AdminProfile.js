@@ -13,8 +13,8 @@ class AdminProfile extends Component {
     }
 
     render() {
-        const userType = TokenService.getUserType()
-        this.context.setUserType(userType)
+        // const userType = TokenService.getUserType()
+        // this.context.setUserType(userType)
         const { user } = this.context
         return (
             <div className="AdminProfile">
