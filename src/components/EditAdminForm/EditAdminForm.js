@@ -15,6 +15,12 @@ class EditAdminForm extends Component {
         password: '',
         hasError: null
     }
+
+    componentDidMount() {
+        AdminApiService.getAdminProfile()
+            .then(profile => this.context.setUser(profile))
+    }
+
     handleUpdate = (ev) => {
         const key = ev.target.name
         this.setState({
@@ -45,6 +51,7 @@ class EditAdminForm extends Component {
 
     render() {
         const { hasError } = this.state
+        const { user } = this.context
         return (
             <form className="EditAdminForm" onSubmit={this.handleFormSubmit}>
                 <div>
@@ -54,16 +61,16 @@ class EditAdminForm extends Component {
                     {hasError && <p className='red'>{hasError}</p>}
                 </div>
                 <label htmlFor="first_name">First Name: </label>
-                <input type="text" value={this.state.first_name} name="first_name" id="first_name" onChange={this.handleUpdate}></input>
+                <input type="text" value={user.first_name} name="first_name" id="first_name" onChange={this.handleUpdate}></input>
 
                 <label htmlFor="last_name">Last Name: </label>
-                <input type="text" value={this.state.last_name} name="last_name" id="last_name" onChange={this.handleUpdate}></input>
+                <input type="text" value={user.last_name} name="last_name" id="last_name" onChange={this.handleUpdate}></input>
 
                 <label htmlFor="email">Email: </label>
-                <input type="email" value={this.state.email} name="email" id="email" onChange={this.handleUpdate}></input>
+                <input type="email" value={user.email} name="email" id="email" onChange={this.handleUpdate}></input>
 
                 <label htmlFor="password">Password: </label>
-                <input type="password" value={this.state.password} name="password" id="password" onChange={this.handleUpdate}></input>
+                <input type="password" name="password" id="password" onChange={this.handleUpdate}></input>
 
                 <button type="reset" onClick={this.clearState}>Reset</button>
                 <button type="submit">Submit</button>
