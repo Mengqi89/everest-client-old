@@ -13,21 +13,30 @@ class NavBar extends Component {
   static contextType = UserContext
   state = {
     prevScrollpos: window.pageYOffset,
-    visible: true
+    visible: true,
+    userType: null
   }
 
   componentDidMount() {
     if (TokenService.hasAuthToken()) {
       this.context.setLoggedIn(true)
+      this.setState({
+        ...this.state,
+        userType: TokenService.getUserType()
+      })
     }
   }
 
   componentDidUpdate() {
+    if (this.context.userType !== this.state.userType) {
+      this.context.setUserType(this.state.userType)
+    }
   }
 
   handleLogoutClick = () => {
     this.context.setLoggedIn(false)
     this.props.history.push('/')
+    TokenService.clearUserType()
     TokenService.clearAuthToken()
   }
 
