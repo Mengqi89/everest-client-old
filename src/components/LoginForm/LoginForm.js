@@ -73,7 +73,6 @@ class LoginForm extends Component {
           this.props.history.push('/profile')
         })
         .catch(res => {
-          console.log(res)
           this.setState({ error: res.error })
         })
     }

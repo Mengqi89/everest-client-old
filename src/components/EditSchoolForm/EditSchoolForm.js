@@ -91,7 +91,6 @@ class EditSchoolForm extends Component {
   handleFormSubmit = ev => {
     ev.preventDefault();
 
-    // console.log(ev.target.curriculum.value);
   };
 
   render() {

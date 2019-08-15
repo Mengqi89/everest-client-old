@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
-import UserContext from '../../contexts/UserContext';
 import SchoolProfile from '../../components/SchoolProfile/SchoolProfile';
 import AdminProfile from '../../components/AdminProfile/AdminProfile';
+import TeacherProfile from '../../components/TeacherProfile/TeacherProfile';
 
 
 class ProfilePage extends Component {
-  static contextType = UserContext;
+  state = { userType: '' }
 
   componentDidMount() {
-    this.context.setUserType(TokenService.getUserType());
-
+    const userType = TokenService.getUserType()
+    this.setState({ userType })
   }
+
   render() {
-    const { userType } = this.context;
     return (
       <section className="ProfilePage">
-        {userType === 'admin' && <AdminProfile />}
-        {userType === 'school' && <SchoolProfile />}
-        {userType === 'teacher' && <div>Teacher</div>}
-
+        {this.state.userType === 'admin' && <AdminProfile />}
+        {this.state.userType === 'school' && <SchoolProfile />}
+        {this.state.userType === 'teacher' && <TeacherProfile />}
+      </section>
     );
   }
 }

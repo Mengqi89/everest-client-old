@@ -32,7 +32,6 @@ class EditAdminForm extends Component {
     handleFormSubmit = (ev) => {
         ev.preventDefault()
         const { first_name, last_name, username, email, password } = this.state
-        console.log(password)
         const updatedAdmin = { first_name, last_name, username, email, password }
         AdminApiService.updateAdmin(updatedAdmin, this.context.user.id)
             .then(admin => {

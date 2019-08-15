@@ -10,6 +10,9 @@ const TokenService = {
   getUserType() {
     return window.localStorage.getItem("user_type")
   },
+  clearUserType() {
+    return window.localStorage.removeItem("user_type")
+  },
   getAuthToken() {
     return window.localStorage.getItem(config.TOKEN_KEY)
   },

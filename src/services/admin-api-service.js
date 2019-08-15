@@ -28,7 +28,6 @@ const AdminApiService = {
                     : res.json())
     },
     updateAdmin(updatedAdmin, id) {
-        console.log(updatedAdmin)
         return fetch(`${config.API_ENDPOINT}/admins/admin/${id}`, {
             method: 'PATCH',
             headers: {
