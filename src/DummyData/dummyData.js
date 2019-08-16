@@ -40,3 +40,5 @@ const TEACHER = [
         yearsTeachingAbroad: 1,
     }
 ]
+
+module.exports = TEACHER

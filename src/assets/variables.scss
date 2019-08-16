@@ -1,19 +1,33 @@
 $accent-color: rgb(79, 185, 132);
 $accent-red: rgb(212, 91, 91);
+$white: rgb(240, 240, 240);
+$nav-bar-height: 3.4em;
+$border-radius-small: 10px;
+$border-radius-medium: 20px;
+$border-radius-large: 40px;
+
+@mixin box-shadow-reg {
+  -webkit-box-shadow: -1px 17px 35px -8px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: -1px 17px 35px -8px rgba(0, 0, 0, 0.24);
+  box-shadow: -1px 17px 35px -8px rgba(0, 0, 0, 0.24);
+}
+
+
 @mixin border-button($color: $accent-color) {
- color: $accent-color;
+  color: $accent-color;
   border: 1px solid rgb(209, 209, 209);
   border-radius: 10px;
   padding: .5em 1em;
   cursor: pointer;
+
   &:hover {
-      background: white;
-    }
+    background: white;
+  }
 }
 
 @mixin green-button($color: $accent-color) {
   font-family: 'Monserrat', sans-serif;
- font-weight: 500;
+  font-weight: 500;
   padding: .5em 1em;
   font-size: 1em;
   border: none;
@@ -22,15 +36,27 @@ $accent-red: rgb(212, 91, 91);
   color: white;
   text-decoration: none;
   margin-top: 1em;
-  -webkit-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.6);
-  -moz-box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.6);
-  box-shadow: -1px 17px 35px -8px rgba(0,0,0,0.6);
+  -webkit-box-shadow: -1px 17px 35px -8px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: -1px 17px 35px -8px rgba(0, 0, 0, 0.6);
+  box-shadow: -1px 17px 35px -8px rgba(0, 0, 0, 0.6);
   transition-duration: 1.2s;
   cursor: pointer;
+
   &:hover {
-      transform: translate(4px, 6px);
-      background: rgb(55, 128, 91); 
-      color: rgb(199, 199, 199);
-      box-shadow: none;
-    }
+    transform: translate(4px, 6px);
+    background: rgb(55, 128, 91);
+    color: rgb(199, 199, 199);
+    box-shadow: none;
+  }
+}
+
+@mixin input-big {
+  width: 240px;
+  height: 30px;
+  padding: 10px 20px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
 }

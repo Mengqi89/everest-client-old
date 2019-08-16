@@ -19,7 +19,8 @@ class AutosuggestDropdown extends React.Component {
         name: 'A-Level'
       }
     ],
-    placeholder: ''
+    placeholder: '',
+    onChange: () => { }
   };
   constructor() {
     super();
@@ -31,6 +32,7 @@ class AutosuggestDropdown extends React.Component {
   }
 
   onChange = (event, { newValue }) => {
+    this.props.onChange(newValue)
     this.setState({
       value: newValue
     });
@@ -43,8 +45,8 @@ class AutosuggestDropdown extends React.Component {
     return inputLength === 0
       ? []
       : this.props.choices.filter(
-          lang => lang.name.toLowerCase().slice(0, inputLength) === inputValue
-        );
+        lang => lang.name.toLowerCase().slice(0, inputLength) === inputValue
+      );
   };
 
   onSuggestionsFetchRequested = ({ value }) => {

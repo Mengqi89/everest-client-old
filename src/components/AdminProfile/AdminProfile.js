@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import AdminApiService from '../../services/admin-api-service'
 import './AdminProfile.scss'
-import TokenService from '../../services/token-service'
 
 class AdminProfile extends Component {
     static contextType = UserContext

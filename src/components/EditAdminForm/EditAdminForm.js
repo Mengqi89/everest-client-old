@@ -1,24 +1,30 @@
 import React, { Component } from 'react'
-import UserContext from '../../contexts/UserContext'
 import AdminApiService from '../../services/admin-api-service'
 import { withRouter } from 'react-router-dom'
-// import TokenService from '../../services/token-service'
 
 class EditAdminForm extends Component {
-    static contextType = UserContext
 
     state = {
-        first_name: this.context.user.first_name,
-        last_name: this.context.user.last_name,
-        username: this.context.user.username,
-        email: this.context.user.email,
+        first_name: '',
+        last_name: '',
+        username: '',
+        email: '',
         password: '',
+        user_id: '',
         hasError: null
     }
 
     componentDidMount() {
         AdminApiService.getAdminProfile()
-            .then(profile => this.context.setUser(profile))
+            .then(profile => {
+                this.setState({
+                    first_name: profile.first_name,
+                    last_name: profile.last_name,
+                    username: profile.username,
+                    email: profile.email,
+                    user_id: profile.id
+                })
+            })
     }
 
     handleUpdate = (ev) => {
@@ -39,7 +45,7 @@ class EditAdminForm extends Component {
         ev.preventDefault()
         const { first_name, last_name, username, email, password } = this.state
         const updatedAdmin = { first_name, last_name, username, email, password }
-        AdminApiService.updateAdmin(updatedAdmin, this.context.user.id)
+        AdminApiService.updateAdmin(updatedAdmin, this.state.user_id)
             .then(admin => {
                 AdminApiService
                     .postLogin({ username: admin.username, password: this.state.password })
@@ -51,7 +57,6 @@ class EditAdminForm extends Component {
 
     render() {
         const { hasError } = this.state
-        const { user } = this.context
         return (
             <form className="EditAdminForm" onSubmit={this.handleFormSubmit}>
                 <div>
@@ -61,13 +66,13 @@ class EditAdminForm extends Component {
                     {hasError && <p className='red'>{hasError}</p>}
                 </div>
                 <label htmlFor="first_name">First Name: </label>
-                <input type="text" value={user.first_name} name="first_name" id="first_name" onChange={this.handleUpdate}></input>
+                <input type="text" value={this.state.first_name} name="first_name" id="first_name" onChange={this.handleUpdate}></input>
 
                 <label htmlFor="last_name">Last Name: </label>
-                <input type="text" value={user.last_name} name="last_name" id="last_name" onChange={this.handleUpdate}></input>
+                <input type="text" value={this.state.last_name} name="last_name" id="last_name" onChange={this.handleUpdate}></input>
 
                 <label htmlFor="email">Email: </label>
-                <input type="email" value={user.email} name="email" id="email" onChange={this.handleUpdate}></input>
+                <input type="email" value={this.state.email} name="email" id="email" onChange={this.handleUpdate}></input>
 
                 <label htmlFor="password">Password: </label>
                 <input type="password" name="password" id="password" onChange={this.handleUpdate}></input>

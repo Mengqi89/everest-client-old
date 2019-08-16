@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import TeacherApiService from '../../services/teacher-api-service'
-import TokenService from '../../services/token-service'
 
 
 class TeacherProfile extends Component {
@@ -13,8 +12,6 @@ class TeacherProfile extends Component {
     }
 
     render() {
-        // const userType = TokenService.getUserType()
-        // this.context.setUserType(userType)
         const { user } = this.context
         return (
             <div className="TeacherProfile">

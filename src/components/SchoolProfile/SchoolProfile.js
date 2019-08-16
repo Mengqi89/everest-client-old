@@ -4,7 +4,6 @@ import SchoolApiService from '../../services/school-api-service';
 import './SchoolProfile.scss';
 import UserContext from '../../contexts/UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TokenService from '../../services/token-service'
 
 class SchoolProfile extends Component {
   static contextType = UserContext

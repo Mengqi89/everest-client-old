@@ -5,6 +5,7 @@ import './EditSchoolForm.scss';
 import SchoolApiService from '../../services/school-api-service';
 import AutosuggestDropdown from '../AutosuggestDropdown/AutosuggestDropdown';
 
+// eslint-disable-next-line
 const schoolKeys = [
   'school_name',
   'school_type',
@@ -50,38 +51,15 @@ const schoolKeys = [
 class EditSchoolForm extends Component {
   static contextType = UserContext;
 
-  componentDidMount() {
-    SchoolApiService.getSchoolProfile()
-      .then(profile => this.context.setUser(profile))
+  state = {
+
   }
-
-  renderSchoolLabelsAndInputs = user => {
-    const arrayOfKeys = schoolKeys;
-
-    const elementsArray = [];
-
-    arrayOfKeys.forEach((key, i) => {
-      elementsArray.push(
-        <label key={i} htmlFor={key}>
-          {jsUcfirst(key.replace(/_/g, ' ')) + ': '}
-        </label>
-      );
-      elementsArray.push(
-        <input key={i + 'input'} id={key} placeholder={user[key]} />
-      );
-    });
-
-    return elementsArray;
-  };
 
   handleSchoolEditSubmit = ev => {
     ev.preventDefault();
-    const newSchoolFields = {};
-    schoolKeys.forEach(key => {
-      if (ev.target[key].value) {
-        newSchoolFields[key] = ev.target[key].value;
-      }
-    });
+    const newSchoolFields = {
+      ...this.state
+    };
 
     SchoolApiService.editSchoolProfile(
       newSchoolFields,
@@ -94,19 +72,26 @@ class EditSchoolForm extends Component {
   };
 
   handleFormSubmit = ev => {
-    ev.preventDefault();
-
+    ev.preventDefault()
   };
+
+
+
+  handleUpdateInputBasic = (ev) => {
+    this.setState({
+      [ev.target.id]: ev.target.value
+    })
+  }
 
   render() {
     const { user } = this.context;
     return (
       <div className="EditSchoolForm">
         <h2>Editing {user.school_name}</h2>
-        <form onSubmit={this.handleFormSubmit} id="school_basic_info">
+        <form onSubmit={this.handleSchoolEditSubmit} id="school_basic_info">
           <legend>I. Basic Information</legend>
-          <label htmlFor="school_name">School name: </label>
-          <input id="school_name" placeholder={user.school_name} type="text" />
+          <label htmlFor="school_name" >School name: </label>
+          <input id="school_name" placeholder={user.school_name} type="text" onChange={(ev) => this.handleUpdateInputBasic(ev)} />
           <label htmlFor="school_type">School type: </label>
           <AutosuggestDropdown
             id="school_type"
@@ -122,9 +107,10 @@ class EditSchoolForm extends Component {
             type="number"
             id="school_size"
             placeholder={user.school_size}
+            onChange={(ev) => this.handleUpdateInputBasic(ev)}
           />
           <label htmlFor="public_or_private">Public or private? </label>
-          <select name="public_or_private" id="public_or_private">
+          <select name="public_or_private" id="public_or_private" onChange={(ev) => this.handleUpdateInputBasic(ev)}>
             <option value="public">Public</option>
             <option value="private">Private</option>
           </select>
@@ -132,7 +118,7 @@ class EditSchoolForm extends Component {
           <AutosuggestDropdown
             id="curriculum"
             choices={[{ name: 'AP' }, { name: 'IGSE' }, { name: 'A-Level' }]}
-            placeholder="Type a level"
+            placeholder={user.curriculum}
           />
           <label htmlFor="location">Location</label>
           <AutosuggestDropdown
@@ -146,12 +132,13 @@ class EditSchoolForm extends Component {
             placeholder="Type a city in China"
           />
           <label htmlFor="notable_facts">Notable facts: </label>
-          <textarea id="notable_facts" placeholder={user.notable_facts} />
+          <textarea id="notable_facts" placeholder={user.notable_facts} onChange={(ev) => this.handleUpdateInputBasic(ev)} />
           <label htmlFor="school_website">Notable facts: </label>
           <input
             id="school_website"
             type="text"
             placeholder={user.school_website}
+            onChange={(ev) => this.handleUpdateInputBasic(ev)}
           />
 
           <button type="submit">Submit</button>
@@ -180,7 +167,7 @@ class EditSchoolForm extends Component {
             type="text"
           />
           <label htmlFor="shared_or_private_living_space">
-            Is the room shared?
+            Is the room shared or private?
           </label>
           <select id="shared_or_private_living_space">
             <option value="shared">Shared</option>
@@ -401,7 +388,3 @@ class EditSchoolForm extends Component {
 }
 
 export default withRouter(EditSchoolForm);
-
-function jsUcfirst(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
