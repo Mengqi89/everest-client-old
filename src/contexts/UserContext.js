@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
 
+export const nullSchoolUser = {
+    housingInformation: {},
+    insuranceInformation: {},
+    visaInformation: {},
+    otherServices: {},
+    lifestyleInformation: {}
+}
+
 const UserContext = React.createContext({
     loggedIn: null,
     setLoggedIn: () => { },
@@ -16,7 +24,7 @@ export default UserContext
 export function UserProvider(props) {
     const [loggedIn, setLoggedIn] = useState(null)
     const [userType, setUserType] = useState('')
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState(nullSchoolUser)
     const [applications, setApplications] = useState([])
 
     const setLoggedInFn = loggedIn => {

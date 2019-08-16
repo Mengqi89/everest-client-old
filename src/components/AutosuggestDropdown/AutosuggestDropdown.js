@@ -20,7 +20,7 @@ class AutosuggestDropdown extends React.Component {
       }
     ],
     placeholder: '',
-    onChange: () => { }
+    id: ''
   };
   constructor() {
     super();
@@ -32,7 +32,7 @@ class AutosuggestDropdown extends React.Component {
   }
 
   onChange = (event, { newValue }) => {
-    this.props.onChange(newValue)
+    this.props.handleChange(newValue, this.props.id)
     this.setState({
       value: newValue
     });
@@ -62,6 +62,7 @@ class AutosuggestDropdown extends React.Component {
   };
 
   render() {
+    // console.log(this.props.id)
     const { value, suggestions } = this.state;
 
     const inputProps = {
