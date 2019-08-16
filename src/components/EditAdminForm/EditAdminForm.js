@@ -1,20 +1,32 @@
 import React, { Component } from 'react'
-import UserContext from '../../contexts/UserContext'
 import AdminApiService from '../../services/admin-api-service'
 import { withRouter } from 'react-router-dom'
-// import TokenService from '../../services/token-service'
 
 class EditAdminForm extends Component {
-    static contextType = UserContext
 
     state = {
-        first_name: this.context.user.first_name,
-        last_name: this.context.user.last_name,
-        username: this.context.user.username,
-        email: this.context.user.email,
+        first_name: '',
+        last_name: '',
+        username: '',
+        email: '',
         password: '',
+        user_id: '',
         hasError: null
     }
+
+    componentDidMount() {
+        AdminApiService.getAdminProfile()
+            .then(profile => {
+                this.setState({
+                    first_name: profile.first_name,
+                    last_name: profile.last_name,
+                    username: profile.username,
+                    email: profile.email,
+                    user_id: profile.id
+                })
+            })
+    }
+
     handleUpdate = (ev) => {
         const key = ev.target.name
         this.setState({
@@ -32,9 +44,8 @@ class EditAdminForm extends Component {
     handleFormSubmit = (ev) => {
         ev.preventDefault()
         const { first_name, last_name, username, email, password } = this.state
-        console.log(password)
         const updatedAdmin = { first_name, last_name, username, email, password }
-        AdminApiService.updateAdmin(updatedAdmin, this.context.user.id)
+        AdminApiService.updateAdmin(updatedAdmin, this.state.user_id)
             .then(admin => {
                 AdminApiService
                     .postLogin({ username: admin.username, password: this.state.password })
@@ -64,7 +75,7 @@ class EditAdminForm extends Component {
                 <input type="email" value={this.state.email} name="email" id="email" onChange={this.handleUpdate}></input>
 
                 <label htmlFor="password">Password: </label>
-                <input type="password" value={this.state.password} name="password" id="password" onChange={this.handleUpdate}></input>
+                <input type="password" name="password" id="password" onChange={this.handleUpdate}></input>
 
                 <button type="reset" onClick={this.clearState}>Reset</button>
                 <button type="submit">Submit</button>

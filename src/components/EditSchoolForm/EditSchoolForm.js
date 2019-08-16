@@ -73,7 +73,6 @@ class EditSchoolForm extends Component {
 
   handleFormSubmit = ev => {
     ev.preventDefault()
-    console.log(this.state)
   };
 
 
@@ -158,13 +157,13 @@ class EditSchoolForm extends Component {
           </label>
           <input
             id="housing_assistance"
-            placeholder={user.housingInformation.housing_assistance}
+            placeholder={user.housing_assistance}
             type="text"
           />
           <label htmlFor="size_of_housing">Size and number of rooms: </label>
           <input
             id="size_of_housing"
-            placeholder={user.housingInformation.size_of_housing}
+            placeholder={user.size_of_housing}
             type="text"
           />
           <label htmlFor="shared_or_private_living_space">
@@ -177,7 +176,7 @@ class EditSchoolForm extends Component {
           <label htmlFor="housing_notes">Housing notes: </label>
           <input
             id="housing_notes"
-            placeholder={user.housingInformation.housing_notes}
+            placeholder={user.housing_notes}
             type="text"
           />
           <label htmlFor="housing_on_or_off">
@@ -193,7 +192,7 @@ class EditSchoolForm extends Component {
           </label>
           <input
             id="time_to_get_to_class"
-            placeholder={user.housingInformation.time_to_get_to_class}
+            placeholder={user.time_to_get_to_class}
             type="text"
           />
           <label htmlFor="distance_to_public_trans">
@@ -201,7 +200,7 @@ class EditSchoolForm extends Component {
           </label>
           <input
             id="distance_to_public_trans"
-            placeholder={user.housingInformation.distance_to_public_trans}
+            placeholder={user.distance_to_public_trans}
             type="text"
           />
           <label htmlFor="school_charge_rent">
@@ -214,7 +213,7 @@ class EditSchoolForm extends Component {
           <label htmlFor="school_rent_notes">Rent notes: </label>
           <input
             id="school_rent_notes"
-            placeholder={user.housingInformation.school_rent_notes}
+            placeholder={user.school_rent_notes}
             type="text"
           />
           <label htmlFor="school_charge_utils">
@@ -227,7 +226,7 @@ class EditSchoolForm extends Component {
           <label htmlFor="school_utils_notes">Utility notes: </label>
           <input
             id="school_utils_notes"
-            placeholder={user.housingInformation.school_utils_notes}
+            placeholder={user.school_utils_notes}
             type="text"
           />
           <label htmlFor="furnished">Is the apartment furnished?</label>
@@ -239,25 +238,25 @@ class EditSchoolForm extends Component {
           <label htmlFor="furnished_notes">Furnishing notes: </label>
           <input
             id="furnished_notes"
-            placeholder={user.housingInformation.furnished_notes}
+            placeholder={user.furnished_notes}
             type="text"
           />
           <label htmlFor="appliances_included">Appliances included: </label>
           <input
             id="appliances_included"
-            placeholder={user.housingInformation.appliances_included}
+            placeholder={user.appliances_included}
             type="text"
           />
           <label htmlFor="internet">Internet: </label>
           <input
             id="internet"
-            placeholder={user.housingInformation.internet}
+            placeholder={user.internet}
             type="text"
           />
           <label htmlFor="computer_included">Computer included: </label>
           <input
             id="computer_included"
-            placeholder={user.housingInformation.computer_included}
+            placeholder={user.computer_included}
             type="text"
           />
           <button type="submit">Submit</button>
@@ -277,7 +276,7 @@ class EditSchoolForm extends Component {
           <label htmlFor="provided_insurance_notes">Insurance notes: </label>
           <input
             id="provided_insurance_notes"
-            placeholder={user.insuranceInformation.provided_insurance_notes}
+            placeholder={user.provided_insurance_notes}
             type="text"
           />
           <label htmlFor="medical_expeneses_paid">
@@ -285,7 +284,7 @@ class EditSchoolForm extends Component {
           </label>
           <input
             id="medical_expeneses_paid"
-            placeholder={user.insuranceInformation.medical_expeneses_paid}
+            placeholder={user.medical_expeneses_paid}
             type="text"
           />
           <label htmlFor="disability_insurance">
@@ -318,7 +317,7 @@ class EditSchoolForm extends Component {
           </label>
           <input
             id="school_pay_work_visa"
-            placeholder={user.visaInformation.school_pay_work_visa}
+            placeholder={user.school_pay_work_visa}
             type="text"
           />
           <label htmlFor="school_reimburse_costs_for_obtaining_visa_in_us">
@@ -366,7 +365,7 @@ class EditSchoolForm extends Component {
           <input
             id="other_western_teachers_at_school"
             placeholder={
-              user.lifestyleInformation.other_western_teachers_at_school
+              user.other_western_teachers_at_school
             }
             type="number"
           />
@@ -376,7 +375,7 @@ class EditSchoolForm extends Component {
           <input
             id="western_amenities_available_near_school_town"
             placeholder={
-              user.lifestyleInformation
+              user
                 .western_amenities_available_near_school_town
             }
             type="text"

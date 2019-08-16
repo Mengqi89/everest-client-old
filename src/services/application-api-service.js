@@ -22,8 +22,8 @@ const ApplicationApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  getApplicationsForTeacher(teacherId) {
-    return fetch(`${config.API_ENDPOINT}/applications/teacher/${teacherId}`, {
+  getApplicationsForTeacher() {
+    return fetch(`${config.API_ENDPOINT}/applications/teacher/`, {
       method: 'GET',
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`
@@ -58,12 +58,24 @@ const ApplicationApiService = {
     return fetch(`${config.API_ENDPOINT}/applications`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        authorization: `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(application)
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+  deleteApplication(applicationId) {
+    return fetch(`${config.API_ENDPOINT}/applications/${applicationId}`, {
+      method: 'DELETE',
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      .then(res => !res.ok
+        ? res.json().then(e => Promise.reject(e))
+        : res.json())
   }
 };
 

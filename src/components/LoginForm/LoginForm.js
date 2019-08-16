@@ -3,12 +3,13 @@ import { withRouter } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import SchoolApiService from '../../services/school-api-service'
 import AdminApiService from '../../services/admin-api-service'
-// import TeacherApiService from '../../services/teacher-api-service'
-
 import './LoginForm.scss'
 import TeacherApiService from '../../services/teacher-api-service';
+import UserContext from '../../contexts/UserContext';
 
 class LoginForm extends Component {
+  static contextType = UserContext
+
   state = {
     userType: null,
     error: null
@@ -34,6 +35,7 @@ class LoginForm extends Component {
 
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('school')
+          this.context.setUserType('school')
           this.props.history.push('/profile')
         })
         .then(() => this.props.onLoginSuccess())
@@ -52,6 +54,7 @@ class LoginForm extends Component {
 
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('admin')
+          this.context.setUserType('admin')
           this.props.history.push('/profile')
         })
         .then(() => this.props.onLoginSuccess())
@@ -69,11 +72,11 @@ class LoginForm extends Component {
           password.value = ''
           TokenService.saveAuthToken(res.authToken)
           TokenService.saveUserType('teacher')
+          this.context.setUserType('teacher')
           this.props.onLoginSuccess()
           this.props.history.push('/profile')
         })
         .catch(res => {
-          console.log(res)
           this.setState({ error: res.error })
         })
     }

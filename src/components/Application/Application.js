@@ -3,6 +3,7 @@ import ApplicationApiService from '../../services/application-api-service'
 import './Application.css'
 import UserContext from '../../contexts/UserContext'
 import TokenService from '../../services/token-service'
+import { withRouter } from 'react-router-dom'
 
 
 class Application extends Component {
@@ -13,12 +14,11 @@ class Application extends Component {
     }
 
     renderApproveButton() {
-        const application = this.state.application !== null ? this.state.application[0] : {}
-        console.log(application)
+        const application = this.state.application !== null ? this.state.application : {}
         if (this.context.userType === "admin") {
             return (application.application_approved === false
-                ? <button onClick={(ev) => this.toggleAppApproval(ev, application.id, application.application_approved)}>Approve</button>
-                : <button onClick={(ev) => this.toggleAppApproval(ev, application.id, application.application_approved)}>Disaprove</button>)
+                ? <button onClick={(ev) => this.toggleAppApproval(ev, application.app_id, application.application_approved)}>Approve</button>
+                : <button onClick={(ev) => this.toggleAppApproval(ev, application.app_id, application.application_approved)}>Disaprove</button>)
         }
     }
 
@@ -34,18 +34,22 @@ class Application extends Component {
 
     deleteApplication = (ev) => {
         ev.preventDefault()
-        console.log("application deleted")
+        const { applicationId } = this.props.match.params
+        ApplicationApiService.deleteApplication(applicationId)
+            .then(applications => this.props.history.push('/applications'))
     }
 
     componentDidMount() {
         const { applicationId } = this.props.match.params
         ApplicationApiService.getApplicationById(applicationId)
-            .then(application => this.setState({ application }))
+            .then(application => {
+                this.setState({ application })
+            })
         this.context.setUserType(TokenService.getUserType())
     }
 
     render() {
-        const application = this.state.application !== null ? this.state.application[0] : {}
+        const application = this.state.application !== null ? this.state.application : {}
         return (
             <div>
                 <div className="application">
@@ -61,7 +65,7 @@ class Application extends Component {
                         <div>Age: {application.age}</div>
                     </div>
                 </div>
-                <div className="application-status">Application #{application.id} Status: {application.application_approved === true ? "Approved" : "Pending Approval"} </div>
+                <div className="application-status">Application #{application.app_id} Status: {application.application_approved === true ? "Approved" : "Pending Approval"} </div>
 
                 {this.renderApproveButton()}
 
@@ -72,4 +76,4 @@ class Application extends Component {
     }
 }
 
-export default Application
+export default withRouter(Application)

@@ -6,12 +6,11 @@ class ApplicationCardsList extends Component {
   static contextType = UserContext;
   render() {
     const { applications } = this.context;
-    // console.log('applications', applications);
     const applicationCards = applications.map((application, index) => (
       <div className="ApplicationCard" key={index}>
         <Link
           to={{
-            pathname: `/applications/${application.id}`
+            pathname: `/applications/${application.app_id}`
           }}
         >
           <div>Job Title: {application.job_title}</div>
