@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AdminApiService from '../../services/admin-api-service'
+import './EditAdminForm.scss'
 import { withRouter } from 'react-router-dom'
 
 class EditAdminForm extends Component {
@@ -57,11 +58,9 @@ class EditAdminForm extends Component {
 
     render() {
         const { hasError } = this.state
-        return (
-            <form className="EditAdminForm" onSubmit={this.handleFormSubmit}>
-                <div>
-                    Username: {this.state.username}
-                </div>
+        return <div className="EditAdminForm">
+            <h2>Editing {this.state.username}</h2>
+            <form onSubmit={this.handleFormSubmit}>
                 <div>
                     {hasError && <p className='red'>{hasError}</p>}
                 </div>
@@ -77,10 +76,10 @@ class EditAdminForm extends Component {
                 <label htmlFor="password">Password: </label>
                 <input type="password" name="password" id="password" onChange={this.handleUpdate}></input>
 
-                <button type="reset" onClick={this.clearState}>Reset</button>
                 <button type="submit">Submit</button>
+                <button type="reset" onClick={this.clearState}>Reset</button>
             </form>
-        )
+        </div>
     }
 }
 
