@@ -1,10 +1,12 @@
 $accent-color: rgb(79, 185, 132);
 $accent-red: rgb(212, 91, 91);
 $white: rgb(240, 240, 240);
+$black: black;
 $nav-bar-height: 3.4em;
 $border-radius-small: 10px;
 $border-radius-medium: 20px;
 $border-radius-large: 40px;
+$grey-border: #aaa;
 
 @mixin box-shadow-reg {
   -webkit-box-shadow: -1px 17px 35px -8px rgba(0, 0, 0, 0.24);
