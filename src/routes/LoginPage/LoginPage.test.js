@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import LoginPage from './LoginPage';
 
@@ -7,7 +8,9 @@ describe('LoginPage route component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
-      <LoginPage />
+      <BrowserRouter>
+        <LoginPage />
+      </BrowserRouter>
       , div);
     ReactDOM.unmountComponentAtNode(div);
   });
@@ -15,7 +18,9 @@ describe('LoginPage route component', () => {
   it('renders the UI as expected', () => {
     const tree = renderer
       .create(
-        <LoginPage />
+        <BrowserRouter>
+          <LoginPage />
+        </BrowserRouter>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
