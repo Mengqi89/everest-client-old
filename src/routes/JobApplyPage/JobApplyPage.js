@@ -25,7 +25,7 @@ class JobApplyPage extends Component {
   };
 
   componentDidMount() {
-    JobsApiService.getJob(this.props.match.params.jobId).then(job => {
+    JobsApiService.getJob(this.props.match.params.job_id).then(job => {
       this.setState({ job });
       SchoolApiService.getSchoolProfileById(job.school_id).then(school =>
         this.setState({ school })
@@ -35,7 +35,7 @@ class JobApplyPage extends Component {
 
   render() {
     // eslint-disable-next-line
-    const { jobId } = this.props.match.params;
+    const { job_id } = this.props.match.params;
     const { job, school } = this.state;
     return (
       <div className="JobApplyPage">

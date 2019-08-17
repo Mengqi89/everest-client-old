@@ -12,8 +12,8 @@ const JobsApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  getJob(jobId) {
-    return fetch(`${config.API_ENDPOINT}/jobs/${jobId}`, {
+  getJob(job_id) {
+    return fetch(`${config.API_ENDPOINT}/jobs/${job_id}`, {
       headers: {
         // authorization: `bearer ${TokenService.getAuthToken()}`
       }
@@ -33,8 +33,8 @@ const JobsApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  deleteJobById(jobId) {
-    return fetch(`${config.API_ENPOINT}/jobs/${jobId}`, {
+  deleteJobById(job_id) {
+    return fetch(`${config.API_ENPOINT}/jobs/${job_id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
@@ -44,8 +44,8 @@ const JobsApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  patchJob(jobId) {
-    return fetch(`${config.API_ENPOINT}/jobs/${jobId}`, {
+  patchJob(job_id) {
+    return fetch(`${config.API_ENPOINT}/jobs/${job_id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'
