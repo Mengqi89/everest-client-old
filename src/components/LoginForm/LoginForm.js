@@ -88,13 +88,13 @@ class LoginForm extends Component {
     return (
       <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <fieldset>
-          <legend htmlFor="account-type">I am a</legend>
+        <fieldset required>
+          <legend htmlFor="account-type">I am a:</legend>
           <label htmlFor="teacher">Teacher</label>
           <input type="radio" id="teacher" name="account-type" value="teacher" onChange={this.handleUserTypeChange} />
-          <label htmlFor="teacher">School</label>
+          <label htmlFor="school">School</label>
           <input type="radio" id="school" name="account-type" value="school" onChange={this.handleUserTypeChange} />
-          <label htmlFor="teacher">Admin</label>
+          <label htmlFor="admin">Admin</label>
           <input type="radio" id="admin" name="account-type" value="admin" onChange={this.handleUserTypeChange} />
         </fieldset>
         <div className="username">
