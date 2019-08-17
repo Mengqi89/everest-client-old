@@ -13,7 +13,9 @@ class ApplicationCardsList extends Component {
             pathname: `/applications/${application.app_id}`
           }}
         >
+          <div>{application.app_id}</div>
           <div>Job Title: {application.job_title}</div>
+          <div>Teacher: {application.teacher_first} {application.teacher_last}</div>
         </Link>
       </div>
     ));
