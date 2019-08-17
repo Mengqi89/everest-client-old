@@ -1,0 +1,40 @@
+@import '../../assets/variables.scss';
+
+h2 {
+    padding: 1em;
+    margin-bottom: 1em;
+    color: $accent-red;
+    text-align: center;
+    }
+
+.application {
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.profile {
+    padding: 1em;
+    width: 40%;
+    text-align: left;
+    background: $white;
+    @include box-shadow-reg;
+    h3 {
+        padding: 1em 0;
+    }
+    div {
+        padding: 0.2em 0;
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    button {
+        margin: 2em;
+        @include green-button;
+}
+}
+
