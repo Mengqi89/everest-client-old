@@ -1,14 +1,13 @@
 @import '../../assets/variables.scss';
 
 .AdminProfile {
-  font-family: 'Monserrat', sans-serif;font-weight: 500;
   padding: 1em;
   display: flex;
   flex-direction: column;
   text-align: center;
   h2 {
     margin-bottom: 1em;
-    color: $accent-color;
+    color: $accent-red;
   }
   div {
     width: 80%;
