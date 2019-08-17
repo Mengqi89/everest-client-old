@@ -8,6 +8,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class SchoolProfile extends Component {
   static contextType = UserContext
 
+  state = {
+    housingComplete: false,
+
+  }
+
   componentDidMount() {
     SchoolApiService.getSchoolProfile()
       .then(profile => this.context.setUser(profile))
@@ -61,7 +66,7 @@ class SchoolProfile extends Component {
         <div className="other-services">
           {user.otherServices && this.checkSubObjectForNull(user.otherServices, 'Other services')}
         </div>
-        <div className="lifestyles-information">
+        <div className="lifestyle-information">
           {user.lifestyleInformation && this.checkSubObjectForNull(user.lifestyleInformation, 'Lifestyle information')}
         </div>
         {this.checkSchoolUserObjectForNull && <p>Your profile is incomplete click below to complete!</p>}

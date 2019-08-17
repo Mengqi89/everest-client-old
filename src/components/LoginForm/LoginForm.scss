@@ -1,0 +1,39 @@
+@import '../../assets/variables.scss';
+
+.LoginForm {
+  legend {
+    margin-bottom: .5em;
+    color: grey;
+  }
+
+  input[type=radio] {
+    margin: 0 1em;
+    width: initial;
+    height: initial
+  }
+  input {
+    border: none;
+    border-bottom: 2px solid $accent-color;
+    width: 350px;
+    height: 2em;
+    font-size: 1em;
+    // padding-left: 10px;
+    font-family: $fancy-font;
+    &:focus {
+      outline-width: 0;
+    }
+  }
+
+  .username, .password {
+    label {
+      margin-top: 2em;
+      color: grey;
+    }
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    @include green-button;
+    margin-top: 30px;
+  }
+}
