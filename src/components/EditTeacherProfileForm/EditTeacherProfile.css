@@ -1,0 +1,4 @@
+.edit-teacher {
+    display: flex;
+    flex-direction: column;
+}
