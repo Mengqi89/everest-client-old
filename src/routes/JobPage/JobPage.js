@@ -19,7 +19,7 @@ class JobPage extends Component {
 
     render() {
         return(
-            <>
+            <>  
                 <JobContainer/>
             </>
         )

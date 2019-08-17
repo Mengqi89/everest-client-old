@@ -1,17 +1,20 @@
 import React from 'react'
-import './Job.css'
+import { Link } from 'react-router-dom'
+import './Job.scss'
 
 export default function Job(props) {
     function toggleHidden(){
         var element = document.querySelector(".more-details");
         element.classList.toggle("hidden");
     }
+    const {job_id} = props
+    const jobLink = `/jobs/${job_id}/apply`
    return(
         <section className='job'>
             <div>
                 <img src="" alt="school"/>
                <section className='main-info'>
-                    <ul>
+                    <ul job_id={props.job_id}>
                         <li>Job Title:  { props.job_title }</li>
                         <li>Course: { props.course }</li>
                         <li>Grade Level: { props.grade_level }</li>
@@ -44,7 +47,7 @@ export default function Job(props) {
                     </ul>  
                     <button onClick={toggleHidden}>More details</button>
                 </section>
-                <button type='submit'>Apply</button>
+                <Link to={jobLink}>Apply</Link>
             </div>
         </section>
     )
