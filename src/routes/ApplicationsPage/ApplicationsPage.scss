@@ -11,3 +11,24 @@
     color: $accent-color;
     }
 }
+
+.ApplicationsPage {
+    .ApplicationCardsList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ApplicationCard {
+    background: $white;
+    margin: 2em 0em;
+    @include border-button;
+}
+
+.ApplicationCard a {
+    line-height: 1.2em;
+    text-decoration: none;
+    color: black;
+}
+
+}

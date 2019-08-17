@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ApplicationCardsList from '../../routes/ApplicationCardsList/ApplicationCardsList';
 import ApplicationApiService from '../../services/application-api-service';
 import UserContext from '../../contexts/UserContext';
-import './AdminApplications.scss'
 
 class AdminApplications extends Component {
   static contextType = UserContext;
