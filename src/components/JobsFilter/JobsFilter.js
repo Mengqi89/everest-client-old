@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import JobsContext from '../../contexts/JobsContext'
-import './JobsFilter.css'
+import './JobsFilter.scss'
 
 
 export default class JobsFilter extends Component{
@@ -17,7 +17,7 @@ export default class JobsFilter extends Component{
         } = this.context
 
     return (
-        <section className='fiter-container'>
+        <section className='JobsFilter'>
             <form className='filter-form' onSubmit={filterJobs}>
                 <div className='form-group'>
                     <label htmlFor='salary'>Salary</label>
