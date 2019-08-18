@@ -52,7 +52,6 @@ class EditTeacherProfile extends Component {
 
     render() {
         const { user, error } = this.context
-        {console.log(user)}
         return (
             <div>
             <h1>Edit Teacher Profile</h1>
