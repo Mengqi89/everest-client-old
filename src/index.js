@@ -21,13 +21,13 @@ library.add(
   faCheck,
   faClipboard
 )
-
+console.log(process.env)
 ReactDOM.render(
   <BrowserRouter>
-  <JobsProvider>
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <JobsProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
     </JobsProvider>
   </BrowserRouter>
   , document.getElementById('root'));
