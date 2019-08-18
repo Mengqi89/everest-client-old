@@ -3,11 +3,13 @@ import NationalityList from '../TeacherRegistrationForm/NationalityList'
 import './EditTeacherProfile.scss'
 import TeacherApiService from '../../services/teacher-api-service'
 import UserContext from '../../contexts/UserContext'
+import { withRouter } from 'react-router-dom'
 
 class EditTeacherProfile extends Component {
     static contextType = UserContext
 
     componentDidMount() {
+        this.context.setError(null)
         TeacherApiService.getTeacherProfile()
             .then(teacher => {
                 this.context.setUser(teacher)
@@ -15,17 +17,50 @@ class EditTeacherProfile extends Component {
             .catch(err => console.log(err))
     }
 
+    onFormSubmit = (ev) => {
+        ev.preventDefault()
+        const { id } = this.context.user
+
+        const { username, password, first_name, last_name, age, sex, race, nationality, native_speaker,
+            married, highest_degree, field_of_degree, school, certification, years_of_experience,
+            years_in_china, years_teaching_abroad } = ev.target
+
+        const updatedTeacher = {
+            username: username.value,
+            password: password.value,
+            first_name: first_name.value,
+            last_name: last_name.value,
+            age: age.value,
+            sex: sex.value,
+            race: race.value,
+            nationality: nationality.value,
+            native_speaker: native_speaker.value,
+            married: married.value,
+            highest_degree: highest_degree.value,
+            field_of_degree: field_of_degree.value,
+            school: school.value,
+            certification: certification.value,
+            years_of_experience: years_of_experience.value,
+            years_in_china: years_in_china.value,
+            years_teaching_abroad: years_teaching_abroad.value
+        }
+
+        TeacherApiService.updateTeacherProfile(id, updatedTeacher)
+            .then(res => this.props.history.push('/profile'))
+            .catch(err => this.context.setError(err))
+    }
+
     render() {
-        const { user } = this.context
+        const { user, error } = this.context
         {console.log(user)}
         return (
             <div>
             <h1>Edit Teacher Profile</h1>
                 
-                <form className='form edit-teacher'>
-                    {/* <div role='alert'>
+                <form className='form edit-teacher' onSubmit={(ev) => this.onFormSubmit(ev)}>
+                    <div role='alert'>
                         {error && <p className='red'>{error}</p>}
-                    </div> */}
+                    </div>
 
                     <label htmlFor='teacher-username'>Enter a Username</label>
                     <input id='teacher-usernmae' type='text' name='username' defaultValue={user.username} required></input>
@@ -145,4 +180,4 @@ class EditTeacherProfile extends Component {
     }
 }
 
-export default EditTeacherProfile
+export default withRouter(EditTeacherProfile)
