@@ -50,8 +50,8 @@ export class JobsProvider extends Component {
         })
     }
     
-    removeJob = (jobId) => {
-        const newJobs = this.state.jobs.filter(j => j.id !== jobId)
+    removeJob = (job_id) => {
+        const newJobs = this.state.jobs.filter(j => j.id !== job_id)
         this.setState({
             jobs: newJobs
         })

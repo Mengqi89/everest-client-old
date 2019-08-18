@@ -1,0 +1,36 @@
+@import '../../assets/variables.scss';
+
+.ApplicationsPage {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    h2 {
+    margin-bottom: 1em;
+    // color: $accent-red;
+    }
+}
+
+.ApplicationsPage {
+    .ApplicationCardsList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+    .ApplicationCard {
+        background: $white;
+        margin: 2em 0em;
+        // width: 25vw;
+        @include border-button;
+    }
+
+    .ApplicationCard a {
+        line-height: 1.2em;
+        text-decoration: none;
+        color: black;
+    }
+
+}

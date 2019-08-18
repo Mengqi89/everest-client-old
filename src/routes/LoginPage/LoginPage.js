@@ -14,7 +14,6 @@ class LoginPage extends Component {
       <div className="LoginPage">
         <h2>Welcome back to Everest International Education</h2>
         <p>If you aleady have an account, please sign in below</p>
-
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
       </div>
     );

@@ -7,6 +7,7 @@ $border-radius-small: 10px;
 $border-radius-medium: 20px;
 $border-radius-large: 40px;
 $grey-border: #aaa;
+$fancy-font: 'Montserrat';
 
 @mixin box-shadow-reg {
   -webkit-box-shadow: -1px 17px 35px -8px rgba(0, 0, 0, 0.24);
@@ -21,7 +22,9 @@ $grey-border: #aaa;
   border-radius: 10px;
   padding: .5em 1em;
   cursor: pointer;
-
+  &:focus {
+    outline-width: 0;
+  }
   &:hover {
     background: white;
   }
@@ -43,7 +46,9 @@ $grey-border: #aaa;
   box-shadow: -1px 17px 35px -8px rgba(0, 0, 0, 0.6);
   transition-duration: 1.2s;
   cursor: pointer;
-
+&:focus {
+    outline-width: 0;
+  }
   &:hover {
     transform: translate(4px, 6px);
     background: rgb(55, 128, 91);
