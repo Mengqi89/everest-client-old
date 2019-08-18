@@ -1,5 +1,5 @@
-import config from '../config';
-import TokenService from './token-service';
+import config from '../config'
+import TokenService from './token-service'
 
 const SchoolApiService = {
   postLogin({ username, password }) {
@@ -11,7 +11,7 @@ const SchoolApiService = {
       body: JSON.stringify({ username, password })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
 
   postSchool(school) {
@@ -23,7 +23,7 @@ const SchoolApiService = {
       body: JSON.stringify(school)
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
 
   getSchoolProfile() {
@@ -33,7 +33,7 @@ const SchoolApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
 
   getSchoolProfileById(schoolId) {
@@ -43,7 +43,7 @@ const SchoolApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
 
   editSchoolProfile(newFields, schoolId) {
@@ -55,8 +55,8 @@ const SchoolApiService = {
       body: JSON.stringify(newFields)
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   }
-};
+}
 
-export default SchoolApiService;
+export default SchoolApiService

@@ -1,5 +1,5 @@
-import config from '../config';
-import TokenService from './token-service';
+import config from '../config'
+import TokenService from './token-service'
 
 const ApplicationApiService = {
   getAllApplications() {
@@ -10,7 +10,7 @@ const ApplicationApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   getApplicationsForSchool() {
     return fetch(`${config.API_ENDPOINT}/applications/school/`, {
@@ -20,7 +20,7 @@ const ApplicationApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   getApplicationsForTeacher() {
     return fetch(`${config.API_ENDPOINT}/applications/teacher/`, {
@@ -30,7 +30,7 @@ const ApplicationApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   getApplicationById(applicationId) {
     return fetch(`${config.API_ENDPOINT}/applications/${applicationId}`, {
@@ -40,7 +40,7 @@ const ApplicationApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   toggleAppApproval(applicationId, approvalObj) {
     return fetch(`${config.API_ENDPOINT}/applications/${applicationId}`, {
@@ -52,7 +52,7 @@ const ApplicationApiService = {
       body: JSON.stringify(approvalObj)
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   postApplication(application) {
     return fetch(`${config.API_ENDPOINT}/applications`, {
@@ -64,7 +64,7 @@ const ApplicationApiService = {
       body: JSON.stringify(application)
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   deleteApplication(applicationId) {
     return fetch(`${config.API_ENDPOINT}/applications/${applicationId}`, {
@@ -77,6 +77,6 @@ const ApplicationApiService = {
         ? res.json().then(e => Promise.reject(e))
         : res.json())
   }
-};
+}
 
-export default ApplicationApiService;
+export default ApplicationApiService

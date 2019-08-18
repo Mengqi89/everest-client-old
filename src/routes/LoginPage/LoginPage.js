@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import './LoginPage.scss'
-import LoginForm from '../../components/LoginForm/LoginForm';
-import UserContext from '../../contexts/UserContext';
+import LoginForm from '../../components/LoginForm/LoginForm'
+import UserContext from '../../contexts/UserContext'
 
 class LoginPage extends Component {
   static contextType = UserContext
@@ -16,8 +16,8 @@ class LoginPage extends Component {
         <p>If you aleady have an account, please sign in below</p>
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
       </div>
-    );
+    )
   }
 }
 
-export default LoginPage;
+export default LoginPage

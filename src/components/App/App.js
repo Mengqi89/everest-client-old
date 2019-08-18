@@ -1,18 +1,18 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
-import LandingPage from '../../routes/LandingPage/LandingPage';
-import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage';
-import ProfilePage from '../../routes/ProfilePage/ProfilePage';
-import LoginPage from '../../routes/LoginPage/LoginPage';
-import JobPage from '../../routes/JobPage/JobPage';
-import NavBar from '../../components/NavBar/NavBar';
-import PrivateRoute from '../../components/Utils/PrivateRoute';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
+import LandingPage from '../../routes/LandingPage/LandingPage'
+import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
+import ProfilePage from '../../routes/ProfilePage/ProfilePage'
+import LoginPage from '../../routes/LoginPage/LoginPage'
+import JobPage from '../../routes/JobPage/JobPage'
+import NavBar from '../../components/NavBar/NavBar'
+import PrivateRoute from '../../components/Utils/PrivateRoute'
 import PublicOnlyRoute from '../../components/Utils/PublicOnlyRoute'
 import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
 import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
 import Application from '../../components/Application/Application'
-import JobApplyPage from '../../routes/JobApplyPage/JobApplyPage';
+import JobApplyPage from '../../routes/JobApplyPage/JobApplyPage'
 
 class App extends React.Component {
   state = {

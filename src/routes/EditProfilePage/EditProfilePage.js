@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import UserContext from '../../contexts/UserContext';
-import EditSchoolForm from '../../components/EditSchoolForm/EditSchoolForm';
+import React, { Component } from 'react'
+import UserContext from '../../contexts/UserContext'
+import EditSchoolForm from '../../components/EditSchoolForm/EditSchoolForm'
 import EditAdminForm from '../../components/EditAdminForm/EditAdminForm'
 
 class EditProfilePage extends Component {
@@ -13,8 +13,8 @@ class EditProfilePage extends Component {
         {userType === 'school' && <EditSchoolForm />}
         {userType === 'admin' && <EditAdminForm />}
       </div>
-    );
+    )
   }
 }
 
-export default EditProfilePage;
+export default EditProfilePage

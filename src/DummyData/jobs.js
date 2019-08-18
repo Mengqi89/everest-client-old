@@ -63,6 +63,6 @@ const job = {
     numberOfWesternTeachersAtSchool: 4,
     westernAmenitiesNearSchool: false
   }
-};
+}
 
-module.exports = job;
+module.exports = job

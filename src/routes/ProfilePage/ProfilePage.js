@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import TokenService from '../../services/token-service';
-import SchoolProfile from '../../components/SchoolProfile/SchoolProfile';
-import AdminProfile from '../../components/AdminProfile/AdminProfile';
-import TeacherProfile from '../../components/TeacherProfile/TeacherProfile';
+import React, { Component } from 'react'
+import TokenService from '../../services/token-service'
+import SchoolProfile from '../../components/SchoolProfile/SchoolProfile'
+import AdminProfile from '../../components/AdminProfile/AdminProfile'
+import TeacherProfile from '../../components/TeacherProfile/TeacherProfile'
 
 
 class ProfilePage extends Component {
@@ -20,8 +20,8 @@ class ProfilePage extends Component {
         {this.state.userType === 'school' && <SchoolProfile />}
         {this.state.userType === 'teacher' && <TeacherProfile />}
       </section>
-    );
+    )
   }
 }
 
-export default ProfilePage;
+export default ProfilePage

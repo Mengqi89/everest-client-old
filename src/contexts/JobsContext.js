@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 
 const JobsContext = React.createContext({
-        jobs: [],
-        filteredJobs: [],
-        filtered: false,
-        keyword: '',
-        salary: 0,
-        gradeLevel: 0,
-        location: '',
-        error: null,
-        setError: () => {},
-        clearError: () => {},
-        setJobsData: () => {},
-        filterJobs: () => {},
-        handleChange: () => {}, 
-        addJob: () => {},
-        removeJob: () => {},
+    jobs: [],
+    filteredJobs: [],
+    filtered: false,
+    keyword: '',
+    salary: 0,
+    gradeLevel: 0,
+    location: '',
+    error: null,
+    setError: () => { },
+    clearError: () => { },
+    setJobsData: () => { },
+    filterJobs: () => { },
+    handleChange: () => { },
+    addJob: () => { },
+    removeJob: () => { },
 })
 
 export default JobsContext
@@ -38,7 +38,7 @@ export class JobsProvider extends Component {
     }
 
     clearError = error => {
-        this.setState({ error: null})
+        this.setState({ error: null })
     }
 
     addJob = (job) => {
@@ -49,7 +49,7 @@ export class JobsProvider extends Component {
             ]
         })
     }
-    
+
     removeJob = (job_id) => {
         const newJobs = this.state.jobs.filter(j => j.id !== job_id)
         this.setState({
@@ -58,19 +58,15 @@ export class JobsProvider extends Component {
     }
 
     setJobsData = jobs => {
-        
+
         this.setState({
             jobs,
-        filteredJobs: [...jobs]})
+            filteredJobs: [...jobs]
+        })
     }
 
-    // getAJob = slug => {
-    //     let tempJobs = [...this.state.jobs]
-    //     const job = tempJobs.find(job => job.slug === slug)
-    //     return job
-    // }
     handleChange = (event) => {
-        const {value, name} = event.target
+        const { value, name } = event.target
         console.log(value, name)
         this.setState(
             {
@@ -82,104 +78,104 @@ export class JobsProvider extends Component {
     filterJobs = (event) => {
         event.preventDefault()
 
-        const { 
+        const {
             jobs,
-            keyword, 
-            salary, 
-            gradeLevel, 
-            location 
-        } = this.state 
-       
+            keyword,
+            salary,
+            gradeLevel,
+            location
+        } = this.state
+
         //all jobs
         let tempJobs = [...jobs]
 
         // filter by salary
-        if(salary !== 'all') {
+        if (salary !== 'all') {
             tempJobs = tempJobs.filter(jobs => jobs.total_salary >= salary)
         }
         //filter by grade level
-        if(gradeLevel !== 'all') {
+        if (gradeLevel !== 'all') {
             let tempArr = []
-            if(gradeLevel === 'kindergaten'){
+            if (gradeLevel === 'kindergaten') {
                 tempJobs = tempJobs.filter(jobs => jobs.grade_level === 'kindergaten')
-               }   
-            if(gradeLevel === 'elementary'){
-                 for(let i = 1; i < 6; i++ ){
+            }
+            if (gradeLevel === 'elementary') {
+                for (let i = 1; i < 6; i++) {
                     tempJobs.forEach(job => {
-                        if(job.grade_level.match(/\d+/g)[0] === (i).toString()){
-                            tempArr.push(job);
+                        if (job.grade_level.match(/\d+/g)[0] === (i).toString()) {
+                            tempArr.push(job)
                         }
                     })
-                    console.log('116 tempJobs',tempJobs)
-                 }
+                    console.log('116 tempJobs', tempJobs)
+                }
                 tempJobs = tempArr
             }
-            if(gradeLevel === 'middle'){
-                for(let i = 6; i < 9; i++ ){
-                   tempJobs.forEach(job => {
-                       if(job.grade_level.match(/\d+/g)[0] === (i).toString()){
-                           tempArr.push(job);
-                       }
-                   })
-                   console.log('116 tempJobs',tempJobs)
+            if (gradeLevel === 'middle') {
+                for (let i = 6; i < 9; i++) {
+                    tempJobs.forEach(job => {
+                        if (job.grade_level.match(/\d+/g)[0] === (i).toString()) {
+                            tempArr.push(job)
+                        }
+                    })
+                    console.log('116 tempJobs', tempJobs)
                 }
-               tempJobs = tempArr
-           }
-           if(gradeLevel === 'high'){
-            for(let i = 9; i < 13; i++ ){
-               tempJobs.forEach(job => {
-                   if(job.grade_level.match(/\d+/g)[0] === (i).toString()){
-                       tempArr.push(job);
-                   }
-               })
-               console.log('116 tempJobs',tempJobs)
+                tempJobs = tempArr
             }
-           tempJobs = tempArr
+            if (gradeLevel === 'high') {
+                for (let i = 9; i < 13; i++) {
+                    tempJobs.forEach(job => {
+                        if (job.grade_level.match(/\d+/g)[0] === (i).toString()) {
+                            tempArr.push(job)
+                        }
+                    })
+                    console.log('116 tempJobs', tempJobs)
+                }
+                tempJobs = tempArr
+            }
+            if (gradeLevel === 'college') {
+                tempJobs = tempJobs.filter(jobs => jobs.grade_level === 'college')
+            }
         }
-       if(gradeLevel === 'college'){
-        tempJobs = tempJobs.filter(jobs => jobs.grade_level === 'college')
-       }                 
-  }
         //filter by keyword
-        if(keyword !== ''){
-        console.log('tempJobs ',tempJobs)
+        if (keyword !== '') {
+            console.log('tempJobs ', tempJobs)
 
             function includesStr(values, str) {
-            return values.map(function (value) {
-              return String(value);
-            }).find(function (value) {
-              return value.includes(keyword);
-            });
-          }
+                return values.map(function (value) {
+                    return String(value)
+                }).find(function (value) {
+                    return value.includes(keyword)
+                })
+            }
 
-        tempJobs = tempJobs.filter(function (item) {
-            return includesStr(Object.values(item), keyword);
-          })
+            tempJobs = tempJobs.filter(function (item) {
+                return includesStr(Object.values(item), keyword)
+            })
         }
 
 
         // //filter by location
-        if(location !== '') {
+        if (location !== '') {
             tempJobs = tempJobs.filter(jobs => jobs.location >= location)
             console.log(location)
         }
-        
+
         // change state
         this.setState({
             filteredJobs: [...tempJobs],
             filtered: true,
-            keyword: '', 
-            salary: 'all', 
-            gradeLevel: 'all', 
+            keyword: '',
+            salary: 'all',
+            gradeLevel: 'all',
             location: ''
 
         })
-        
 
-      }
 
-      render() {
-          const value = {
+    }
+
+    render() {
+        const value = {
             jobs: this.state.jobs,
             filteredJobs: this.state.filteredJobs,
             filtered: this.state.filtered,
@@ -192,16 +188,16 @@ export class JobsProvider extends Component {
             clearError: this.clearError,
             setJobsData: this.setJobsData,
             filterJobs: this.filterJobs,
-            handleChange: this.handleChange, 
+            handleChange: this.handleChange,
             addJob: this.addJob,
             removeJob: this.removeJob,
-          }
-          return(
+        }
+        return (
             <JobsContext.Provider value={value}>
                 {this.props.children}
             </JobsContext.Provider>
-          )
-      }     
-    
+        )
+    }
+
 }
 

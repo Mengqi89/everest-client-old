@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import './RegistrationPage.scss'
 import SchoolRegistrationForm from '../../components/SchoolRegistrationForm/SchoolRegistrationForm'
 import AdminRegistrationForm from '../../components/AdminRegistrationForm/AdminRegistrationForm'
-import TeacherRegistrationForm from '../../components/TeacherRegistrationForm/TeacherRegistrationForm';
-import UserContext from '../../contexts/UserContext';
+import TeacherRegistrationForm from '../../components/TeacherRegistrationForm/TeacherRegistrationForm'
+import UserContext from '../../contexts/UserContext'
 
 class RegistrationPage extends Component {
   static contextType = UserContext

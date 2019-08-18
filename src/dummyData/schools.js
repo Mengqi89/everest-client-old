@@ -112,6 +112,6 @@ const SCHOOLS = [
         'Restaurants, shopping, bars'
     }
   }
-];
+]
 
-module.exports = SCHOOLS;
+module.exports = SCHOOLS
