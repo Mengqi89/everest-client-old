@@ -62,6 +62,7 @@ export class JobsProvider extends Component {
         this.setState({
             jobs,
         filteredJobs: [...jobs]})
+        console.log(jobs)
     }
 
     // getAJob = slug => {
@@ -100,13 +101,13 @@ export class JobsProvider extends Component {
         //filter by grade level
         if(gradeLevel !== 'all') {
             let tempArr = []
-            if(gradeLevel === 'kindergaten'){
-                tempJobs = tempJobs.filter(jobs => jobs.grade_level === 'kindergaten')
+            if(gradeLevel === 'kindergarten'){
+                tempJobs = tempJobs.filter(jobs => jobs.grade_level === 'kindergarten')
                }   
             if(gradeLevel === 'elementary'){
                  for(let i = 1; i < 6; i++ ){
                     tempJobs.forEach(job => {
-                        if(job.grade_level.match(/\d+/g)[0] === (i).toString()){
+                        if(job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()){
                             tempArr.push(job);
                         }
                     })
@@ -117,7 +118,7 @@ export class JobsProvider extends Component {
             if(gradeLevel === 'middle'){
                 for(let i = 6; i < 9; i++ ){
                    tempJobs.forEach(job => {
-                       if(job.grade_level.match(/\d+/g)[0] === (i).toString()){
+                       if(job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()){
                            tempArr.push(job);
                        }
                    })
@@ -128,7 +129,8 @@ export class JobsProvider extends Component {
            if(gradeLevel === 'high'){
             for(let i = 9; i < 13; i++ ){
                tempJobs.forEach(job => {
-                   if(job.grade_level.match(/\d+/g)[0] === (i).toString()){
+
+                   if(job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()){
                        tempArr.push(job);
                    }
                })
