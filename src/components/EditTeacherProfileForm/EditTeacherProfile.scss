@@ -1,0 +1,33 @@
+@import '../../assets/variables.scss';
+
+
+.edit-teacher {
+    margin: 2em 2em;
+    display: flex;
+    flex-direction: column;
+
+    input,
+    textarea,
+    select {
+      @include input-big;
+    }
+
+    input,
+    select,
+    textarea {
+      margin-top: 0.5em;
+    }
+
+    select {
+        padding: 0;
+    }
+
+    label {
+        margin-top: 1em;
+    }
+
+    button {
+        @include green-button;
+        width: 200px;
+      }
+}

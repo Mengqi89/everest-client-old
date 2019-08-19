@@ -16,7 +16,9 @@ const UserContext = React.createContext({
     user: {},
     setUser: () => { },
     applications: [],
-    setApplications: () => { }
+    setApplications: () => { },
+    error: null,
+    setError: () => { },
 })
 
 export default UserContext
@@ -26,6 +28,7 @@ export function UserProvider(props) {
     const [userType, setUserType] = useState('')
     const [user, setUser] = useState(nullSchoolUser)
     const [applications, setApplications] = useState([])
+    const [error, setError] = useState(null)
 
     const setLoggedInFn = loggedIn => {
         setLoggedIn(loggedIn)
@@ -43,6 +46,10 @@ export function UserProvider(props) {
         setApplications(applications)
     }
 
+    const setErrorFn = error => {
+        setError(error)
+    }
+
 
     const value = {
         loggedIn: loggedIn,
@@ -52,7 +59,9 @@ export function UserProvider(props) {
         user: user,
         setUser: setUserFn,
         applications: applications,
-        setApplications: setApplicationsFn
+        setApplications: setApplicationsFn,
+        error: error,
+        setError: setErrorFn
     }
 
     return (
