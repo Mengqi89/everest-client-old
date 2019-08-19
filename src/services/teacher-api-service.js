@@ -1,6 +1,5 @@
 import config from '../config'
-import TokenService from './token-service';
-// import TokenService from './token-service'
+import TokenService from './token-service'
 
 const TeacherApiService = {
     postLogin(credentials) {

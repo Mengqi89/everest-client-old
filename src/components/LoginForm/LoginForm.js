@@ -4,8 +4,8 @@ import TokenService from '../../services/token-service'
 import SchoolApiService from '../../services/school-api-service'
 import AdminApiService from '../../services/admin-api-service'
 import './LoginForm.scss'
-import TeacherApiService from '../../services/teacher-api-service';
-import UserContext from '../../contexts/UserContext';
+import TeacherApiService from '../../services/teacher-api-service'
+import UserContext from '../../contexts/UserContext'
 
 class LoginForm extends Component {
   static contextType = UserContext
@@ -113,7 +113,7 @@ class LoginForm extends Component {
         </div>
         <button type="submit">Login</button>
       </form >
-    );
+    )
   }
 }
 

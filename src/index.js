@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import './index.css';
-import App from './components/App/App';
+import './index.css'
+import App from './components/App/App'
 import { JobsProvider } from './contexts/JobsContext'
 import { UserProvider } from './contexts/UserContext'
 
@@ -30,4 +30,4 @@ ReactDOM.render(
       </UserProvider>
     </JobsProvider>
   </BrowserRouter>
-  , document.getElementById('root'));
+  , document.getElementById('root'))

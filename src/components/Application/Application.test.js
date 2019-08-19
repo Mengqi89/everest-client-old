@@ -1,16 +1,15 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import AdminProfile from './AdminProfile'
+import Application from './Application'
 
 it('renders without crashing', () => {
-
     const div = document.createElement('div')
     ReactDom.render(
         <BrowserRouter>
-            <AdminProfile />
+            <Application />
         </BrowserRouter>
-        , div
-    )
+        , div)
+
     ReactDom.unmountComponentAtNode(div)
 })

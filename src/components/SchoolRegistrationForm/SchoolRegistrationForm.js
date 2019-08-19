@@ -66,7 +66,7 @@ class SchoolRegistrationForm extends Component {
             )}
         </form>
       </div>
-    );
+    )
   }
 }
 

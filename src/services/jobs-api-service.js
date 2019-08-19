@@ -1,6 +1,6 @@
 // eslint-disable-next-line
-import TokenService from './token-service';
-import config from '../config';
+import TokenService from './token-service'
+import config from '../config'
 
 const JobsApiService = {
   getJobs() {
@@ -10,7 +10,7 @@ const JobsApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   getJob(job_id) {
     return fetch(`${config.API_ENDPOINT}/jobs/${job_id}`, {
@@ -19,7 +19,7 @@ const JobsApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   postJob(job) {
     return fetch(`${config.API_ENDPOINT}/jobs`, {
@@ -31,7 +31,7 @@ const JobsApiService = {
       body: JSON.stringify({ job })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   deleteJobById(job_id) {
     return fetch(`${config.API_ENPOINT}/jobs/${job_id}`, {
@@ -42,7 +42,7 @@ const JobsApiService = {
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   },
   patchJob(job_id) {
     return fetch(`${config.API_ENPOINT}/jobs/${job_id}`, {
@@ -54,8 +54,8 @@ const JobsApiService = {
       body: {}
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    )
   }
-};
+}
 
-export default JobsApiService;
+export default JobsApiService

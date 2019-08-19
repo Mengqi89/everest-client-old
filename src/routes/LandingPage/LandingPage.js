@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import chinaOne from '../../assets/china-1.jpg';
-import chinaTwo from '../../assets/china-2.jpg';
-// import chinaThree from '../../assets/china-3.jpg';
-import chinaFour from '../../assets/china-4.png';
-import Typing from 'react-typing-animation';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import chinaOne from '../../assets/china-1.jpg'
+import chinaTwo from '../../assets/china-2.jpg'
+// import chinaThree from '../../assets/china-3.jpg'
+import chinaFour from '../../assets/china-4.png'
+import Typing from 'react-typing-animation'
 
-import './LandingPage.scss';
+import './LandingPage.scss'
 
 class LandingPage extends Component {
   render() {
@@ -62,8 +62,8 @@ class LandingPage extends Component {
           <Link to="/register">Apply - it's free!</Link>
         </section>
       </div>
-    );
+    )
   }
 }
 
-export default LandingPage;
+export default LandingPage

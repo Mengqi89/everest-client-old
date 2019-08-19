@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import SchoolApiService from '../../services/school-api-service';
-import './SchoolProfile.scss';
-import UserContext from '../../contexts/UserContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import SchoolApiService from '../../services/school-api-service'
+import './SchoolProfile.scss'
+import UserContext from '../../contexts/UserContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class SchoolProfile extends Component {
   static contextType = UserContext
@@ -73,7 +73,7 @@ class SchoolProfile extends Component {
         <Link to="/edit-profile">Finish Profile</Link>
 
       </div>
-    );
+    )
   }
 }
 

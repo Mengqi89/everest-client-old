@@ -1,8 +1,8 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
-import LoginForm from './LoginForm';
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import ReactDOM from 'react-dom'
+import renderer from 'react-test-renderer'
+import LoginForm from './LoginForm'
 
 describe('LoginForm route component', () => {
   it('renders without crashing', () => {
@@ -11,9 +11,9 @@ describe('LoginForm route component', () => {
       <BrowserRouter>
         <LoginForm />
       </BrowserRouter>
-      , div);
-    ReactDOM.unmountComponentAtNode(div);
-  });
+      , div)
+    ReactDOM.unmountComponentAtNode(div)
+  })
 
   it('renders the UI as expected', () => {
     const tree = renderer
@@ -22,7 +22,7 @@ describe('LoginForm route component', () => {
           <LoginForm />
         </BrowserRouter>
       )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })
