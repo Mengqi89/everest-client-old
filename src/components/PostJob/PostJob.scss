@@ -1,0 +1,32 @@
+@import '../../assets/variables.scss';
+
+.PostJobForm{
+
+    form{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        max-width: 960px;
+        margin: 2em 2em;
+    }
+    label {
+        margin-top: 2em;
+    }
+    input[type='text'] {
+        @include input-big;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    //   width: 96%;
+    }
+    input[type='checkbox']{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    //   width: 96%;
+}
+    button {
+        @include green-button;
+        
+    }
+}

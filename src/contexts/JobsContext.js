@@ -96,50 +96,41 @@ export class JobsProvider extends Component {
         //filter by grade level
         if (gradeLevel !== 'all') {
             let tempArr = []
-            if (gradeLevel === 'kindergaten') {
-                tempJobs = tempJobs.filter(jobs => jobs.grade_level === 'kindergaten')
-            }
-            if (gradeLevel === 'elementary') {
-                for (let i = 1; i < 6; i++) {
+            if(gradeLevel === 'kindergarten'){
+                tempJobs = tempJobs.filter(jobs => jobs.grade_level === 'kindergarten')
+               }   
+            if(gradeLevel === 'elementary'){
+                 for(let i = 1; i < 6; i++ ){
                     tempJobs.forEach(job => {
-                        if (job.grade_level.match(/\d+/g)[0] === (i).toString()) {
-                            tempArr.push(job)
+                        if(job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()){
+                            tempArr.push(job);
                         }
                     })
-                    console.log('116 tempJobs', tempJobs)
                 }
                 tempJobs = tempArr
             }
-            if (gradeLevel === 'middle') {
-                for (let i = 6; i < 9; i++) {
-                    tempJobs.forEach(job => {
-                        if (job.grade_level.match(/\d+/g)[0] === (i).toString()) {
-                            tempArr.push(job)
-                        }
-                    })
-                    console.log('116 tempJobs', tempJobs)
+            if(gradeLevel === 'middle'){
+                for(let i = 6; i < 9; i++ ){
+                   tempJobs.forEach(job => {
+                       if(job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()){
+                           tempArr.push(job);
+                       }
+                   })
                 }
-                tempJobs = tempArr
-            }
-            if (gradeLevel === 'high') {
-                for (let i = 9; i < 13; i++) {
-                    tempJobs.forEach(job => {
-                        if (job.grade_level.match(/\d+/g)[0] === (i).toString()) {
-                            tempArr.push(job)
-                        }
-                    })
-                    console.log('116 tempJobs', tempJobs)
-                }
-                tempJobs = tempArr
-            }
-            if (gradeLevel === 'college') {
-                tempJobs = tempJobs.filter(jobs => jobs.grade_level === 'college')
+               tempJobs = tempArr
+           }
+           if(gradeLevel === 'high'){
+            for(let i = 9; i < 13; i++ ){
+               tempJobs.forEach(job => {
+
+                   if(job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()){
+                       tempArr.push(job);
+                   }
+               })
             }
         }
         //filter by keyword
         if (keyword !== '') {
-            console.log('tempJobs ', tempJobs)
-
             function includesStr(values, str) {
                 return values.map(function (value) {
                     return String(value)
@@ -157,7 +148,6 @@ export class JobsProvider extends Component {
         // //filter by location
         if (location !== '') {
             tempJobs = tempJobs.filter(jobs => jobs.location >= location)
-            console.log(location)
         }
 
         // change state
@@ -173,6 +163,7 @@ export class JobsProvider extends Component {
 
 
     }
+}
 
     render() {
         const value = {

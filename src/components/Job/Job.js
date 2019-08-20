@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons'
 import schoolJobImg from '../../assets/school-job-img.jpg'
 import './Job.scss'
 

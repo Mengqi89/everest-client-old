@@ -21,14 +21,14 @@ const JobsApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     )
   },
-  postJob(job) {
+  postJob(newJob) {
     return fetch(`${config.API_ENDPOINT}/jobs`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
         // authorization: `bearer ${TokenService.getAuthToken()}`
       },
-      body: JSON.stringify({ job })
+      body: JSON.stringify( newJob )
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     )
