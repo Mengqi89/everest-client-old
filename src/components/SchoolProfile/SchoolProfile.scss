@@ -3,10 +3,19 @@
 .SchoolProfile {
   padding: 1em;
   h2 {
+    font-size: 1.5em;
     margin-bottom: 1em;
+    font-family: 'SF Pro Text'
   }
   ul, p {
-    margin-bottom: 2em;
+    font-family: 'SF Pro Text';
+    margin-bottom: 1em;
+    font-size: 1.2em;
+  }
+  .caption {
+    margin-bottom: .5em;
+    color: grey;
+    font-size: 1em;
   }
   li {
     line-height: 1.2em;
@@ -23,5 +32,34 @@
   }
   .school-basics li {
     margin: 1em 0;
+  }
+
+  .notable-facts {
+    font-size: .8em;
+
+  }
+
+  .school-basics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include box-shadow-reg;
+    border-radius: $border-radius-medium;
+    padding: 1em 2em;
+
+  }
+
+  .all-other-info {
+    margin-top: 2em;
+    @include box-shadow-reg;
+    padding: 1em 1em;
+    border-radius: $border-radius-medium;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    div {
+      margin: 0 1em;
+    }
   }
 }
