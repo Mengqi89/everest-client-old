@@ -29,11 +29,11 @@ class SchoolProfile extends Component {
   }
 
   checkSubObjectForNull = (subObject, name) => {
-    let element = <p><FontAwesomeIcon icon="check" className="green" /> {name} complete</p>
+    let element = <p><FontAwesomeIcon icon="check" className="green" /> {name}</p>
 
     Object.keys(subObject).forEach(key => {
       if (subObject[key] == null) {
-        element = <p><FontAwesomeIcon icon="times" className="red" /> {name} incomplete</p>
+        element = <p><FontAwesomeIcon icon="times" className="red" /> {name}</p>
       }
     })
 
@@ -44,33 +44,52 @@ class SchoolProfile extends Component {
     // const userType = TokenService.getUserType()
     // this.context.setUserType(userType)
     const { user } = this.context
+    console.log(user.complete)
     return (
       <div className="SchoolProfile">
-        <h2>School Info</h2>
+        <h2>{user.school_name}</h2>
         <ul className="school-basics">
-          <li>Name: {user.school_name}</li>
-          <li>Type: {user.school_type}</li>
-          {user.school_size && <li>Size: {user.school_size}</li>}
-          {user.public_or_private && <li>Public or private: {user.public_or_private}</li>}
-          {user.curriculum && <li>Curriculum: {user.curriculum}</li>}
-          {user.location && <li>Location: {user.location}</li>}
-          {user.notable_facts && <li>Notable facts: {user.notable_facts}</li>}
+          <li>
+            <p className="caption">Type</p>
+            <p>{user.school_type}</p>
+            <p>{user.public_or_private ? "Public" : "Private"}</p>
+          </li>
+          <li>
+            <p className="caption">Size</p>
+            <p>{user.school_size}</p>
+          </li>
+          <li>
+            <p className="caption">Curriculum</p>
+            <p>{user.curriculum}</p>
+          </li>
+          <li>
+            <p className="caption">Location</p>
+            <p>{user.location}</p>
+          </li>
+          <li>
+            <p className="caption">Notable Facts</p>
+            <p className="notable-facts">{user.notable_facts}</p>
+          </li>
         </ul>
+        <div className="all-other-info">
 
-        <div className="school-housing-info">
-          {user.housingInformation && this.checkSubObjectForNull(user.housingInformation, 'Housing information')}
+          <div className="school-housing-info">
+            {user.housingInformation && this.checkSubObjectForNull(user.housingInformation, 'Housing information')}
+          </div>
+          <div className="visa-info">
+            {user.visaInformation && this.checkSubObjectForNull(user.visaInformation, 'Visa information')}
+          </div>
+          <div className="other-services">
+            {user.otherServices && this.checkSubObjectForNull(user.otherServices, 'Other services')}
+          </div>
+          <div className="lifestyle-information">
+            {user.lifestyleInformation && this.checkSubObjectForNull(user.lifestyleInformation, 'Lifestyle information')}
+          </div>
         </div>
-        <div className="visa-info">
-          {user.visaInformation && this.checkSubObjectForNull(user.visaInformation, 'Visa information')}
-        </div>
-        <div className="other-services">
-          {user.otherServices && this.checkSubObjectForNull(user.otherServices, 'Other services')}
-        </div>
-        <div className="lifestyle-information">
-          {user.lifestyleInformation && this.checkSubObjectForNull(user.lifestyleInformation, 'Lifestyle information')}
-        </div>
-        {this.checkSchoolUserObjectForNull && <p>Your profile is incomplete click below to complete!</p>}
-        <Link to="/edit-profile">Finish Profile</Link>
+        {!user.complete
+          && <><p>Your profile is incomplete click below to complete!</p>
+            <Link to="/edit-profile">Finish Profile</Link></>
+        }
 
       </div>
     )

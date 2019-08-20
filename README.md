@@ -21,7 +21,7 @@
 <img src="./readme_assets/teacherProfile.png" alt="teacher profile" width="450">
 
 ### School Profile
-<img src="./readme_assets/teacherProfile.png" alt="school profile" width="450">
+<img src="./readme_assets/schoolProfile.png" alt="school profile" width="450">
 
 ### Jobs Page
 <img src="./readme_assets/jobs.png" alt="jobs page" width="450">
