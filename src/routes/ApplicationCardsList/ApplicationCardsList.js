@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import UserContext from '../../contexts/UserContext';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import UserContext from '../../contexts/UserContext'
 
 class ApplicationCardsList extends Component {
-  static contextType = UserContext;
+  static contextType = UserContext
   render() {
-    const { applications } = this.context;
+    const { applications } = this.context
     const applicationCards = applications.map((application, index) => (
       <div className="ApplicationCard" key={index}>
         <Link
@@ -18,9 +18,9 @@ class ApplicationCardsList extends Component {
           <div>Teacher: {application.teacher_first} {application.teacher_last}</div>
         </Link>
       </div>
-    ));
-    return <div className="ApplicationCardsList">{applicationCards}</div>;
+    ))
+    return <div className="ApplicationCardsList">{applicationCards}</div>
   }
 }
 
-export default ApplicationCardsList;
+export default ApplicationCardsList

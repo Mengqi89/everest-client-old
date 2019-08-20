@@ -1,6 +1,5 @@
 import config from '../config'
-import TokenService from './token-service';
-// import TokenService from './token-service'
+import TokenService from './token-service'
 
 const TeacherApiService = {
     postLogin(credentials) {
@@ -63,8 +62,19 @@ const TeacherApiService = {
         }).then(res =>
             !res.ok ? res.json().then(e => Promise.reject(e)) : res.json())
     },
-
-
+    updateTeacherProfile(id, updatedTeacher) {
+        console.log(updatedTeacher)
+        return fetch(`${config.API_ENDPOINT}/teachers/teacher/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify(updatedTeacher)
+        }).then(res =>
+            !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+        )
+    }
 }
 
 export default TeacherApiService

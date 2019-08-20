@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import UserContext from '../../contexts/UserContext';
-import './EditSchoolForm.scss';
-import SchoolApiService from '../../services/school-api-service';
-import AutosuggestDropdown from '../AutosuggestDropdown/AutosuggestDropdown';
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import UserContext from '../../contexts/UserContext'
+import './EditSchoolForm.scss'
+import SchoolApiService from '../../services/school-api-service'
+import AutosuggestDropdown from '../AutosuggestDropdown/AutosuggestDropdown'
 
-// eslint-disable-next-line
 const schoolKeys = [
   'school_name',
   'school_type',
@@ -46,34 +45,34 @@ const schoolKeys = [
   'organized_trips_for_teachers',
   'other_western_teachers_at_school',
   'western_amenities_available_near_school_town'
-];
+]
 
 class EditSchoolForm extends Component {
-  static contextType = UserContext;
+  static contextType = UserContext
 
   state = {
 
   }
 
   handleSchoolEditSubmit = ev => {
-    ev.preventDefault();
+    ev.preventDefault()
     const newSchoolFields = {
       ...this.state
-    };
+    }
 
     SchoolApiService.editSchoolProfile(
       newSchoolFields,
       this.context.user.id
     ).then(res => {
       if (res.updated) {
-        this.props.history.push('/profile');
+        this.props.history.push('/profile')
       }
-    });
-  };
+    })
+  }
 
   handleFormSubmit = ev => {
     ev.preventDefault()
-  };
+  }
 
 
   handleUpdateInput = (ev) => {
@@ -89,7 +88,7 @@ class EditSchoolForm extends Component {
   }
 
   render() {
-    const { user } = this.context;
+    const { user } = this.context
     return (
       <div className="EditSchoolForm">
         <h2>Editing {user.school_name}</h2>
@@ -409,8 +408,8 @@ class EditSchoolForm extends Component {
           <button type="submit">Submit</button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(EditSchoolForm);
+export default withRouter(EditSchoolForm)

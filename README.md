@@ -1,6 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Everest App
 
-## Available Scripts
+> Everest is an application for a client (Everest Internatoinal Education) to handle applicants for teaching at schools in China. It has three types of main users, applicants/teachers, job posters/schools, and company/admins.
+
+---
+## Table of Contents
+- [Main Features](#features)
+- [Tech Used](#tech-used)
+- [Server](#server)
+- [Installation](#installation)
+- [Documentation](#documentaion)
+- [Tests](#tests)
+- [Contributing](#contributing)
+- [Team](#team)
+- [License](#license)
+
+---
+## Features
+
+### Teacher Profile
+<img src="./readme_assets/teacherProfile.png" alt="teacher profile" width="450">
+
+### School Profile
+<img src="./readme_assets/teacherProfile.png" alt="school profile" width="450">
+
+### Jobs Page
+<img src="./readme_assets/jobs.png" alt="jobs page" width="450">
+
+---
+
+## Tech Used
+
+> Client / Frontend
+* React
+* HTML
+* CSS
+* SASS
+* React hooks
+
+> Server / Backend
+* Node
+* Express
+* Postgresql
+* Bcrypt
+
+> Deployment
+* Heroku
+* Zeit / Now
+
+---
+## Server
+
+https://github.com/mengqi89/everest-api
+
+## Installation
+-Before set up server set up server: `git clone https://github.com/mengqi89/everest-api.git`
+
+-Clone the repo: `git clone https://github.com/mengqi89/everest-client.git`
+
+-Install dependencies: `npm install`
 
 In the project directory, you can run:
 
@@ -14,55 +71,70 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Documentation
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+A. Component Hierarchy
+1. Everest uses React and React Router Dom to handle routes and rendering
+> Hierarchy is as follows
+  ```
+  App
+  Routes
+  Components
+  ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+B. Security and Authentication
+  1. Everest uses JWT authentication and hashed passwords
+  - passwords are not stored in database, only hash
 
-### `npm run eject`
+C. Styling 
+  1. Everest uses Sass and CSS for styling
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Everest uses React's Jest tests for basic smoke and snapshot testing
+- Each component folder contains a test for the component called  `componentName.test.js`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> To get started...
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Step 1
 
-### Code Splitting
+- **Option 1**
+    - 🍴 Fork this repo!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- **Option 2**
+    - 👯 Clone this repo to your local machine using `https://github.com/mengqi89/everest-app.git`
 
-### Analyzing the Bundle Size
+### Step 2
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- **HACK AWAY!** 🔨🔨🔨
 
-### Making a Progressive Web App
+### Step 3
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- 🔃 Create a new pull request using <a href="https://github.com/mengqi89/everest-app/compare" target="_blank">`https://github.com/mengqi89/everest-app/compare`</a>
 
-### Advanced Configuration
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Team
 
-### Deployment
+- **[Mengqi Wang](https://github.com/megnqi89)** - Project Manager, Developer
+- **[Kyler Renneker](https://github.com/kylerRenneker)** - QA Lead, Developer
+- **[Samantha Ambroise](https://github.com/sam-ilki)** - Program Manager, Developer
+- **[Natalie Sun](https://github.com/nataliesun)** - Design Lead, Developer
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## License
 
-### `npm run build` fails to minify
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2019 © <a href="https://mengqi89.github.io/portfolio/" target="_blank">Everest International Education</a>.

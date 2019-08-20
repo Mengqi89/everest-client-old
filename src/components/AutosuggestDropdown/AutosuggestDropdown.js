@@ -1,10 +1,10 @@
-import React from 'react';
-import Autosuggest from 'react-autosuggest';
-import './AutosuggestDropdown.scss';
+import React from 'react'
+import Autosuggest from 'react-autosuggest'
+import './AutosuggestDropdown.scss'
 
-const getSuggestionValue = suggestion => suggestion.name;
+const getSuggestionValue = suggestion => suggestion.name
 
-const renderSuggestion = suggestion => <div>{suggestion.name}</div>;
+const renderSuggestion = suggestion => <div>{suggestion.name}</div>
 
 class AutosuggestDropdown extends React.Component {
   static defaultProps = {
@@ -21,55 +21,54 @@ class AutosuggestDropdown extends React.Component {
     ],
     placeholder: '',
     id: ''
-  };
+  }
   constructor() {
-    super();
+    super()
 
     this.state = {
       value: '',
       suggestions: []
-    };
+    }
   }
 
   onChange = (event, { newValue }) => {
     this.props.handleChange(newValue, this.props.id)
     this.setState({
       value: newValue
-    });
-  };
+    })
+  }
 
   getSuggestions = value => {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
+    const inputValue = value.trim().toLowerCase()
+    const inputLength = inputValue.length
 
     return inputLength === 0
       ? []
       : this.props.choices.filter(
         lang => lang.name.toLowerCase().slice(0, inputLength) === inputValue
-      );
-  };
+      )
+  }
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
       suggestions: this.getSuggestions(value)
-    });
-  };
+    })
+  }
 
   onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: []
-    });
-  };
+    })
+  }
 
   render() {
-    // console.log(this.props.id)
-    const { value, suggestions } = this.state;
+    const { value, suggestions } = this.state
 
     const inputProps = {
       placeholder: this.props.placeholder,
       value,
       onChange: this.onChange
-    };
+    }
 
     return (
       <Autosuggest
@@ -81,8 +80,8 @@ class AutosuggestDropdown extends React.Component {
         inputProps={inputProps}
         alwaysRenderSuggestions={true}
       />
-    );
+    )
   }
 }
 
-export default AutosuggestDropdown;
+export default AutosuggestDropdown

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import NationalityList from './NationalityList';
+import NationalityList from './NationalityList'
 import './TeacherRegistrationForm.css'
-import TeacherApiService from '../../services/teacher-api-service';
+import TeacherApiService from '../../services/teacher-api-service'
 import TokenService from '../../services/token-service'
 
 function TeacherRegistrationForm(props) {
@@ -82,8 +82,8 @@ function TeacherRegistrationForm(props) {
 
                 <label htmlFor='teacher-password'>Enter a Password</label>
                 <input id='teacher-password' type='password' 
-                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more 
-                characters" name='password' required></input>
+                title='Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more 
+                characters' name='password' required></input>
 
                 <label htmlFor='teacher-firstname'>First Name</label>
                 <input id='teacher-firstname' type='text' name='first_name' required></input>
@@ -106,7 +106,7 @@ function TeacherRegistrationForm(props) {
 
                 <label htmlFor='race'>Ethnicity</label>
                 <select id='race' name='race' defaultValue='' required>
-                    <option value="" disabled>--select one--</option>
+                    <option value='' disabled>--select one--</option>
                     <option value='African American'>African American</option>
                     <option value='Asian'>Asian</option>
                     <option value='Native American'>Native American</option>
@@ -124,27 +124,27 @@ function TeacherRegistrationForm(props) {
                 </select>
 
                 <label htmlFor='teacher-married'>Marraige Satus</label>
-                <select id='teacher-married' name='married' defaultValue="" required>
-                    <option value="" disabled>--select one--</option>
+                <select id='teacher-married' name='married' defaultValue='' required>
+                    <option value='' disabled>--select one--</option>
                     <option value='Married'>married</option>
                     <option value='Single'>single</option>
                 </select>
 
                 <label htmlFor='teacher-education'>Education</label>
-                <select id="teacher-education" name="highest_degree" defaultValue="" required>
-                    <option value="" disabled="disabled">-- select one --</option>
-                    <option value="No formal education">No formal education</option>
-                    <option value="Primary education">Primary education</option>
-                    <option value="Secondary education">Secondary education or high school</option>
-                    <option value="GED">GED</option>
-                    <option value="Vocational qualification">Vocational qualification</option>
+                <select id='teacher-education' name='highest_degree' defaultValue='' required>
+                    <option value='' disabled='disabled'>-- select one --</option>
+                    <option value='No formal education'>No formal education</option>
+                    <option value='Primary education'>Primary education</option>
+                    <option value='Secondary education'>Secondary education or high school</option>
+                    <option value='GED'>GED</option>
+                    <option value='Vocational qualification'>Vocational qualification</option>
                     <option value="Bachelor's degree">Bachelor's degree</option>
                     <option value="Master's degree">Master's degree</option>
-                    <option value="Doctorate or higher">Doctorate or higher</option>
+                    <option value='Doctorate or higher'>Doctorate or higher</option>
                 </select>
 
                 <label htmlFor='teacher-degree'>Degree</label>
-                <select id='teacher-degree' name='field_of_degree' defaultValue="No Degree" required>
+                <select id='teacher-degree' name='field_of_degree' defaultValue='No Degree' required>
                     <option value='No Degree'>No Degree</option>
                     <option value='English'>English</option>
                     <option value='Business'>Business</option>
@@ -154,10 +154,10 @@ function TeacherRegistrationForm(props) {
                 </select>
 
                 <label htmlFor='teacher-school'>School Attended</label>
-                <input id='teacher-school' type='text' name='school' defaultValue="None" required></input>
+                <input id='teacher-school' type='text' name='school' defaultValue='None' required></input>
 
                 <label htmlFor='teacher-certification'>Certification</label>
-                <select id='teacher-certification' name='certification' defaultValue="None" required>
+                <select id='teacher-certification' name='certification' defaultValue='None' required>
                     <option value='None'>None</option>
                     <option value='TEFL'>TEFL</option>
                     <option value='TESOL'>TESOL</option>
