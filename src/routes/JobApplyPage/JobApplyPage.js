@@ -14,7 +14,6 @@ class JobApplyPage extends Component {
   }
 
   handleApplyClick = () => {
-    console.log(this.state)
     const { job, school } = this.state
     const newApplication = {
       job_id: job.job_id,

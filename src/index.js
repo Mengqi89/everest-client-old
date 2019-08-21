@@ -21,7 +21,6 @@ library.add(
   faCheck,
   faClipboard
 )
-// console.log(process.env)
 ReactDOM.render(
   <BrowserRouter>
     <JobsProvider>

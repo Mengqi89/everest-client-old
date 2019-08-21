@@ -4,7 +4,6 @@ import schoolJobImg from '../../assets/school-job-img.jpg'
 import './Job.scss'
 
 export default function Job(props) {
-    console.log(props)
     function toggleHidden() {
         var element = document.querySelector(".more-details")
         element.classList.toggle("hidden")
