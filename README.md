@@ -1,6 +1,8 @@
-# Everest App [Live](https://everest-app.everest.now.sh/)
+# Everest App 
 
-> Everest is an application for a client (Everest International Education) to handle applicants for teaching at schools in China. It has three types of main users, applicants/teachers, job posters/schools, and company/admins.
+<a href="https://everest-app.everest.now.sh/" target="_blank">Live App</a> 
+
+Everest is an application for a client (Everest International Education) to handle applicants for teaching at schools in China. It has three types of main users, applicants/teachers, job posters/schools, and company/admins.
 
 ---
 ## Table of Contents
