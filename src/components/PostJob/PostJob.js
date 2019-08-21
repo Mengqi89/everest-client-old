@@ -1,14 +1,10 @@
-import React, {Component} from 'react'
-// import JobsContext from '../../contexts/JobsContext'
+import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
-import JobsApiService from '../../services/jobs-api-service';
-import SchoolApiService from '../../services/school-api-service';
-// import TokenService from '../../services/token-service'
+import JobsApiService from '../../services/jobs-api-service'
+import SchoolApiService from '../../services/school-api-service'
 import './PostJob.scss'
 
-
-
-class PostJobForm extends Component{
+class PostJobForm extends Component {
     static contextType = UserContext
 
     state = {
@@ -18,7 +14,7 @@ class PostJobForm extends Component{
         textbook_used: null,
         number_of_courses_to_teach: 0,
         number_of_sections: 0,
-        max_class_size:0,
+        max_class_size: 0,
         total_hours_of_class_per_week: 0,
         extra_duties_required: null,
         hours_of_extra_duties_per_week: 0,
@@ -40,39 +36,36 @@ class PostJobForm extends Component{
         total_salary: 0,
         job_school_id: 0
     }
-    componentDidMount(){
-
+    componentDidMount() {
         SchoolApiService.getSchoolProfile()
-        .then(school =>{
-            this.setState({
-                job_school_id: school.id
+            .then(school => {
+                this.setState({
+                    job_school_id: school.id
+                })
             })
-        })
     }
- 
+
     handleSubmitJob = ev => {
         ev.preventDefault()
-       
-
         const newJob = {
             ...this.state
         }
 
         JobsApiService.postJob(newJob)
-        .then(res => {
+            .then(res => {
                 this.props.history.push('/jobs')
-        })
-        .catch(res => console.log(res))
+            })
+            .catch(res => console.log(res))
     }
     handleUpdateInput = ev => {
         this.setState({
-                [ev.target.name]: ev.target.value
+            [ev.target.name]: ev.target.value
         })
     }
-    
 
-    render(){
-        return(
+
+    render() {
+        return (
             <div className='PostJobForm'>
                 <h2>Create New Job</h2>
                 <form onSubmit={ev => this.handleSubmitJob(ev)}>
@@ -135,7 +128,7 @@ class PostJobForm extends Component{
                         <option value="true">Yes</option>
                         <option value="false">No</option>
                     </select>
-                    
+
                     <label htmlFor='total_salary'>What is the total salary including bonuses?</label>
                     <input required name='total_salary' onChange={this.handleUpdateInput} type='number'></input>
 
