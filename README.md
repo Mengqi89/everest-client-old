@@ -126,7 +126,7 @@ C. Styling
 
 ## Team
 
-- **[Mengqi Wang](https://github.com/megnqi89)** - Project Manager, Developer
+- **[Mengqi Wang](https://github.com/Mengqi89)** - Project Manager, Developer
 - **[Kyler Renneker](https://github.com/kylerRenneker)** - QA Lead, Developer
 - **[Samantha Ambroise](https://github.com/sam-ilki)** - Program Manager, Developer
 - **[Natalie Sun](https://github.com/nataliesun)** - Design Lead, Developer
