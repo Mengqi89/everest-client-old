@@ -34,8 +34,7 @@ class JobApplyPage extends Component {
   }
 
   render() {
-    // eslint-disable-next-line
-    // const { job_id } = this.props.match.params
+
     const { job, school } = this.state
     return (
       <div className="JobApplyPage">

@@ -67,7 +67,6 @@ export class JobsProvider extends Component {
 
     handleChange = (event) => {
         const { value, name } = event.target
-        console.log(value, name)
         this.setState(
             {
                 [name]: value
@@ -96,74 +95,74 @@ export class JobsProvider extends Component {
         //filter by grade level
         if (gradeLevel !== 'all') {
             let tempArr = []
-            if(gradeLevel === 'kindergarten'){
+            if (gradeLevel === 'kindergarten') {
                 tempJobs = tempJobs.filter(jobs => jobs.grade_level === 'kindergarten')
-               }   
-            if(gradeLevel === 'elementary'){
-                 for(let i = 1; i < 6; i++ ){
+            }
+            if (gradeLevel === 'elementary') {
+                for (let i = 1; i < 6; i++) {
                     tempJobs.forEach(job => {
-                        if(job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()){
+                        if (job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()) {
                             tempArr.push(job);
                         }
                     })
                 }
                 tempJobs = tempArr
             }
-            if(gradeLevel === 'middle'){
-                for(let i = 6; i < 9; i++ ){
-                   tempJobs.forEach(job => {
-                       if(job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()){
-                           tempArr.push(job);
-                       }
-                   })
+            if (gradeLevel === 'middle') {
+                for (let i = 6; i < 9; i++) {
+                    tempJobs.forEach(job => {
+                        if (job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()) {
+                            tempArr.push(job);
+                        }
+                    })
                 }
-               tempJobs = tempArr
-           }
-           if(gradeLevel === 'high'){
-            for(let i = 9; i < 13; i++ ){
-               tempJobs.forEach(job => {
-
-                   if(job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()){
-                       tempArr.push(job);
-                   }
-               })
+                tempJobs = tempArr
             }
-        }
-        //filter by keyword
-        if (keyword !== '') {
-            function includesStr(values, str) {
-                return values.map(function (value) {
-                    return String(value)
-                }).find(function (value) {
-                    return value.includes(keyword)
+            if (gradeLevel === 'high') {
+                for (let i = 9; i < 13; i++) {
+                    tempJobs.forEach(job => {
+
+                        if (job.grade_level.match(/\d+/g) && job.grade_level.match(/\d+/g)[0] === (i).toString()) {
+                            tempArr.push(job);
+                        }
+                    })
+                }
+            }
+            //filter by keyword
+            if (keyword !== '') {
+                function includesStr(values, str) {
+                    return values.map(function (value) {
+                        return String(value)
+                    }).find(function (value) {
+                        return value.includes(keyword)
+                    })
+                }
+
+                tempJobs = tempJobs.filter(function (item) {
+                    return includesStr(Object.values(item), keyword)
                 })
             }
 
-            tempJobs = tempJobs.filter(function (item) {
-                return includesStr(Object.values(item), keyword)
+
+            // //filter by location
+            if (location !== '') {
+                tempJobs = tempJobs.filter(jobs => jobs.location >= location)
+            }
+
+            // change state
+            this.setState({
+                filteredJobs: [...tempJobs],
+                filtered: true,
+                keyword: '',
+                salary: 'all',
+                gradeLevel: 'all',
+                location: ''
+
             })
+
+
         }
-
-
-        // //filter by location
-        if (location !== '') {
-            tempJobs = tempJobs.filter(jobs => jobs.location >= location)
-        }
-
-        // change state
-        this.setState({
-            filteredJobs: [...tempJobs],
-            filtered: true,
-            keyword: '',
-            salary: 'all',
-            gradeLevel: 'all',
-            location: ''
-
-        })
-
-
     }
-}
 
     render() {
         const value = {

@@ -12,8 +12,8 @@ import PublicOnlyRoute from '../../components/Utils/PublicOnlyRoute'
 import EditProfilePage from '../../routes/EditProfilePage/EditProfilePage'
 import ApplicationsPage from '../../routes/ApplicationsPage/ApplicationsPage'
 import Application from '../../components/Application/Application'
-import JobApplyPage from '../../routes/JobApplyPage/JobApplyPage';
-import PostJobForm from '../PostJob/PostJob';
+import JobApplyPage from '../../routes/JobApplyPage/JobApplyPage'
+import PostJobForm from '../PostJob/PostJob'
 
 class App extends React.Component {
   state = {

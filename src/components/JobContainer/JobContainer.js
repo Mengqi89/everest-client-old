@@ -9,6 +9,7 @@ class JobContainer extends Component {
 
   render() {
     const { jobs, filteredJobs, filtered } = this.context
+
     return (
       <div>
         <JobsFilter />
