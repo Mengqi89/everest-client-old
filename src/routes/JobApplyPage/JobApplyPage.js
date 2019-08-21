@@ -14,6 +14,7 @@ class JobApplyPage extends Component {
   }
 
   handleApplyClick = () => {
+    console.log(this.state)
     const { job, school } = this.state
     const newApplication = {
       job_id: job.job_id,
@@ -34,8 +35,7 @@ class JobApplyPage extends Component {
   }
 
   render() {
-    // eslint-disable-next-line
-    // const { job_id } = this.props.match.params
+
     const { job, school } = this.state
     return (
       <div className="JobApplyPage">
