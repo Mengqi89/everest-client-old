@@ -63,7 +63,6 @@ const TeacherApiService = {
             !res.ok ? res.json().then(e => Promise.reject(e)) : res.json())
     },
     updateTeacherProfile(id, updatedTeacher) {
-        console.log(updatedTeacher)
         return fetch(`${config.API_ENDPOINT}/teachers/teacher/${id}`, {
             method: 'PATCH',
             headers: {

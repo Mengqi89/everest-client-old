@@ -41,10 +41,7 @@ class SchoolProfile extends Component {
   }
 
   render() {
-    // const userType = TokenService.getUserType()
-    // this.context.setUserType(userType)
     const { user } = this.context
-    console.log(user.complete)
     return (
       <div className="SchoolProfile">
         <h2>{user.school_name}</h2>
