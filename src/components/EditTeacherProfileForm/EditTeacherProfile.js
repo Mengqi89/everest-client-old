@@ -9,7 +9,7 @@ class EditTeacherProfile extends Component {
     static contextType = UserContext
 
     componentDidMount() {
-        this.context.setError(null)
+
         TeacherApiService.getTeacherProfile()
             .then(teacher => {
                 this.context.setUser(teacher)
@@ -62,7 +62,7 @@ class EditTeacherProfile extends Component {
                     </div>
 
                     <label htmlFor='teacher-username'>Enter a Username</label>
-                    <input id='teacher-usernmae' type='text' name='username' defaultValue={user.username} required></input>
+                    <input id='teacher-username' type='text' name='username' defaultValue={user.username} required></input>
 
                     <label htmlFor='teacher-password'>Enter a Password</label>
                     <input id='teacher-password' type='password' 

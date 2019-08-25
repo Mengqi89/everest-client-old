@@ -1,0 +1,1135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditSchoolForm should render correctly 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <withRouter(EditSchoolForm)>
+      <EditSchoolForm
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        location={
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          }
+        }
+        match={
+          Object {
+            "isExact": true,
+            "params": Object {},
+            "path": "/",
+            "url": "/",
+          }
+        }
+      >
+        <div
+          className="EditSchoolForm"
+        >
+          <h2>
+            Editing 
+            Test School 1
+          </h2>
+          <form
+            id="school_basic_info"
+            onSubmit={[Function]}
+          >
+            <legend>
+              I. Basic Information
+            </legend>
+            <label
+              htmlFor="school_name"
+            >
+              School name: 
+            </label>
+            <input
+              id="school_name"
+              onChange={[Function]}
+              placeholder="Test School 1"
+              type="text"
+            />
+            <label
+              htmlFor="school_type"
+            >
+              School type: 
+            </label>
+            <AutosuggestDropdown
+              choices={
+                Array [
+                  Object {
+                    "name": "Kindergarten",
+                  },
+                  Object {
+                    "name": "Middle School",
+                  },
+                  Object {
+                    "name": "High School",
+                  },
+                ]
+              }
+              handleChange={[Function]}
+              id="school_type"
+              placeholder="Middle School"
+            >
+              <Autosuggest
+                alwaysRenderSuggestions={true}
+                focusInputOnSuggestionClick={true}
+                getSuggestionValue={[Function]}
+                highlightFirstSuggestion={false}
+                id="1"
+                inputProps={
+                  Object {
+                    "onChange": [Function],
+                    "placeholder": "Middle School",
+                    "value": "",
+                  }
+                }
+                multiSection={false}
+                onSuggestionsClearRequested={[Function]}
+                onSuggestionsFetchRequested={[Function]}
+                renderSuggestion={[Function]}
+                renderSuggestionsContainer={[Function]}
+                shouldRenderSuggestions={[Function]}
+                suggestions={Array []}
+                theme={
+                  Object {
+                    "container": "react-autosuggest__container",
+                    "containerOpen": "react-autosuggest__container--open",
+                    "input": "react-autosuggest__input",
+                    "inputFocused": "react-autosuggest__input--focused",
+                    "inputOpen": "react-autosuggest__input--open",
+                    "sectionContainer": "react-autosuggest__section-container",
+                    "sectionContainerFirst": "react-autosuggest__section-container--first",
+                    "sectionTitle": "react-autosuggest__section-title",
+                    "suggestion": "react-autosuggest__suggestion",
+                    "suggestionFirst": "react-autosuggest__suggestion--first",
+                    "suggestionHighlighted": "react-autosuggest__suggestion--highlighted",
+                    "suggestionsContainer": "react-autosuggest__suggestions-container",
+                    "suggestionsContainerOpen": "react-autosuggest__suggestions-container--open",
+                    "suggestionsList": "react-autosuggest__suggestions-list",
+                  }
+                }
+              >
+                <Autowhatever
+                  containerProps={Object {}}
+                  getSectionItems={[Function]}
+                  highlightedItemIndex={null}
+                  highlightedSectionIndex={null}
+                  id="1"
+                  inputProps={
+                    Object {
+                      "onBlur": [Function],
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                      "onKeyDown": [Function],
+                      "placeholder": "Middle School",
+                      "value": "",
+                    }
+                  }
+                  itemProps={[Function]}
+                  items={Array []}
+                  multiSection={false}
+                  renderInputComponent={[Function]}
+                  renderItem={[Function]}
+                  renderItemData={
+                    Object {
+                      "query": "",
+                    }
+                  }
+                  renderItemsContainer={[Function]}
+                  renderSectionTitle={[Function]}
+                  theme={
+                    Object {
+                      "container": "react-autosuggest__container",
+                      "containerOpen": "react-autosuggest__container--open",
+                      "input": "react-autosuggest__input",
+                      "inputFocused": "react-autosuggest__input--focused",
+                      "inputOpen": "react-autosuggest__input--open",
+                      "item": "react-autosuggest__suggestion",
+                      "itemFirst": "react-autosuggest__suggestion--first",
+                      "itemHighlighted": "react-autosuggest__suggestion--highlighted",
+                      "itemsContainer": "react-autosuggest__suggestions-container",
+                      "itemsContainerOpen": "react-autosuggest__suggestions-container--open",
+                      "itemsList": "react-autosuggest__suggestions-list",
+                      "sectionContainer": "react-autosuggest__section-container",
+                      "sectionContainerFirst": "react-autosuggest__section-container--first",
+                      "sectionTitle": "react-autosuggest__section-title",
+                    }
+                  }
+                >
+                  <div
+                    aria-expanded={false}
+                    aria-haspopup="listbox"
+                    aria-owns="react-autowhatever-1"
+                    className="react-autosuggest__container"
+                    key="react-autowhatever-1-container"
+                    role="combobox"
+                  >
+                    <input
+                      aria-activedescendant={null}
+                      aria-autocomplete="list"
+                      aria-controls="react-autowhatever-1"
+                      autoComplete="off"
+                      className="react-autosuggest__input"
+                      key="react-autowhatever-1-input"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      placeholder="Middle School"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      className="react-autosuggest__suggestions-container"
+                      id="react-autowhatever-1"
+                      key="react-autowhatever-1-items-container"
+                      role="listbox"
+                    />
+                  </div>
+                </Autowhatever>
+              </Autosuggest>
+            </AutosuggestDropdown>
+            <label
+              htmlFor="school_size"
+            >
+              School size
+            </label>
+            <input
+              id="school_size"
+              onChange={[Function]}
+              placeholder={1300}
+              type="number"
+            />
+            <label
+              htmlFor="public_or_private"
+            >
+              Public or private? 
+            </label>
+            <select
+              defaultValue={true}
+              id="public_or_private"
+              name="public_or_private"
+              onChange={[Function]}
+            >
+              <option
+                value="public"
+              >
+                Public
+              </option>
+              <option
+                value="private"
+              >
+                Private
+              </option>
+            </select>
+            <label
+              htmlFor="curriculum"
+            >
+              Curriculum
+            </label>
+            <AutosuggestDropdown
+              choices={
+                Array [
+                  Object {
+                    "name": "AP",
+                  },
+                  Object {
+                    "name": "IGSE",
+                  },
+                  Object {
+                    "name": "A-Level",
+                  },
+                ]
+              }
+              handleChange={[Function]}
+              id="curriculum"
+              placeholder="AP"
+            >
+              <Autosuggest
+                alwaysRenderSuggestions={true}
+                focusInputOnSuggestionClick={true}
+                getSuggestionValue={[Function]}
+                highlightFirstSuggestion={false}
+                id="1"
+                inputProps={
+                  Object {
+                    "onChange": [Function],
+                    "placeholder": "AP",
+                    "value": "",
+                  }
+                }
+                multiSection={false}
+                onSuggestionsClearRequested={[Function]}
+                onSuggestionsFetchRequested={[Function]}
+                renderSuggestion={[Function]}
+                renderSuggestionsContainer={[Function]}
+                shouldRenderSuggestions={[Function]}
+                suggestions={Array []}
+                theme={
+                  Object {
+                    "container": "react-autosuggest__container",
+                    "containerOpen": "react-autosuggest__container--open",
+                    "input": "react-autosuggest__input",
+                    "inputFocused": "react-autosuggest__input--focused",
+                    "inputOpen": "react-autosuggest__input--open",
+                    "sectionContainer": "react-autosuggest__section-container",
+                    "sectionContainerFirst": "react-autosuggest__section-container--first",
+                    "sectionTitle": "react-autosuggest__section-title",
+                    "suggestion": "react-autosuggest__suggestion",
+                    "suggestionFirst": "react-autosuggest__suggestion--first",
+                    "suggestionHighlighted": "react-autosuggest__suggestion--highlighted",
+                    "suggestionsContainer": "react-autosuggest__suggestions-container",
+                    "suggestionsContainerOpen": "react-autosuggest__suggestions-container--open",
+                    "suggestionsList": "react-autosuggest__suggestions-list",
+                  }
+                }
+              >
+                <Autowhatever
+                  containerProps={Object {}}
+                  getSectionItems={[Function]}
+                  highlightedItemIndex={null}
+                  highlightedSectionIndex={null}
+                  id="1"
+                  inputProps={
+                    Object {
+                      "onBlur": [Function],
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                      "onKeyDown": [Function],
+                      "placeholder": "AP",
+                      "value": "",
+                    }
+                  }
+                  itemProps={[Function]}
+                  items={Array []}
+                  multiSection={false}
+                  renderInputComponent={[Function]}
+                  renderItem={[Function]}
+                  renderItemData={
+                    Object {
+                      "query": "",
+                    }
+                  }
+                  renderItemsContainer={[Function]}
+                  renderSectionTitle={[Function]}
+                  theme={
+                    Object {
+                      "container": "react-autosuggest__container",
+                      "containerOpen": "react-autosuggest__container--open",
+                      "input": "react-autosuggest__input",
+                      "inputFocused": "react-autosuggest__input--focused",
+                      "inputOpen": "react-autosuggest__input--open",
+                      "item": "react-autosuggest__suggestion",
+                      "itemFirst": "react-autosuggest__suggestion--first",
+                      "itemHighlighted": "react-autosuggest__suggestion--highlighted",
+                      "itemsContainer": "react-autosuggest__suggestions-container",
+                      "itemsContainerOpen": "react-autosuggest__suggestions-container--open",
+                      "itemsList": "react-autosuggest__suggestions-list",
+                      "sectionContainer": "react-autosuggest__section-container",
+                      "sectionContainerFirst": "react-autosuggest__section-container--first",
+                      "sectionTitle": "react-autosuggest__section-title",
+                    }
+                  }
+                >
+                  <div
+                    aria-expanded={false}
+                    aria-haspopup="listbox"
+                    aria-owns="react-autowhatever-1"
+                    className="react-autosuggest__container"
+                    key="react-autowhatever-1-container"
+                    role="combobox"
+                  >
+                    <input
+                      aria-activedescendant={null}
+                      aria-autocomplete="list"
+                      aria-controls="react-autowhatever-1"
+                      autoComplete="off"
+                      className="react-autosuggest__input"
+                      key="react-autowhatever-1-input"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      placeholder="AP"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      className="react-autosuggest__suggestions-container"
+                      id="react-autowhatever-1"
+                      key="react-autowhatever-1-items-container"
+                      role="listbox"
+                    />
+                  </div>
+                </Autowhatever>
+              </Autosuggest>
+            </AutosuggestDropdown>
+            <label
+              htmlFor="location"
+            >
+              Location
+            </label>
+            <AutosuggestDropdown
+              choices={
+                Array [
+                  Object {
+                    "name": "Chengdu",
+                  },
+                  Object {
+                    "name": "Sichuan",
+                  },
+                  Object {
+                    "name": "Changsha",
+                  },
+                  Object {
+                    "name": "Hunan",
+                  },
+                ]
+              }
+              handleChange={[Function]}
+              id="location"
+              placeholder="Chengdu"
+            >
+              <Autosuggest
+                alwaysRenderSuggestions={true}
+                focusInputOnSuggestionClick={true}
+                getSuggestionValue={[Function]}
+                highlightFirstSuggestion={false}
+                id="1"
+                inputProps={
+                  Object {
+                    "onChange": [Function],
+                    "placeholder": "Chengdu",
+                    "value": "",
+                  }
+                }
+                multiSection={false}
+                onSuggestionsClearRequested={[Function]}
+                onSuggestionsFetchRequested={[Function]}
+                renderSuggestion={[Function]}
+                renderSuggestionsContainer={[Function]}
+                shouldRenderSuggestions={[Function]}
+                suggestions={Array []}
+                theme={
+                  Object {
+                    "container": "react-autosuggest__container",
+                    "containerOpen": "react-autosuggest__container--open",
+                    "input": "react-autosuggest__input",
+                    "inputFocused": "react-autosuggest__input--focused",
+                    "inputOpen": "react-autosuggest__input--open",
+                    "sectionContainer": "react-autosuggest__section-container",
+                    "sectionContainerFirst": "react-autosuggest__section-container--first",
+                    "sectionTitle": "react-autosuggest__section-title",
+                    "suggestion": "react-autosuggest__suggestion",
+                    "suggestionFirst": "react-autosuggest__suggestion--first",
+                    "suggestionHighlighted": "react-autosuggest__suggestion--highlighted",
+                    "suggestionsContainer": "react-autosuggest__suggestions-container",
+                    "suggestionsContainerOpen": "react-autosuggest__suggestions-container--open",
+                    "suggestionsList": "react-autosuggest__suggestions-list",
+                  }
+                }
+              >
+                <Autowhatever
+                  containerProps={Object {}}
+                  getSectionItems={[Function]}
+                  highlightedItemIndex={null}
+                  highlightedSectionIndex={null}
+                  id="1"
+                  inputProps={
+                    Object {
+                      "onBlur": [Function],
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                      "onKeyDown": [Function],
+                      "placeholder": "Chengdu",
+                      "value": "",
+                    }
+                  }
+                  itemProps={[Function]}
+                  items={Array []}
+                  multiSection={false}
+                  renderInputComponent={[Function]}
+                  renderItem={[Function]}
+                  renderItemData={
+                    Object {
+                      "query": "",
+                    }
+                  }
+                  renderItemsContainer={[Function]}
+                  renderSectionTitle={[Function]}
+                  theme={
+                    Object {
+                      "container": "react-autosuggest__container",
+                      "containerOpen": "react-autosuggest__container--open",
+                      "input": "react-autosuggest__input",
+                      "inputFocused": "react-autosuggest__input--focused",
+                      "inputOpen": "react-autosuggest__input--open",
+                      "item": "react-autosuggest__suggestion",
+                      "itemFirst": "react-autosuggest__suggestion--first",
+                      "itemHighlighted": "react-autosuggest__suggestion--highlighted",
+                      "itemsContainer": "react-autosuggest__suggestions-container",
+                      "itemsContainerOpen": "react-autosuggest__suggestions-container--open",
+                      "itemsList": "react-autosuggest__suggestions-list",
+                      "sectionContainer": "react-autosuggest__section-container",
+                      "sectionContainerFirst": "react-autosuggest__section-container--first",
+                      "sectionTitle": "react-autosuggest__section-title",
+                    }
+                  }
+                >
+                  <div
+                    aria-expanded={false}
+                    aria-haspopup="listbox"
+                    aria-owns="react-autowhatever-1"
+                    className="react-autosuggest__container"
+                    key="react-autowhatever-1-container"
+                    role="combobox"
+                  >
+                    <input
+                      aria-activedescendant={null}
+                      aria-autocomplete="list"
+                      aria-controls="react-autowhatever-1"
+                      autoComplete="off"
+                      className="react-autosuggest__input"
+                      key="react-autowhatever-1-input"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      placeholder="Chengdu"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      className="react-autosuggest__suggestions-container"
+                      id="react-autowhatever-1"
+                      key="react-autowhatever-1-items-container"
+                      role="listbox"
+                    />
+                  </div>
+                </Autowhatever>
+              </Autosuggest>
+            </AutosuggestDropdown>
+            <label
+              htmlFor="notable_facts"
+            >
+              Notable facts: 
+            </label>
+            <textarea
+              id="notable_facts"
+              onChange={[Function]}
+              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in suscipit tortor, eu dignissim ante. Nulla fringilla blandit ligula sit amet laoreet. Donec sagittis nisi tortor, a malesuada lacus iaculis eu. In felis est, consectetur a lorem a, efficitur hendrerit orci. Sed nibh tellus, porta id sapien in, gravida pulvinar dui. Maecenas congue dui in ante tincidunt congue. Etiam id blandit ipsum. Cras quis libero rhoncus, gravida nisi id, venenatis sapien. Integer non nunc elit. Proin hendrerit dignissim lacus, at porttitor felis pellentesque in. Donec dictum molestie lectus fringilla egestas. Aliquam erat volutpat. Curabitur ullamcorper dolor non dui accumsan elementum. Curabitur pretium, velit ac volutpat laoreet, lacus sem tempus lectus, vel dignissim nunc leo vel arcu. Morbi quis pretium magna."
+            />
+            <label
+              htmlFor="school_website"
+            >
+              Notable facts: 
+            </label>
+            <input
+              id="school_website"
+              onChange={[Function]}
+              placeholder="www.google.com"
+              type="text"
+            />
+            <button
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+          <form
+            id="school_housing_information"
+            onSubmit={[Function]}
+          >
+            <legend>
+              II. Housing Information
+            </legend>
+            <label
+              htmlFor="apartment_provided"
+            >
+              Does your school provide apartments or housing?
+            </label>
+            <select
+              defaultValue={true}
+              id="apartment_provided"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <label
+              htmlFor="housing_assistance"
+            >
+              Does your school assist with housing?
+               
+            </label>
+            <input
+              id="housing_assistance"
+              onChange={[Function]}
+              placeholder="Will help teacher find housing."
+              type="text"
+            />
+            <label
+              htmlFor="size_of_housing"
+            >
+              Size and number of rooms: 
+            </label>
+            <input
+              id="size_of_housing"
+              onChange={[Function]}
+              placeholder="2 Bed/2 Bath"
+              type="text"
+            />
+            <label
+              htmlFor="shared_or_private_living_space"
+            >
+              Is the room shared or private?
+            </label>
+            <select
+              defaultValue="Shared"
+              id="shared_or_private_living_space"
+              onChange={[Function]}
+            >
+              <option
+                value="shared"
+              >
+                Shared
+              </option>
+              <option
+                value="private"
+              >
+                Private
+              </option>
+            </select>
+            <label
+              htmlFor="housing_notes"
+            >
+              Housing notes: 
+            </label>
+            <input
+              id="housing_notes"
+              onChange={[Function]}
+              placeholder="Shared living room with 1 other teacher"
+              type="text"
+            />
+            <label
+              htmlFor="housing_on_or_off"
+            >
+              Is the housing on or off campus?
+            </label>
+            <select
+              defaultValue="Off Campus"
+              id="housing_on_or_off"
+              onChange={[Function]}
+            >
+              <option
+                value="on campus"
+              >
+                On Campus
+              </option>
+              <option
+                value="off campus"
+              >
+                Off Campus
+              </option>
+              <option
+                value="n/a"
+              >
+                N/A
+              </option>
+            </select>
+            <label
+              htmlFor="time_to_get_to_class"
+            >
+              Estimated time to get to class:
+               
+            </label>
+            <input
+              id="time_to_get_to_class"
+              onChange={[Function]}
+              placeholder="10 minute walk"
+              type="text"
+            />
+            <label
+              htmlFor="distance_to_public_trans"
+            >
+              Estimated time to get to public transportation:
+               
+            </label>
+            <input
+              id="distance_to_public_trans"
+              onChange={[Function]}
+              placeholder="10 minute walk to nearest subway stop"
+              type="text"
+            />
+            <label
+              htmlFor="school_charge_rent"
+            >
+              Does your school charge rent?
+            </label>
+            <select
+              defaultValue={false}
+              id="school_charge_rent"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <label
+              htmlFor="school_rent_notes"
+            >
+              Rent notes: 
+            </label>
+            <input
+              id="school_rent_notes"
+              onChange={[Function]}
+              placeholder="No rent"
+              type="text"
+            />
+            <label
+              htmlFor="school_charge_utils"
+            >
+              Does your school charge for utilities?
+            </label>
+            <select
+              defaultValue={false}
+              id="school_charge_utils"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <label
+              htmlFor="school_utils_notes"
+            >
+              Utility notes: 
+            </label>
+            <input
+              id="school_utils_notes"
+              onChange={[Function]}
+              placeholder="No charge"
+              type="text"
+            />
+            <label
+              htmlFor="furnished"
+            >
+              Is the apartment furnished?
+            </label>
+            <select
+              defaultValue={true}
+              id="furnished"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+              <option
+                value="null"
+              >
+                N/A
+              </option>
+            </select>
+            <label
+              htmlFor="furnished_notes"
+            >
+              Furnishing notes: 
+            </label>
+            <input
+              id="furnished_notes"
+              onChange={[Function]}
+              placeholder="Queen-size bed, writing desk, six chairs"
+              type="text"
+            />
+            <label
+              htmlFor="appliances_included"
+            >
+              Appliances included: 
+            </label>
+            <input
+              id="appliances_included"
+              onChange={[Function]}
+              placeholder="Refrigerator, microwave, gas stove, television, air conditioner, washing machine"
+              type="text"
+            />
+            <label
+              htmlFor="internet"
+            >
+              Internet: 
+            </label>
+            <input
+              id="internet"
+              onChange={[Function]}
+              placeholder="Wired and wireless; wireless only; can be installed; no."
+              type="text"
+            />
+            <label
+              htmlFor="computer_included"
+            >
+              Computer included: 
+            </label>
+            <input
+              id="computer_included"
+              onChange={[Function]}
+              placeholder="Desktop"
+              type="text"
+            />
+            <button
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+          <form
+            id="school_insurance_information"
+            onSubmit={[Function]}
+          >
+            <legend>
+              Insurance Information
+            </legend>
+            <label
+              htmlFor="school_provide_health_insurance"
+            >
+              Does your school provide health insurance?
+            </label>
+            <select
+              defaultValue={true}
+              id="school_provide_health_insurance"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <label
+              htmlFor="provided_insurance_notes"
+            >
+              Insurance notes: 
+            </label>
+            <input
+              id="provided_insurance_notes"
+              onChange={[Function]}
+              placeholder="Up to ¥1,000,000 annual coverage; no"
+              type="text"
+            />
+            <label
+              htmlFor="medical_expeneses_paid"
+            >
+              How are medical expenses paid?
+               
+            </label>
+            <input
+              id="medical_expeneses_paid"
+              onChange={[Function]}
+              placeholder="¥1,000 deductible"
+              type="text"
+            />
+            <label
+              htmlFor="disability_insurance"
+            >
+              Does the school provide disability insurance?
+            </label>
+            <select
+              defaultValue={false}
+              id="disability_insurance"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <label
+              htmlFor="other_insurance"
+            >
+              Does the school provide any other insurance?
+            </label>
+            <select
+              defaultValue={false}
+              id="other_insurance"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <button
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+          <form
+            id="school_visa_information"
+            onSubmit={[Function]}
+          >
+            <legend>
+              Visa Information
+            </legend>
+            <label
+              htmlFor="assistance_obtaining_work_visa"
+            >
+              Does the school offer assistance obtaining a work visa?
+            </label>
+            <select
+              defaultValue={true}
+              id="assistance_obtaining_work_visa"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <label
+              htmlFor="school_pay_work_visa"
+            >
+              Does the school pay for a work visa?
+               
+            </label>
+            <input
+              id="school_pay_work_visa"
+              onChange={[Function]}
+              placeholder="Yes"
+              type="text"
+            />
+            <label
+              htmlFor="school_reimburse_costs_for_obtaining_visa_in_us"
+            >
+              Does the school reimburse costs for obtaining a visa in the U.S.?
+            </label>
+            <select
+              defaultValue={true}
+              id="school_reimburse_costs_for_obtaining_visa_in_us"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <button
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+          <form
+            id="school_other_services"
+            onSubmit={[Function]}
+          >
+            <legend>
+              Other Services
+            </legend>
+            <label
+              htmlFor="assistance_opening_chinese_bank_account"
+            >
+              Does the school offer assistance opening a Chinese bank account?
+            </label>
+            <select
+              defaultValue={true}
+              id="assistance_opening_chinese_bank_account"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <label
+              htmlFor="assistance_shopping_and_settling_in"
+            >
+              Does the school offer assistance shopping/settling in?
+            </label>
+            <select
+              defaultValue={true}
+              id="assistance_shopping_and_settling_in"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <label
+              htmlFor="organized_trips_for_teachers"
+            >
+              Does the school offer organized trips for teachers?
+            </label>
+            <select
+              defaultValue={true}
+              id="organized_trips_for_teachers"
+              onChange={[Function]}
+            >
+              <option
+                value="true"
+              >
+                Yes
+              </option>
+              <option
+                value="false"
+              >
+                No
+              </option>
+            </select>
+            <button
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+          <form
+            id="school_lifestyle_information"
+            onSubmit={[Function]}
+          >
+            <legend>
+              Lifestyle Information
+            </legend>
+            <label
+              htmlFor="other_western_teachers_at_school"
+            >
+              How many other Western teachers are at the school?
+            </label>
+            <input
+              id="other_western_teachers_at_school"
+              onChange={[Function]}
+              placeholder={3}
+              type="number"
+            />
+            <label
+              htmlFor="western_amenities_available_near_school_town"
+            >
+              What Western amenities are available near the school or in town?
+            </label>
+            <input
+              id="western_amenities_available_near_school_town"
+              onChange={[Function]}
+              placeholder="Restaurants, shopping, bars"
+              type="text"
+            />
+            <button
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </EditSchoolForm>
+    </withRouter(EditSchoolForm)>
+  </Router>
+</BrowserRouter>
+`;
