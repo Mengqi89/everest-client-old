@@ -1,18 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import schoolJobImg from '../../assets/school-job-img.jpg'
+// import schoolJobImg from '../../assets/school-job-img.jpg'
 import './Job.scss'
+import imgs from '../../assets/schoolImgs'
 
 export default function Job(props) {
     function toggleHidden() {
         var element = document.querySelector(".more-details")
         element.classList.toggle("hidden")
     }
+
+    const getRandomImg = (imgs) => {
+        return imgs[Math.floor(Math.random() * Math.floor(3))]
+    }
+
     const { job_id } = props
     const jobLink = `/jobs/${job_id}/apply`
     return (
         <section className='job'>
-            <img src={schoolJobImg} alt="school" />
+            <img src={getRandomImg(imgs)} alt="school" />
             <section className='main-info'>
                 <ul job_id={props.job_id}>
                     <li>Job Title:  {props.job_title}</li>

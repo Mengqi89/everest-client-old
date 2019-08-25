@@ -26,7 +26,7 @@ Everest is an application for a client (Everest International Education) to hand
 <img src="./readme_assets/schoolProfile.png" alt="school profile" width="450">
 
 ### Jobs Page
-<img src="./readme_assets/jobs.png" alt="jobs page" width="450">
+<img src="./readme_assets/jobPage.png" alt="jobs page" width="450">
 
 ---
 
