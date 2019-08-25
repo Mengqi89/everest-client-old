@@ -17,6 +17,7 @@ $fancy-font: 'Montserrat';
 
 
 @mixin border-button($color: $accent-color) {
+  
   color: $accent-color;
   border: 1px solid rgb(209, 209, 209);
   border-radius: 10px;
@@ -31,7 +32,7 @@ $fancy-font: 'Montserrat';
 }
 
 @mixin green-button($color: $accent-color) {
-  font-family: 'Monserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   padding: .5em 1em;
   font-size: 1em;
@@ -66,4 +67,16 @@ $fancy-font: 'Montserrat';
   font-size: 16px;
   border: 1px solid #aaa;
   border-radius: 4px;
+}
+
+@mixin underline-input {
+    border: none;
+    border-bottom: 2px solid $accent-color;
+    width: 350px;
+    height: 2em;
+    font-size: 1em;
+    font-family: $fancy-font;
+    &:focus {
+      outline-width: 0;
+    }
 }

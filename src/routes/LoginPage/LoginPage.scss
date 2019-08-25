@@ -1,9 +1,20 @@
+@import '../../assets/variables.scss';
+
 .LoginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 2em;
   h2 {
     margin: 1em 0;
   }
   p {
     margin: 1em 0;
+  }
+
+  .login-box {
+      border-radius: $border-radius-small;
+      padding: 40px 60px 60px;
+      @include box-shadow-reg;
   }
 }

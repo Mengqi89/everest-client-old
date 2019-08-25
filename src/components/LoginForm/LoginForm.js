@@ -6,14 +6,17 @@ import AdminApiService from '../../services/admin-api-service'
 import './LoginForm.scss'
 import TeacherApiService from '../../services/teacher-api-service'
 import UserContext from '../../contexts/UserContext'
+import LoadingSpinner from '../Utils/LoadingSpinner/LoadingSpinner';
 
 class LoginForm extends Component {
   static contextType = UserContext
 
   state = {
     userType: null,
-    error: null
+    error: null,
+    loading: false
   }
+
   handleUserTypeChange = (ev) => {
     this.setState({
       userType: ev.target.value
@@ -22,7 +25,8 @@ class LoginForm extends Component {
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
-    this.setState({ error: null })
+    this.setState({ error: null, loading: true })
+
     const { username, password } = ev.target
     if (this.state.userType === 'school') {
       SchoolApiService.postLogin({
@@ -83,7 +87,7 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { error } = this.state
+    const { error, loading } = this.state
 
     return (
       <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
@@ -111,7 +115,7 @@ class LoginForm extends Component {
             id="password"
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">{loading ? <LoadingSpinner /> : 'Submit'}</button>
       </form >
     )
   }

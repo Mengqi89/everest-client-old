@@ -1,16 +1,41 @@
 @import '../../assets/variables.scss';
 
 .JobsFilter{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
 
+  .filter-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      max-width: 960px;
-      margin-right: auto;
-      margin-left: auto;
-      // flex-wrap: wrap;
-  
+  .form-group {
+    justify-content: flex-end;
+    width: calc(50% - 40px);
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    &:nth-child(2n) {
+      margin-left: 20px;
+      justify-content: flex-start;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+  }
+
+  .form-input {
+    input {
+      @include underline-input;
+    }
+  }
 
   .form-section {
       display: flex;
@@ -18,29 +43,13 @@
       justify-content: center;
       width: 96%;
   }
-  /* .form-section:nth-child(2) {
-      background-color: grey;
-      flex: 1;
-    }
-    
-    .form-section:nth-child(3) {
-      background-color: green;
-      flex: 2;
-    } */
+
     @media screen and (max-width:990px) {
       .form-section { flex-wrap: wrap;  }
     }
 
-    input {
-      @include input-big;
-      margin: 1em;
-    }
-
-    select {
-      margin: 1em;
-    }
-
     button {
-      @include green-button
+      @include green-button;
+      margin-top: 0;
     }
 }
