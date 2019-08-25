@@ -17,7 +17,6 @@
     width: 350px;
     height: 2em;
     font-size: 1em;
-    // padding-left: 10px;
     font-family: $fancy-font;
     &:focus {
       outline-width: 0;
@@ -34,6 +33,10 @@
   }
   button {
     @include green-button;
-    margin-top: 30px;
+    width: 82px;
+    height: 34px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
   }
 }

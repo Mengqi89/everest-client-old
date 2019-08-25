@@ -51,7 +51,7 @@ class Application extends Component {
     render() {
         const application = this.state.application !== null ? this.state.application : {}
         return (
-            <div>
+            <div className="Application">
                 <h2 className="application-status">Application #{application.app_id} Status: {application.application_approved === true ? "Approved" : "Pending Approval"} </h2>
                 <div className="application">
                     <div className="profile">
