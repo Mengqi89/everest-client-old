@@ -413,4 +413,5 @@ class EditSchoolForm extends Component {
   }
 }
 
+
 export default withRouter(EditSchoolForm)
