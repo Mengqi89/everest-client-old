@@ -1,0 +1,3 @@
+User clicks New Applications -> new-applications-submitted page.
+User clicks Search Applicants -> search-applicants page.
+User clicks Approve/deny schools -> approve-deny-schools page.

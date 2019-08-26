@@ -1,0 +1,3 @@
+User enters valid Name, Cell, Email and Message, and clicks Submit -> Landong Page
+User enters any fields and clicks Reset -> all fields cleared
+User enters less than all fields -> error message appears to prompt user to enter empty fields

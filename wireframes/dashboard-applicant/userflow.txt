@@ -1,0 +1,3 @@
+User clicks Jobs Applied -> list-of-jobs-applied page.
+User clicks Search Jobs -> search-jobs page.
+User clicks Edit My Profile -> edit-profile page.

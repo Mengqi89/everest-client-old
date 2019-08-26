@@ -1,0 +1,2 @@
+User chooses which user type to sign in as, enters form fields accordingly. Successful registration -> user profile page
+User chooses which user type to sign in as, enters form fields accordingly. Form inputs do not conform to form validation -> error message appears to request correct input value

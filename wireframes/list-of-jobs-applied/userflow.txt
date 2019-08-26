@@ -1,0 +1,1 @@
+User clicks on any application -> application page to see full details on that particular application

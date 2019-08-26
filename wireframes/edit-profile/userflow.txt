@@ -1,0 +1,2 @@
+User changes dropdown menus or input fields (not shown here) and click Update to change their profile -> profile page
+User changes certain menus or fields and click reset to change all the values to the current database value
