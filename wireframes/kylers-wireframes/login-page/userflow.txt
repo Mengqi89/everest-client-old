@@ -1,0 +1,3 @@
+User enters username and password and clicks Login -> user profile page
+User enters one of the two fields -> error message appears to request user input
+User enters incorrect username/password combination -> error message appears to request correct combo

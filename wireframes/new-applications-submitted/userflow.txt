@@ -1,0 +1,1 @@
+User clicks More Details -> card expands to show full details of that applicant

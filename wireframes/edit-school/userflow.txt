@@ -1,0 +1,2 @@
+User changes input fields or upload documents and click Submit to update database -> school profile page
+User clicks Submit before making any changes -> error message appears to request changes before update

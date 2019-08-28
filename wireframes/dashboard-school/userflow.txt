@@ -1,0 +1,3 @@
+User clicks School Info -> school-info page.
+User clicks Edit School Info -> edit-school page.
+User clicks Applicants -> school-applicants page.

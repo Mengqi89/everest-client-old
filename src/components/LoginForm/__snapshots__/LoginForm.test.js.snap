@@ -88,7 +88,7 @@ exports[`LoginForm route component renders the UI as expected 1`] = `
   <button
     type="submit"
   >
-    Login
+    Submit
   </button>
 </form>
 `;

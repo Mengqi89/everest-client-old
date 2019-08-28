@@ -1,0 +1,2 @@
+User enters text in input fields or change drapdown menu value and clicks Submit to filter jobs
+User enters text in input fields or change drapdown menu value and clicks Reset to revert back to default value

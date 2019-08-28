@@ -1,0 +1,4 @@
+User drags the range filter to filter applicants based on teaching experience
+User chooses from the Application Status menu to filter applicants based on stats
+User inputs text in the keyword field to filter applicants based on relevant keywords
+User clicks More details -> teacher profile page
